@@ -1,0 +1,1666 @@
+PRAGMA foreign_keys=OFF;
+BEGIN TRANSACTION;
+CREATE TABLE "auth_permission" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "name" varchar(50) NOT NULL,
+    "content_type_id" integer NOT NULL,
+    "codename" varchar(100) NOT NULL,
+    UNIQUE ("content_type_id", "codename")
+);
+INSERT INTO "auth_permission" VALUES(1,'Can add permission',1,'add_permission');
+INSERT INTO "auth_permission" VALUES(2,'Can change permission',1,'change_permission');
+INSERT INTO "auth_permission" VALUES(3,'Can delete permission',1,'delete_permission');
+INSERT INTO "auth_permission" VALUES(4,'Can add group',2,'add_group');
+INSERT INTO "auth_permission" VALUES(5,'Can change group',2,'change_group');
+INSERT INTO "auth_permission" VALUES(6,'Can delete group',2,'delete_group');
+INSERT INTO "auth_permission" VALUES(7,'Can add user',3,'add_user');
+INSERT INTO "auth_permission" VALUES(8,'Can change user',3,'change_user');
+INSERT INTO "auth_permission" VALUES(9,'Can delete user',3,'delete_user');
+INSERT INTO "auth_permission" VALUES(10,'Can add message',4,'add_message');
+INSERT INTO "auth_permission" VALUES(11,'Can change message',4,'change_message');
+INSERT INTO "auth_permission" VALUES(12,'Can delete message',4,'delete_message');
+INSERT INTO "auth_permission" VALUES(13,'Can add content type',5,'add_contenttype');
+INSERT INTO "auth_permission" VALUES(14,'Can change content type',5,'change_contenttype');
+INSERT INTO "auth_permission" VALUES(15,'Can delete content type',5,'delete_contenttype');
+INSERT INTO "auth_permission" VALUES(16,'Can add session',6,'add_session');
+INSERT INTO "auth_permission" VALUES(17,'Can change session',6,'change_session');
+INSERT INTO "auth_permission" VALUES(18,'Can delete session',6,'delete_session');
+INSERT INTO "auth_permission" VALUES(19,'Can add site',7,'add_site');
+INSERT INTO "auth_permission" VALUES(20,'Can change site',7,'change_site');
+INSERT INTO "auth_permission" VALUES(21,'Can delete site',7,'delete_site');
+INSERT INTO "auth_permission" VALUES(22,'Can add year',8,'add_year');
+INSERT INTO "auth_permission" VALUES(23,'Can change year',8,'change_year');
+INSERT INTO "auth_permission" VALUES(24,'Can delete year',8,'delete_year');
+INSERT INTO "auth_permission" VALUES(25,'Can add make',9,'add_make');
+INSERT INTO "auth_permission" VALUES(26,'Can change make',9,'change_make');
+INSERT INTO "auth_permission" VALUES(27,'Can delete make',9,'delete_make');
+INSERT INTO "auth_permission" VALUES(28,'Can add model',10,'add_model');
+INSERT INTO "auth_permission" VALUES(29,'Can change model',10,'change_model');
+INSERT INTO "auth_permission" VALUES(30,'Can delete model',10,'delete_model');
+INSERT INTO "auth_permission" VALUES(31,'Can add car',11,'add_car');
+INSERT INTO "auth_permission" VALUES(32,'Can change car',11,'change_car');
+INSERT INTO "auth_permission" VALUES(33,'Can delete car',11,'delete_car');
+INSERT INTO "auth_permission" VALUES(37,'Can add comment',13,'add_comment');
+INSERT INTO "auth_permission" VALUES(38,'Can change comment',13,'change_comment');
+INSERT INTO "auth_permission" VALUES(39,'Can delete comment',13,'delete_comment');
+INSERT INTO "auth_permission" VALUES(40,'Can add log entry',14,'add_logentry');
+INSERT INTO "auth_permission" VALUES(41,'Can change log entry',14,'change_logentry');
+INSERT INTO "auth_permission" VALUES(42,'Can delete log entry',14,'delete_logentry');
+INSERT INTO "auth_permission" VALUES(43,'Can add images',15,'add_images');
+INSERT INTO "auth_permission" VALUES(44,'Can change images',15,'change_images');
+INSERT INTO "auth_permission" VALUES(45,'Can delete images',15,'delete_images');
+INSERT INTO "auth_permission" VALUES(46,'Can add registration profile',16,'add_registrationprofile');
+INSERT INTO "auth_permission" VALUES(47,'Can change registration profile',16,'change_registrationprofile');
+INSERT INTO "auth_permission" VALUES(48,'Can delete registration profile',16,'delete_registrationprofile');
+INSERT INTO "auth_permission" VALUES(49,'Can add rated item',17,'add_rateditem');
+INSERT INTO "auth_permission" VALUES(50,'Can change rated item',17,'change_rateditem');
+INSERT INTO "auth_permission" VALUES(51,'Can delete rated item',17,'delete_rateditem');
+INSERT INTO "auth_permission" VALUES(52,'Can add similar item',18,'add_similaritem');
+INSERT INTO "auth_permission" VALUES(53,'Can change similar item',18,'change_similaritem');
+INSERT INTO "auth_permission" VALUES(54,'Can delete similar item',18,'delete_similaritem');
+INSERT INTO "auth_permission" VALUES(55,'Can add vote',19,'add_vote');
+INSERT INTO "auth_permission" VALUES(56,'Can change vote',19,'change_vote');
+INSERT INTO "auth_permission" VALUES(57,'Can delete vote',19,'delete_vote');
+CREATE TABLE "auth_group_permissions" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "group_id" integer NOT NULL,
+    "permission_id" integer NOT NULL REFERENCES "auth_permission" ("id"),
+    UNIQUE ("group_id", "permission_id")
+);
+INSERT INTO "auth_group_permissions" VALUES(1,1,1);
+INSERT INTO "auth_group_permissions" VALUES(2,1,2);
+INSERT INTO "auth_group_permissions" VALUES(3,1,3);
+INSERT INTO "auth_group_permissions" VALUES(4,1,4);
+INSERT INTO "auth_group_permissions" VALUES(5,1,5);
+INSERT INTO "auth_group_permissions" VALUES(6,1,6);
+INSERT INTO "auth_group_permissions" VALUES(7,1,7);
+INSERT INTO "auth_group_permissions" VALUES(8,1,8);
+INSERT INTO "auth_group_permissions" VALUES(9,1,9);
+INSERT INTO "auth_group_permissions" VALUES(10,1,10);
+INSERT INTO "auth_group_permissions" VALUES(11,1,11);
+INSERT INTO "auth_group_permissions" VALUES(12,1,12);
+INSERT INTO "auth_group_permissions" VALUES(13,1,13);
+INSERT INTO "auth_group_permissions" VALUES(14,1,14);
+INSERT INTO "auth_group_permissions" VALUES(15,1,15);
+INSERT INTO "auth_group_permissions" VALUES(16,1,16);
+INSERT INTO "auth_group_permissions" VALUES(17,1,17);
+INSERT INTO "auth_group_permissions" VALUES(18,1,18);
+INSERT INTO "auth_group_permissions" VALUES(19,1,19);
+INSERT INTO "auth_group_permissions" VALUES(20,1,20);
+INSERT INTO "auth_group_permissions" VALUES(21,1,21);
+INSERT INTO "auth_group_permissions" VALUES(22,1,22);
+INSERT INTO "auth_group_permissions" VALUES(23,1,23);
+INSERT INTO "auth_group_permissions" VALUES(24,1,24);
+INSERT INTO "auth_group_permissions" VALUES(25,1,25);
+INSERT INTO "auth_group_permissions" VALUES(26,1,26);
+INSERT INTO "auth_group_permissions" VALUES(27,1,27);
+INSERT INTO "auth_group_permissions" VALUES(28,1,28);
+INSERT INTO "auth_group_permissions" VALUES(29,1,29);
+INSERT INTO "auth_group_permissions" VALUES(30,1,30);
+INSERT INTO "auth_group_permissions" VALUES(31,1,31);
+INSERT INTO "auth_group_permissions" VALUES(32,1,32);
+INSERT INTO "auth_group_permissions" VALUES(33,1,33);
+INSERT INTO "auth_group_permissions" VALUES(34,1,37);
+INSERT INTO "auth_group_permissions" VALUES(35,1,38);
+INSERT INTO "auth_group_permissions" VALUES(36,1,39);
+INSERT INTO "auth_group_permissions" VALUES(37,1,40);
+INSERT INTO "auth_group_permissions" VALUES(38,1,41);
+INSERT INTO "auth_group_permissions" VALUES(39,1,42);
+INSERT INTO "auth_group_permissions" VALUES(40,1,43);
+INSERT INTO "auth_group_permissions" VALUES(41,1,44);
+INSERT INTO "auth_group_permissions" VALUES(42,1,45);
+INSERT INTO "auth_group_permissions" VALUES(43,1,46);
+INSERT INTO "auth_group_permissions" VALUES(44,1,47);
+INSERT INTO "auth_group_permissions" VALUES(45,1,48);
+CREATE TABLE "auth_group" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "name" varchar(80) NOT NULL UNIQUE
+);
+INSERT INTO "auth_group" VALUES(1,'Users');
+CREATE TABLE "auth_user_user_permissions" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "user_id" integer NOT NULL,
+    "permission_id" integer NOT NULL REFERENCES "auth_permission" ("id"),
+    UNIQUE ("user_id", "permission_id")
+);
+CREATE TABLE "auth_user_groups" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "user_id" integer NOT NULL,
+    "group_id" integer NOT NULL REFERENCES "auth_group" ("id"),
+    UNIQUE ("user_id", "group_id")
+);
+CREATE TABLE "auth_user" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "username" varchar(30) NOT NULL UNIQUE,
+    "first_name" varchar(30) NOT NULL,
+    "last_name" varchar(30) NOT NULL,
+    "email" varchar(75) NOT NULL,
+    "password" varchar(128) NOT NULL,
+    "is_staff" bool NOT NULL,
+    "is_active" bool NOT NULL,
+    "is_superuser" bool NOT NULL,
+    "last_login" datetime NOT NULL,
+    "date_joined" datetime NOT NULL
+);
+INSERT INTO "auth_user" VALUES(2,'danho','','','dth4@sfu.ca','sha1$658f0$5e9c030b34fbb3b9542095a6eb2e4b07ec004e6c',1,1,1,'2011-12-06 19:54:02.566275','2011-11-29 22:09:43.513150');
+INSERT INTO "auth_user" VALUES(3,'catherinetan','','','llt3@sfu.ca','sha1$8a8c5$2a5d65771d17d0e22944229f2e0359cb3b2f464a',1,1,1,'2011-12-06 14:40:35.084020','2011-11-29 22:50:13');
+INSERT INTO "auth_user" VALUES(4,'brent','','','brentvatne@gmail.com','sha1$cb798$6b67c2ffcb69609665b37365e383fe399cf1aedf',0,1,0,'2011-12-01 14:40:15.623854','2011-12-01 14:35:31.483041');
+INSERT INTO "auth_user" VALUES(5,'marcirawan','','','marc.irawan@gmail.com','sha1$59fee$072b003b3ee3ef00253ef55c91d3747d4853042b',0,1,0,'2011-12-02 16:07:01.300893','2011-12-02 16:05:44.102440');
+INSERT INTO "auth_user" VALUES(6,'christine','','','pan.christine@gmail.com','sha1$261f8$1fea6953080610e4f0ad894cabc08cda79aa266b',1,1,1,'2011-12-06 14:43:02','2011-12-06 14:42:27');
+INSERT INTO "auth_user" VALUES(7,'Ivan','','','ihm@sfu.ca','sha1$0d31b$f264a018916ff5326512c0f19fdd7baeaed0dcb4',1,1,1,'2011-12-06 21:35:41','2011-12-06 21:35:02');
+CREATE TABLE "auth_message" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "user_id" integer NOT NULL REFERENCES "auth_user" ("id"),
+    "message" text NOT NULL
+);
+CREATE TABLE "django_content_type" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "name" varchar(100) NOT NULL,
+    "app_label" varchar(100) NOT NULL,
+    "model" varchar(100) NOT NULL,
+    UNIQUE ("app_label", "model")
+);
+INSERT INTO "django_content_type" VALUES(1,'permission','auth','permission');
+INSERT INTO "django_content_type" VALUES(2,'group','auth','group');
+INSERT INTO "django_content_type" VALUES(3,'user','auth','user');
+INSERT INTO "django_content_type" VALUES(4,'message','auth','message');
+INSERT INTO "django_content_type" VALUES(5,'content type','contenttypes','contenttype');
+INSERT INTO "django_content_type" VALUES(6,'session','sessions','session');
+INSERT INTO "django_content_type" VALUES(7,'site','sites','site');
+INSERT INTO "django_content_type" VALUES(8,'year','cars','year');
+INSERT INTO "django_content_type" VALUES(9,'make','cars','make');
+INSERT INTO "django_content_type" VALUES(10,'model','cars','model');
+INSERT INTO "django_content_type" VALUES(11,'car','cars','car');
+INSERT INTO "django_content_type" VALUES(13,'comment','cars','comment');
+INSERT INTO "django_content_type" VALUES(14,'log entry','admin','logentry');
+INSERT INTO "django_content_type" VALUES(15,'images','cars','images');
+INSERT INTO "django_content_type" VALUES(16,'registration profile','registration','registrationprofile');
+INSERT INTO "django_content_type" VALUES(17,'rated item','ratings','rateditem');
+INSERT INTO "django_content_type" VALUES(18,'similar item','ratings','similaritem');
+INSERT INTO "django_content_type" VALUES(19,'vote','voting','vote');
+CREATE TABLE "django_session" (
+    "session_key" varchar(40) NOT NULL PRIMARY KEY,
+    "session_data" text NOT NULL,
+    "expire_date" datetime NOT NULL
+);
+INSERT INTO "django_session" VALUES('3be0d3bd84ab8f82db5469ded16a3b9e','MjUwMWVhYzU4NGNkZGY3ZjUyNTFiYzEyZDQwZjZmODlkYWEwMGFjZDqAAn1xAVUKdGVzdGNvb2tp
+ZVUGd29ya2VkcQJzLg==
+','2011-12-11 23:32:05.148368');
+INSERT INTO "django_session" VALUES('a31a132000568546c41703625136064a','ZjQ3MmI2NDQzMzA5OWYwZmZiNzNkNjRkODVmYWUyOGE4ZDM4MDZkMTqAAn1xAShVEl9hdXRoX3Vz
+ZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED
+VQ1fYXV0aF91c2VyX2lkcQRLAnUu
+','2011-12-13 23:20:04.554608');
+INSERT INTO "django_session" VALUES('5f334cb3516127eae27e4f8859e09a0a','MjUwMWVhYzU4NGNkZGY3ZjUyNTFiYzEyZDQwZjZmODlkYWEwMGFjZDqAAn1xAVUKdGVzdGNvb2tp
+ZVUGd29ya2VkcQJzLg==
+','2011-12-14 03:02:48.810715');
+INSERT INTO "django_session" VALUES('9829375f50a2543693566eeef5ce9664','MDdmZTI5N2EyYWI2NjcyNzQ1MWFlMzIyODdjMGQ2YWU5MWI3NTZhNTqAAn1xAS4=
+','2011-12-14 11:49:10.290942');
+INSERT INTO "django_session" VALUES('79c82d6f9e662a12a8b9a6a174e8f071','MGNhMmMxYjBiN2FiYjMwMDkzM2M3OGQ1OWViZWE3ZTYxNzRkMDUwOTqAAn1xAVUKdGVzdGNvb2tp
+ZXECVQZ3b3JrZWRxA3Mu
+','2011-12-14 23:09:26.354548');
+INSERT INTO "django_session" VALUES('5df3668c15b683b1dbd85f15d78426bd','MGNhMmMxYjBiN2FiYjMwMDkzM2M3OGQ1OWViZWE3ZTYxNzRkMDUwOTqAAn1xAVUKdGVzdGNvb2tp
+ZXECVQZ3b3JrZWRxA3Mu
+','2011-12-15 14:32:15.251630');
+INSERT INTO "django_session" VALUES('41c1b557d37f3584ff71e3fc51d0e65f','MGNhMmMxYjBiN2FiYjMwMDkzM2M3OGQ1OWViZWE3ZTYxNzRkMDUwOTqAAn1xAVUKdGVzdGNvb2tp
+ZXECVQZ3b3JrZWRxA3Mu
+','2011-12-15 14:36:11.222189');
+INSERT INTO "django_session" VALUES('010c49e0574a26fd8ed0393e1f2857c8','MDBhOWY0Mjk0NDUyODY2ZmEzOGYxNWFmY2NkZTQ4ZWFkMzY1NTQzNTqAAn1xAShVEl9hdXRoX3Vz
+ZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED
+VQ1fYXV0aF91c2VyX2lkcQRLBHUu
+','2011-12-15 14:40:15.686689');
+INSERT INTO "django_session" VALUES('5f4b500d536640f99d5a295f8a65033a','MjUwMWVhYzU4NGNkZGY3ZjUyNTFiYzEyZDQwZjZmODlkYWEwMGFjZDqAAn1xAVUKdGVzdGNvb2tp
+ZVUGd29ya2VkcQJzLg==
+','2011-12-15 14:43:52.439513');
+INSERT INTO "django_session" VALUES('ac08dd7c06f0497969ab63136e123d2c','MGNhMmMxYjBiN2FiYjMwMDkzM2M3OGQ1OWViZWE3ZTYxNzRkMDUwOTqAAn1xAVUKdGVzdGNvb2tp
+ZXECVQZ3b3JrZWRxA3Mu
+','2011-12-15 16:09:20.288138');
+INSERT INTO "django_session" VALUES('20a9cbe7bfe9df090510846315935474','ZjQ3MmI2NDQzMzA5OWYwZmZiNzNkNjRkODVmYWUyOGE4ZDM4MDZkMTqAAn1xAShVEl9hdXRoX3Vz
+ZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED
+VQ1fYXV0aF91c2VyX2lkcQRLAnUu
+','2011-12-15 16:25:23.305188');
+INSERT INTO "django_session" VALUES('802668869c67b9077e6667c503ba4f45','MDdmZTI5N2EyYWI2NjcyNzQ1MWFlMzIyODdjMGQ2YWU5MWI3NTZhNTqAAn1xAS4=
+','2011-12-16 16:35:28.796114');
+INSERT INTO "django_session" VALUES('c1c6afb27153965fcdce3c272088bb10','ZjQ3MmI2NDQzMzA5OWYwZmZiNzNkNjRkODVmYWUyOGE4ZDM4MDZkMTqAAn1xAShVEl9hdXRoX3Vz
+ZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED
+VQ1fYXV0aF91c2VyX2lkcQRLAnUu
+','2011-12-17 16:03:52.541512');
+INSERT INTO "django_session" VALUES('c4e70c84d38955f627be3f603d976d8f','MDdmZTI5N2EyYWI2NjcyNzQ1MWFlMzIyODdjMGQ2YWU5MWI3NTZhNTqAAn1xAS4=
+','2011-12-18 10:31:32.653692');
+INSERT INTO "django_session" VALUES('6f592a572babd3ac3f15956ac9b6e3cb','MDdmZTI5N2EyYWI2NjcyNzQ1MWFlMzIyODdjMGQ2YWU5MWI3NTZhNTqAAn1xAS4=
+','2011-12-18 11:58:50.466720');
+INSERT INTO "django_session" VALUES('8e1a0f975b3dee7df83b300f8a089ea0','MGNhMmMxYjBiN2FiYjMwMDkzM2M3OGQ1OWViZWE3ZTYxNzRkMDUwOTqAAn1xAVUKdGVzdGNvb2tp
+ZXECVQZ3b3JrZWRxA3Mu
+','2011-12-19 19:59:33.408336');
+INSERT INTO "django_session" VALUES('fbc7429e50f5adb05e918cecce60386b','ZjQ3MmI2NDQzMzA5OWYwZmZiNzNkNjRkODVmYWUyOGE4ZDM4MDZkMTqAAn1xAShVEl9hdXRoX3Vz
+ZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED
+VQ1fYXV0aF91c2VyX2lkcQRLAnUu
+','2011-12-19 20:47:54.400594');
+INSERT INTO "django_session" VALUES('7edfd43f7502d46191bfd9cd408d5348','ZjQ3MmI2NDQzMzA5OWYwZmZiNzNkNjRkODVmYWUyOGE4ZDM4MDZkMTqAAn1xAShVEl9hdXRoX3Vz
+ZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED
+VQ1fYXV0aF91c2VyX2lkcQRLAnUu
+','2011-12-19 23:36:17.811516');
+INSERT INTO "django_session" VALUES('17b107dfa5a44642d61198d03992e9b2','ZjQ3MmI2NDQzMzA5OWYwZmZiNzNkNjRkODVmYWUyOGE4ZDM4MDZkMTqAAn1xAShVEl9hdXRoX3Vz
+ZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED
+VQ1fYXV0aF91c2VyX2lkcQRLAnUu
+','2011-12-20 10:47:22.719489');
+INSERT INTO "django_session" VALUES('631fe4b9328b24f3403fcfed1f5bc7a6','OWNjMzQ5YzhjMDhiOWZiYTM3NTVjNjQ5Yjk5NGY2MTY1MGQ3MWViNTqAAn1xAShVEl9hdXRoX3Vz
+ZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED
+VQ1fYXV0aF91c2VyX2lkcQRLBnUu
+','2011-12-20 14:43:02.434132');
+INSERT INTO "django_session" VALUES('950d5363e68d3fe37293de32c011faf5','MDdmZTI5N2EyYWI2NjcyNzQ1MWFlMzIyODdjMGQ2YWU5MWI3NTZhNTqAAn1xAS4=
+','2011-12-20 14:52:06.652683');
+INSERT INTO "django_session" VALUES('1afb1b6dce973704bb0e7c0b95a8da47','MGNhMmMxYjBiN2FiYjMwMDkzM2M3OGQ1OWViZWE3ZTYxNzRkMDUwOTqAAn1xAVUKdGVzdGNvb2tp
+ZXECVQZ3b3JrZWRxA3Mu
+','2011-12-20 15:25:13.647618');
+INSERT INTO "django_session" VALUES('7b2560ff9266470505b4f4a8c331c55d','MDdmZTI5N2EyYWI2NjcyNzQ1MWFlMzIyODdjMGQ2YWU5MWI3NTZhNTqAAn1xAS4=
+','2011-12-20 16:17:08.662969');
+INSERT INTO "django_session" VALUES('5be34c83bd72fd2bd64cc9f3506d2c38','ZjQ3MmI2NDQzMzA5OWYwZmZiNzNkNjRkODVmYWUyOGE4ZDM4MDZkMTqAAn1xAShVEl9hdXRoX3Vz
+ZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED
+VQ1fYXV0aF91c2VyX2lkcQRLAnUu
+','2011-12-20 19:50:55.335219');
+INSERT INTO "django_session" VALUES('1bd5aa73d4e0820c8cd0f4564226f4fb','ZjQ3MmI2NDQzMzA5OWYwZmZiNzNkNjRkODVmYWUyOGE4ZDM4MDZkMTqAAn1xAShVEl9hdXRoX3Vz
+ZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED
+VQ1fYXV0aF91c2VyX2lkcQRLAnUu
+','2011-12-20 19:54:02.621604');
+INSERT INTO "django_session" VALUES('74771bad17a83c690dc579772ede977d','MzQ2NTk3YjRlMmU4OGUzNjk3ODMwNTExMzFmZTZjNDdmN2JhYTJkNjqAAn1xAShVEl9hdXRoX3Vz
+ZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED
+VQ1fYXV0aF91c2VyX2lkcQRLB3Uu
+','2011-12-20 21:35:41.295314');
+CREATE TABLE "django_site" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "domain" varchar(100) NOT NULL,
+    "name" varchar(50) NOT NULL
+);
+INSERT INTO "django_site" VALUES(1,'cmpt470.csil.sfu.ca:8010','GreenGears');
+CREATE TABLE "cars_year" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "YEAR" integer NOT NULL
+);
+INSERT INTO "cars_year" VALUES(1,2011);
+CREATE TABLE "cars_master" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "Name" varchar(10) NOT NULL
+);
+INSERT INTO "cars_master" VALUES(1,'MASTER');
+CREATE TABLE 'cars_make' (
+    'id' integer PRIMARY KEY NOT NULL,
+    'MAKE_NAME' varchar(25) NOT NULL,
+    'Master' INTEGER NOT NULL ON CONFLICT IGNORE
+);
+INSERT INTO "cars_make" VALUES(1,'Aston Martin',1);
+INSERT INTO "cars_make" VALUES(2,'Audi',1);
+INSERT INTO "cars_make" VALUES(3,'Bentley',1);
+INSERT INTO "cars_make" VALUES(4,'BMW',1);
+INSERT INTO "cars_make" VALUES(5,'Bugatti',1);
+INSERT INTO "cars_make" VALUES(6,'Chrysler Group LLC',1);
+INSERT INTO "cars_make" VALUES(7,'Drive Right',1);
+INSERT INTO "cars_make" VALUES(8,'FOMOCO',1);
+INSERT INTO "cars_make" VALUES(9,'GDX',1);
+INSERT INTO "cars_make" VALUES(10,'GM',1);
+INSERT INTO "cars_make" VALUES(11,'Honda',1);
+INSERT INTO "cars_make" VALUES(12,'Hyundai',1);
+INSERT INTO "cars_make" VALUES(13,'Jaguar Cars',1);
+INSERT INTO "cars_make" VALUES(14,'Kia',1);
+INSERT INTO "cars_make" VALUES(15,'Land Rover',1);
+INSERT INTO "cars_make" VALUES(16,'Lotus',1);
+INSERT INTO "cars_make" VALUES(17,'M&M',1);
+INSERT INTO "cars_make" VALUES(18,'Maserati',1);
+INSERT INTO "cars_make" VALUES(19,'Mazda',1);
+INSERT INTO "cars_make" VALUES(20,'Mercedes-Benz',1);
+INSERT INTO "cars_make" VALUES(21,'Mitsubishi Motors NA',1);
+INSERT INTO "cars_make" VALUES(22,'Nissan',1);
+INSERT INTO "cars_make" VALUES(23,'Porsche',1);
+INSERT INTO "cars_make" VALUES(24,'Rolls-Royce',1);
+INSERT INTO "cars_make" VALUES(25,'SCNA',1);
+INSERT INTO "cars_make" VALUES(26,'Subaru',1);
+INSERT INTO "cars_make" VALUES(27,'Suzuki',1);
+INSERT INTO "cars_make" VALUES(28,'Toyota',1);
+INSERT INTO "cars_make" VALUES(29,'Volkswagen',1);
+INSERT INTO "cars_make" VALUES(30,'Volvo',1);
+INSERT INTO "cars_make" VALUES(31,'VPG',1);
+CREATE TABLE 'cars_model' (
+    'id' integer PRIMARY KEY NOT NULL,
+    'MODEL_NAME' varchar(30) NOT NULL,
+    'MAKE_ID_id' integer NOT NULL,
+    'Master' INTEGER NOT NULL DEFAULT ''
+);
+INSERT INTO "cars_model" VALUES(1,'DB9',1,1);
+INSERT INTO "cars_model" VALUES(2,'DBS',1,1);
+INSERT INTO "cars_model" VALUES(3,'Rapide',1,1);
+INSERT INTO "cars_model" VALUES(4,'V8 VANTAGE',1,1);
+INSERT INTO "cars_model" VALUES(5,'V8 VANTAGE S',1,1);
+INSERT INTO "cars_model" VALUES(6,'A3',2,1);
+INSERT INTO "cars_model" VALUES(7,'A3 QUATTRO',2,1);
+INSERT INTO "cars_model" VALUES(8,'A4',2,1);
+INSERT INTO "cars_model" VALUES(9,'A4 QUATTRO',2,1);
+INSERT INTO "cars_model" VALUES(10,'A6',2,1);
+INSERT INTO "cars_model" VALUES(11,'A6 QUATTRO',2,1);
+INSERT INTO "cars_model" VALUES(12,'A8L',2,1);
+INSERT INTO "cars_model" VALUES(13,'GTI',2,1);
+INSERT INTO "cars_model" VALUES(14,'PASSAT WAGON',2,1);
+INSERT INTO "cars_model" VALUES(15,'Q5',2,1);
+INSERT INTO "cars_model" VALUES(16,'Q7',2,1);
+INSERT INTO "cars_model" VALUES(17,'R8',2,1);
+INSERT INTO "cars_model" VALUES(18,'S4',2,1);
+INSERT INTO "cars_model" VALUES(19,'S5',2,1);
+INSERT INTO "cars_model" VALUES(20,'S6',2,1);
+INSERT INTO "cars_model" VALUES(21,'TIGUAN',2,1);
+INSERT INTO "cars_model" VALUES(22,'TT Coupe',2,1);
+INSERT INTO "cars_model" VALUES(23,'TT COUPE QUATTRO',2,1);
+INSERT INTO "cars_model" VALUES(24,'Continental Supersports',3,1);
+INSERT INTO "cars_model" VALUES(25,'Mulsanne',3,1);
+INSERT INTO "cars_model" VALUES(26,'128i',4,1);
+INSERT INTO "cars_model" VALUES(27,'128i Convertible',4,1);
+INSERT INTO "cars_model" VALUES(28,'135i',4,1);
+INSERT INTO "cars_model" VALUES(29,'135i Convertible',4,1);
+INSERT INTO "cars_model" VALUES(30,'328Ci',4,1);
+INSERT INTO "cars_model" VALUES(31,'328Ci Convertible',4,1);
+INSERT INTO "cars_model" VALUES(32,'328CiA Convertible',4,1);
+INSERT INTO "cars_model" VALUES(33,'328i',4,1);
+INSERT INTO "cars_model" VALUES(34,'328xi',4,1);
+INSERT INTO "cars_model" VALUES(35,'328xiA',4,1);
+INSERT INTO "cars_model" VALUES(36,'335Ci',4,1);
+INSERT INTO "cars_model" VALUES(37,'335Ci Convertible',4,1);
+INSERT INTO "cars_model" VALUES(38,'335Ci xDrive',4,1);
+INSERT INTO "cars_model" VALUES(39,'335CiA',4,1);
+INSERT INTO "cars_model" VALUES(40,'335d',4,1);
+INSERT INTO "cars_model" VALUES(41,'335i',4,1);
+INSERT INTO "cars_model" VALUES(42,'335i xDrive',4,1);
+INSERT INTO "cars_model" VALUES(43,'335is Convertible',4,1);
+INSERT INTO "cars_model" VALUES(44,'335is Coupe',4,1);
+INSERT INTO "cars_model" VALUES(45,'535i',4,1);
+INSERT INTO "cars_model" VALUES(46,'535i Gran Turismo',4,1);
+INSERT INTO "cars_model" VALUES(47,'535i xDrive',4,1);
+INSERT INTO "cars_model" VALUES(48,'535i xDrive Gran Turismo',4,1);
+INSERT INTO "cars_model" VALUES(49,'535iA',4,1);
+INSERT INTO "cars_model" VALUES(50,'550i',4,1);
+INSERT INTO "cars_model" VALUES(51,'550i GT',4,1);
+INSERT INTO "cars_model" VALUES(52,'550i xDrive',4,1);
+INSERT INTO "cars_model" VALUES(53,'550i xDrive Gran Turismo',4,1);
+INSERT INTO "cars_model" VALUES(54,'550i xDrive GranTurismo',4,1);
+INSERT INTO "cars_model" VALUES(55,'740Li',4,1);
+INSERT INTO "cars_model" VALUES(56,'750 Li xDrive',4,1);
+INSERT INTO "cars_model" VALUES(57,'750i',4,1);
+INSERT INTO "cars_model" VALUES(58,'760Li',4,1);
+INSERT INTO "cars_model" VALUES(59,'ActiveHybrid 7',4,1);
+INSERT INTO "cars_model" VALUES(60,'ActiveHybrid 7 L',4,1);
+INSERT INTO "cars_model" VALUES(61,'ActiveHybrid X6',4,1);
+INSERT INTO "cars_model" VALUES(62,'Alpina B7 LWB',4,1);
+INSERT INTO "cars_model" VALUES(63,'Alpina B7 LWB xDrive',4,1);
+INSERT INTO "cars_model" VALUES(64,'M3',4,1);
+INSERT INTO "cars_model" VALUES(65,'M3 Convertible',4,1);
+INSERT INTO "cars_model" VALUES(66,'Mini Clubman',4,1);
+INSERT INTO "cars_model" VALUES(67,'Mini Cooper',4,1);
+INSERT INTO "cars_model" VALUES(68,'Mini Cooper Clubman',4,1);
+INSERT INTO "cars_model" VALUES(69,'Mini Cooper Convertible',4,1);
+INSERT INTO "cars_model" VALUES(70,'Mini Cooper Countryman',4,1);
+INSERT INTO "cars_model" VALUES(71,'Mini Cooper JCW',4,1);
+INSERT INTO "cars_model" VALUES(72,'Mini Cooper JCW Clubman',4,1);
+INSERT INTO "cars_model" VALUES(73,'Mini Cooper S',4,1);
+INSERT INTO "cars_model" VALUES(74,'Mini Cooper S Clubman',4,1);
+INSERT INTO "cars_model" VALUES(75,'Mini Cooper S Convertible',4,1);
+INSERT INTO "cars_model" VALUES(76,'Mini Cooper S Countryman',4,1);
+INSERT INTO "cars_model" VALUES(77,'Mini Cooper S Countryman All4',4,1);
+INSERT INTO "cars_model" VALUES(78,'Mini John Cooper Works Convertible',4,1);
+INSERT INTO "cars_model" VALUES(79,'X3 xDrive35i',4,1);
+INSERT INTO "cars_model" VALUES(80,'X5 xDrive35d',4,1);
+INSERT INTO "cars_model" VALUES(81,'X5 xDrive35i',4,1);
+INSERT INTO "cars_model" VALUES(82,'X5 xDrive50i',4,1);
+INSERT INTO "cars_model" VALUES(83,'X5 xDriveM',4,1);
+INSERT INTO "cars_model" VALUES(84,'X6 xDrive35i',4,1);
+INSERT INTO "cars_model" VALUES(85,'X6 xDrive50i',4,1);
+INSERT INTO "cars_model" VALUES(86,'X6 xDriveM',4,1);
+INSERT INTO "cars_model" VALUES(87,'Z4 sDrive35i',4,1);
+INSERT INTO "cars_model" VALUES(88,'Z4 sDrive35is',4,1);
+INSERT INTO "cars_model" VALUES(89,'Veyron Super Sport',5,1);
+INSERT INTO "cars_model" VALUES(90,'200',6,1);
+INSERT INTO "cars_model" VALUES(91,'300',6,1);
+INSERT INTO "cars_model" VALUES(92,'300 Awd',6,1);
+INSERT INTO "cars_model" VALUES(93,'300/SRT-8',6,1);
+INSERT INTO "cars_model" VALUES(94,'ASPEN 4WD',6,1);
+INSERT INTO "cars_model" VALUES(95,'Avenger',6,1);
+INSERT INTO "cars_model" VALUES(96,'Caliber',6,1);
+INSERT INTO "cars_model" VALUES(97,'Challenger',6,1);
+INSERT INTO "cars_model" VALUES(98,'Charger',6,1);
+INSERT INTO "cars_model" VALUES(99,'Compass',6,1);
+INSERT INTO "cars_model" VALUES(100,'Dakota',6,1);
+INSERT INTO "cars_model" VALUES(101,'DAKOTA PICKUP',6,1);
+INSERT INTO "cars_model" VALUES(102,'DAKOTA PICKUP 2WD',6,1);
+INSERT INTO "cars_model" VALUES(103,'DAKOTA PICKUP 4WD',6,1);
+INSERT INTO "cars_model" VALUES(104,'Durango 4WD',6,1);
+INSERT INTO "cars_model" VALUES(105,'Grand Cherokee 2wd',6,1);
+INSERT INTO "cars_model" VALUES(106,'Grand Cherokee 4wd',6,1);
+INSERT INTO "cars_model" VALUES(107,'Journey',6,1);
+INSERT INTO "cars_model" VALUES(108,'Nitro',6,1);
+INSERT INTO "cars_model" VALUES(109,'NITRO 2WD',6,1);
+INSERT INTO "cars_model" VALUES(110,'Patriot',6,1);
+INSERT INTO "cars_model" VALUES(111,'Patriot 4wd',6,1);
+INSERT INTO "cars_model" VALUES(112,'RAM  PICKUP',6,1);
+INSERT INTO "cars_model" VALUES(113,'RAM 1500 PICKUP 2WD',6,1);
+INSERT INTO "cars_model" VALUES(114,'RAM 1500 PICKUP 4WD',6,1);
+INSERT INTO "cars_model" VALUES(115,'Town & Country',6,1);
+INSERT INTO "cars_model" VALUES(116,'Wrangler 4wd',6,1);
+INSERT INTO "cars_model" VALUES(117,'JEEP CHEROKE',7,1);
+INSERT INTO "cars_model" VALUES(118,'CROWN VIC POL FFV',8,1);
+INSERT INTO "cars_model" VALUES(119,'CROWN VIC POLICE FFV',8,1);
+INSERT INTO "cars_model" VALUES(120,'E150 VAN',8,1);
+INSERT INTO "cars_model" VALUES(121,'E-150 Van',8,1);
+INSERT INTO "cars_model" VALUES(122,'E350 EXTENDED WAGON',8,1);
+INSERT INTO "cars_model" VALUES(123,'E-350 Extended Wagon',8,1);
+INSERT INTO "cars_model" VALUES(124,'E350 VAN',8,1);
+INSERT INTO "cars_model" VALUES(125,'EDGE AWD',8,1);
+INSERT INTO "cars_model" VALUES(126,'EDGE FWD',8,1);
+INSERT INTO "cars_model" VALUES(127,'ESCAPE 4x2',8,1);
+INSERT INTO "cars_model" VALUES(128,'Escape 4x2 FFV',8,1);
+INSERT INTO "cars_model" VALUES(129,'Escape 4X4',8,1);
+INSERT INTO "cars_model" VALUES(130,'ESCAPE AWD',8,1);
+INSERT INTO "cars_model" VALUES(131,'ESCAPE HEV 4x2',8,1);
+INSERT INTO "cars_model" VALUES(132,'EXPEDITION 4X2',8,1);
+INSERT INTO "cars_model" VALUES(133,'EXPEDITION 4X4',8,1);
+INSERT INTO "cars_model" VALUES(134,'EXPLORER 4WD',8,1);
+INSERT INTO "cars_model" VALUES(135,'EXPLORER FWD',8,1);
+INSERT INTO "cars_model" VALUES(136,'F150 4X2',8,1);
+INSERT INTO "cars_model" VALUES(137,'F-150 4X2',8,1);
+INSERT INTO "cars_model" VALUES(138,'F150 4X4',8,1);
+INSERT INTO "cars_model" VALUES(139,'F150 4X4 SUPER CAB',8,1);
+INSERT INTO "cars_model" VALUES(140,'F-150 FFV 4X2',8,1);
+INSERT INTO "cars_model" VALUES(141,'F-150 FFV 4X4 Supercab',8,1);
+INSERT INTO "cars_model" VALUES(142,'F-150 Harley Pickup AWD',8,1);
+INSERT INTO "cars_model" VALUES(143,'F-150 Pickup 2WD',8,1);
+INSERT INTO "cars_model" VALUES(144,'F-150 Pickup 4WD, Max Trailer Tow',8,1);
+INSERT INTO "cars_model" VALUES(145,'F-150 Pickup FFV 2WD',8,1);
+INSERT INTO "cars_model" VALUES(146,'F-150 Pickup FFV 4WD',8,1);
+INSERT INTO "cars_model" VALUES(147,'F-150 RAPTOR',8,1);
+INSERT INTO "cars_model" VALUES(148,'F-150 Raptor Pickup 4WD',8,1);
+INSERT INTO "cars_model" VALUES(149,'F-150 Super Crew 2WD, Max Trailer Tow',8,1);
+INSERT INTO "cars_model" VALUES(150,'F-150 Super Crew 4WD, Max Trailer Tow',8,1);
+INSERT INTO "cars_model" VALUES(151,'F-150 Super Crew Max Tow 4X4',8,1);
+INSERT INTO "cars_model" VALUES(152,'FIESTA',8,1);
+INSERT INTO "cars_model" VALUES(153,'FLEX',8,1);
+INSERT INTO "cars_model" VALUES(154,'FLEX FWD',8,1);
+INSERT INTO "cars_model" VALUES(155,'FOCUS',8,1);
+INSERT INTO "cars_model" VALUES(156,'FUSION',8,1);
+INSERT INTO "cars_model" VALUES(157,'GRAND MARQUIS',8,1);
+INSERT INTO "cars_model" VALUES(158,'LINCOLN MKS',8,1);
+INSERT INTO "cars_model" VALUES(159,'MARINER HEV 4X4',8,1);
+INSERT INTO "cars_model" VALUES(160,'MILAN',8,1);
+INSERT INTO "cars_model" VALUES(161,'MKT AWD',8,1);
+INSERT INTO "cars_model" VALUES(162,'MKX FWD',8,1);
+INSERT INTO "cars_model" VALUES(163,'MUSTANG',8,1);
+INSERT INTO "cars_model" VALUES(164,'NAVIGATOR 4X4',8,1);
+INSERT INTO "cars_model" VALUES(165,'NAVIGATOR 4X4 EXT.',8,1);
+INSERT INTO "cars_model" VALUES(166,'Ranger 2WD',8,1);
+INSERT INTO "cars_model" VALUES(167,'Ranger 4x2',8,1);
+INSERT INTO "cars_model" VALUES(168,'RANGER 4X4',8,1);
+INSERT INTO "cars_model" VALUES(169,'RANGER 4X4 RKS',8,1);
+INSERT INTO "cars_model" VALUES(170,'Ranger Pickup 2WD',8,1);
+INSERT INTO "cars_model" VALUES(171,'RANGER PICKUP 4WD',8,1);
+INSERT INTO "cars_model" VALUES(172,'RANGER SUPERCAB 4DR 4X2',8,1);
+INSERT INTO "cars_model" VALUES(173,'TAURUS AWD',8,1);
+INSERT INTO "cars_model" VALUES(174,'Taurus FWD',8,1);
+INSERT INTO "cars_model" VALUES(175,'TOWN CAR',8,1);
+INSERT INTO "cars_model" VALUES(176,'TRANSIT CONNECT',8,1);
+INSERT INTO "cars_model" VALUES(177,'AVEO',9,1);
+INSERT INTO "cars_model" VALUES(178,'1ZK69',10,1);
+INSERT INTO "cars_model" VALUES(179,'4GB69',10,1);
+INSERT INTO "cars_model" VALUES(180,'6DN69',10,1);
+INSERT INTO "cars_model" VALUES(181,'6KJ69',10,1);
+INSERT INTO "cars_model" VALUES(182,'6NL26',10,1);
+INSERT INTO "cars_model" VALUES(183,'C15 SIERRA 2WD XFE',10,1);
+INSERT INTO "cars_model" VALUES(184,'C15 SILVERADO 2WD',10,1);
+INSERT INTO "cars_model" VALUES(185,'C15 SILVERADO 2WD XFE',10,1);
+INSERT INTO "cars_model" VALUES(186,'C1500 TAHOE 2WD',10,1);
+INSERT INTO "cars_model" VALUES(187,'C1500 TAHOE 2WD HYBRID',10,1);
+INSERT INTO "cars_model" VALUES(188,'C2500 SUBURBAN 2WD',10,1);
+INSERT INTO "cars_model" VALUES(189,'CAMARO',10,1);
+INSERT INTO "cars_model" VALUES(190,'CC10903',10,1);
+INSERT INTO "cars_model" VALUES(191,'CG33406',10,1);
+INSERT INTO "cars_model" VALUES(192,'COLORADO 2WD',10,1);
+INSERT INTO "cars_model" VALUES(193,'COLORADO 4WD',10,1);
+INSERT INTO "cars_model" VALUES(194,'COLORADO CAB CHASSIS INC 2WD',10,1);
+INSERT INTO "cars_model" VALUES(195,'COLORADO CREW CAB 2WD',10,1);
+INSERT INTO "cars_model" VALUES(196,'COLORADO CREW CAB 4WD',10,1);
+INSERT INTO "cars_model" VALUES(197,'CORVETTE',10,1);
+INSERT INTO "cars_model" VALUES(198,'CRUZE',10,1);
+INSERT INTO "cars_model" VALUES(199,'CRUZE ECO',10,1);
+INSERT INTO "cars_model" VALUES(200,'CTS',10,1);
+INSERT INTO "cars_model" VALUES(201,'CTS AWD',10,1);
+INSERT INTO "cars_model" VALUES(202,'CTS WAGON',10,1);
+INSERT INTO "cars_model" VALUES(203,'DTS',10,1);
+INSERT INTO "cars_model" VALUES(204,'ENCLAVE AWD',10,1);
+INSERT INTO "cars_model" VALUES(205,'EQUINOX AWD',10,1);
+INSERT INTO "cars_model" VALUES(206,'EQUINOX FWD',10,1);
+INSERT INTO "cars_model" VALUES(207,'ESCALADE 2WD',10,1);
+INSERT INTO "cars_model" VALUES(208,'ESCALADE 4WD HYBRID',10,1);
+INSERT INTO "cars_model" VALUES(209,'ESCALADE AWD',10,1);
+INSERT INTO "cars_model" VALUES(210,'FCH69+F46',10,1);
+INSERT INTO "cars_model" VALUES(211,'FUNERAL COACH/HEARSE',10,1);
+INSERT INTO "cars_model" VALUES(212,'G1500 EXPRESS 2WD CARGO',10,1);
+INSERT INTO "cars_model" VALUES(213,'G1500 EXPRESS 2WD PASS',10,1);
+INSERT INTO "cars_model" VALUES(214,'G2500 EXPRESS 2WD PASS MDPV',10,1);
+INSERT INTO "cars_model" VALUES(215,'G3500 EXPRESS 2WD PASS MDPV',10,1);
+INSERT INTO "cars_model" VALUES(216,'H1500 EXPRESS AWD CARGO',10,1);
+INSERT INTO "cars_model" VALUES(217,'H1500 EXPRESS AWD PASS',10,1);
+INSERT INTO "cars_model" VALUES(218,'IMPALA',10,1);
+INSERT INTO "cars_model" VALUES(219,'K15 SILVERADO 4WD',10,1);
+INSERT INTO "cars_model" VALUES(220,'K1500 TAHOE 4WD',10,1);
+INSERT INTO "cars_model" VALUES(221,'K1500 TAHOE 4WD HYBRID',10,1);
+INSERT INTO "cars_model" VALUES(222,'K1500 YUKON XL AWD',10,1);
+INSERT INTO "cars_model" VALUES(223,'K2500 YUKON XL 4WD',10,1);
+INSERT INTO "cars_model" VALUES(224,'LACROSSE',10,1);
+INSERT INTO "cars_model" VALUES(225,'LACROSSE AWD',10,1);
+INSERT INTO "cars_model" VALUES(226,'LIMOUSINE',10,1);
+INSERT INTO "cars_model" VALUES(227,'LUCERNE',10,1);
+INSERT INTO "cars_model" VALUES(228,'MALIBU',10,1);
+INSERT INTO "cars_model" VALUES(229,'REGAL',10,1);
+INSERT INTO "cars_model" VALUES(230,'SRX 2WD',10,1);
+INSERT INTO "cars_model" VALUES(231,'SRX AWD',10,1);
+INSERT INTO "cars_model" VALUES(232,'TRAVERSE AWD',10,1);
+INSERT INTO "cars_model" VALUES(233,'TRAVERSE FWD',10,1);
+INSERT INTO "cars_model" VALUES(234,'VOLT',10,1);
+INSERT INTO "cars_model" VALUES(235,'ACCORD CROSSTOUR 2WD EX-L',11,1);
+INSERT INTO "cars_model" VALUES(236,'ACCORD CROSSTOUR 4WD EX-L',11,1);
+INSERT INTO "cars_model" VALUES(237,'ACCORD EX/EX-L COUPE',11,1);
+INSERT INTO "cars_model" VALUES(238,'ACCORD EX/EX-L SEDAN',11,1);
+INSERT INTO "cars_model" VALUES(239,'ACCORD EX-L COUPE',11,1);
+INSERT INTO "cars_model" VALUES(240,'ACCORD LX COUPE',11,1);
+INSERT INTO "cars_model" VALUES(241,'ACCORD LX/EX/EX-L COUPE',11,1);
+INSERT INTO "cars_model" VALUES(242,'ACCORD LX/LX+/SE SEDAN',11,1);
+INSERT INTO "cars_model" VALUES(243,'CIVIC EX',11,1);
+INSERT INTO "cars_model" VALUES(244,'CIVIC GX',11,1);
+INSERT INTO "cars_model" VALUES(245,'CIVIC HYBRID',11,1);
+INSERT INTO "cars_model" VALUES(246,'CIVIC LX/DX',11,1);
+INSERT INTO "cars_model" VALUES(247,'CIVIC SI',11,1);
+INSERT INTO "cars_model" VALUES(248,'CR-V 2WD LX/VP/EX/EXL',11,1);
+INSERT INTO "cars_model" VALUES(249,'CR-V 4WD EX/EXL',11,1);
+INSERT INTO "cars_model" VALUES(250,'CR-V 4WD LX/VP/EX/EXL',11,1);
+INSERT INTO "cars_model" VALUES(251,'CR-Z EX',11,1);
+INSERT INTO "cars_model" VALUES(252,'ELEMENT 2WD',11,1);
+INSERT INTO "cars_model" VALUES(253,'ELEMENT 4WD',11,1);
+INSERT INTO "cars_model" VALUES(254,'FCX Clarity',11,1);
+INSERT INTO "cars_model" VALUES(255,'INSIGHT DX/LX',11,1);
+INSERT INTO "cars_model" VALUES(256,'INSIGHT EX',11,1);
+INSERT INTO "cars_model" VALUES(257,'MDX 4WD',11,1);
+INSERT INTO "cars_model" VALUES(258,'ODYSSEY LX/EX/EXL',11,1);
+INSERT INTO "cars_model" VALUES(259,'ODYSSEY TOURING/TOURING-TE',11,1);
+INSERT INTO "cars_model" VALUES(260,'PILOT EX',11,1);
+INSERT INTO "cars_model" VALUES(261,'PILOT LX/EX/EX-L/TOURING',11,1);
+INSERT INTO "cars_model" VALUES(262,'PILOT LX/EX-L/TOURING',11,1);
+INSERT INTO "cars_model" VALUES(263,'RDX BASE/TECH',11,1);
+INSERT INTO "cars_model" VALUES(264,'RIDGELINE RT/RTS/LX/EX/RTL/EX-L',11,1);
+INSERT INTO "cars_model" VALUES(265,'RL',11,1);
+INSERT INTO "cars_model" VALUES(266,'TL 2WD',11,1);
+INSERT INTO "cars_model" VALUES(267,'TL 4WD',11,1);
+INSERT INTO "cars_model" VALUES(268,'ZDX 4WD',11,1);
+INSERT INTO "cars_model" VALUES(269,'ACCENT',12,1);
+INSERT INTO "cars_model" VALUES(270,'ACCENT BLUE',12,1);
+INSERT INTO "cars_model" VALUES(271,'AZERA',12,1);
+INSERT INTO "cars_model" VALUES(272,'ELANTRA',12,1);
+INSERT INTO "cars_model" VALUES(273,'ELANTRA TOURING',12,1);
+INSERT INTO "cars_model" VALUES(274,'EQUUS',12,1);
+INSERT INTO "cars_model" VALUES(275,'GENESIS',12,1);
+INSERT INTO "cars_model" VALUES(276,'GENESIS COUPE',12,1);
+INSERT INTO "cars_model" VALUES(277,'SANTA FE',12,1);
+INSERT INTO "cars_model" VALUES(278,'SONATA',12,1);
+INSERT INTO "cars_model" VALUES(279,'SONATA HYBRID',12,1);
+INSERT INTO "cars_model" VALUES(280,'TUCSON',12,1);
+INSERT INTO "cars_model" VALUES(281,'VERACRUZ',12,1);
+INSERT INTO "cars_model" VALUES(282,'XF V8 5.0',13,1);
+INSERT INTO "cars_model" VALUES(283,'XF-R',13,1);
+INSERT INTO "cars_model" VALUES(284,'XJ',13,1);
+INSERT INTO "cars_model" VALUES(285,'XK Convertible',13,1);
+INSERT INTO "cars_model" VALUES(286,'XK Coupe',13,1);
+INSERT INTO "cars_model" VALUES(287,'XK-R',13,1);
+INSERT INTO "cars_model" VALUES(288,'BORREGO',14,1);
+INSERT INTO "cars_model" VALUES(289,'FORTE',14,1);
+INSERT INTO "cars_model" VALUES(290,'FORTE ECO',14,1);
+INSERT INTO "cars_model" VALUES(291,'FORTE KOUP',14,1);
+INSERT INTO "cars_model" VALUES(292,'OPTIMA',14,1);
+INSERT INTO "cars_model" VALUES(293,'RIO',14,1);
+INSERT INTO "cars_model" VALUES(294,'RONDO',14,1);
+INSERT INTO "cars_model" VALUES(295,'SEDONA',14,1);
+INSERT INTO "cars_model" VALUES(296,'SORENTO',14,1);
+INSERT INTO "cars_model" VALUES(297,'SOUL',14,1);
+INSERT INTO "cars_model" VALUES(298,'Sportage',14,1);
+INSERT INTO "cars_model" VALUES(299,'LR2',15,1);
+INSERT INTO "cars_model" VALUES(300,'LR4',15,1);
+INSERT INTO "cars_model" VALUES(301,'Range Rover',15,1);
+INSERT INTO "cars_model" VALUES(302,'Range Rover Sport',15,1);
+INSERT INTO "cars_model" VALUES(303,'Range Rover Sport Supercharged',15,1);
+INSERT INTO "cars_model" VALUES(304,'Range Rover Supercharged',15,1);
+INSERT INTO "cars_model" VALUES(305,'Elise/Exige',16,1);
+INSERT INTO "cars_model" VALUES(306,'EVORA',16,1);
+INSERT INTO "cars_model" VALUES(307,'TR40',17,1);
+INSERT INTO "cars_model" VALUES(308,'GRANTURISMO',18,1);
+INSERT INTO "cars_model" VALUES(309,'GRANTURISMO CONVERTIBLE',18,1);
+INSERT INTO "cars_model" VALUES(310,'GRANTURISMO S AUTOMATIC',18,1);
+INSERT INTO "cars_model" VALUES(311,'QUATTROPORTE',18,1);
+INSERT INTO "cars_model" VALUES(312,'QUATTROPORTE S',18,1);
+INSERT INTO "cars_model" VALUES(313,'6',19,1);
+INSERT INTO "cars_model" VALUES(314,'CX-7',19,1);
+INSERT INTO "cars_model" VALUES(315,'CX-9 AWD',19,1);
+INSERT INTO "cars_model" VALUES(316,'CX-9 FWD',19,1);
+INSERT INTO "cars_model" VALUES(317,'MAZDA2',19,1);
+INSERT INTO "cars_model" VALUES(318,'MAZDA3',19,1);
+INSERT INTO "cars_model" VALUES(319,'MAZDA6',19,1);
+INSERT INTO "cars_model" VALUES(320,'Mazdaspeed3',19,1);
+INSERT INTO "cars_model" VALUES(321,'MX-5',19,1);
+INSERT INTO "cars_model" VALUES(322,'RX-8',19,1);
+INSERT INTO "cars_model" VALUES(323,'C 300',20,1);
+INSERT INTO "cars_model" VALUES(324,'C 300 4MATIC',20,1);
+INSERT INTO "cars_model" VALUES(325,'C 350',20,1);
+INSERT INTO "cars_model" VALUES(326,'C 63 AMG',20,1);
+INSERT INTO "cars_model" VALUES(327,'C300',20,1);
+INSERT INTO "cars_model" VALUES(328,'CL 550 4MATIC',20,1);
+INSERT INTO "cars_model" VALUES(329,'CL 600',20,1);
+INSERT INTO "cars_model" VALUES(330,'CL 63 AMG',20,1);
+INSERT INTO "cars_model" VALUES(331,'CL 65 AMG',20,1);
+INSERT INTO "cars_model" VALUES(332,'CLS 550',20,1);
+INSERT INTO "cars_model" VALUES(333,'CLS 63 AMG',20,1);
+INSERT INTO "cars_model" VALUES(334,'E 350',20,1);
+INSERT INTO "cars_model" VALUES(335,'E 350 (Convertible)',20,1);
+INSERT INTO "cars_model" VALUES(336,'E 350 4MATIC',20,1);
+INSERT INTO "cars_model" VALUES(337,'E 350 BLUETEC',20,1);
+INSERT INTO "cars_model" VALUES(338,'E 350 Coupe',20,1);
+INSERT INTO "cars_model" VALUES(339,'E 550',20,1);
+INSERT INTO "cars_model" VALUES(340,'E 550 (convertible)',20,1);
+INSERT INTO "cars_model" VALUES(341,'E 550 (coupe)',20,1);
+INSERT INTO "cars_model" VALUES(342,'E 550 4MATIC',20,1);
+INSERT INTO "cars_model" VALUES(343,'E 63 AMG',20,1);
+INSERT INTO "cars_model" VALUES(344,'F-Cell',20,1);
+INSERT INTO "cars_model" VALUES(345,'G 55 AMG',20,1);
+INSERT INTO "cars_model" VALUES(346,'G 550',20,1);
+INSERT INTO "cars_model" VALUES(347,'GL 350 BLUETEC 4MATIC',20,1);
+INSERT INTO "cars_model" VALUES(348,'GL 450 4MATIC',20,1);
+INSERT INTO "cars_model" VALUES(349,'GL 550 4MATIC',20,1);
+INSERT INTO "cars_model" VALUES(350,'GLK 350',20,1);
+INSERT INTO "cars_model" VALUES(351,'GLK 350 4MATIC',20,1);
+INSERT INTO "cars_model" VALUES(352,'ML 350',20,1);
+INSERT INTO "cars_model" VALUES(353,'ML 350 4MATIC',20,1);
+INSERT INTO "cars_model" VALUES(354,'ML 350 BLUETEC',20,1);
+INSERT INTO "cars_model" VALUES(355,'ML 550 4MATIC',20,1);
+INSERT INTO "cars_model" VALUES(356,'ML 63 AMG',20,1);
+INSERT INTO "cars_model" VALUES(357,'ML450 HYBRID 4MATIC',20,1);
+INSERT INTO "cars_model" VALUES(358,'R 350 4MATIC',20,1);
+INSERT INTO "cars_model" VALUES(359,'R 350 BLUETEC',20,1);
+INSERT INTO "cars_model" VALUES(360,'S 400 HYBRID',20,1);
+INSERT INTO "cars_model" VALUES(361,'S 550',20,1);
+INSERT INTO "cars_model" VALUES(362,'S 550 4MATIC',20,1);
+INSERT INTO "cars_model" VALUES(363,'S 600',20,1);
+INSERT INTO "cars_model" VALUES(364,'S 63 AMG',20,1);
+INSERT INTO "cars_model" VALUES(365,'S 65 AMG',20,1);
+INSERT INTO "cars_model" VALUES(366,'SL 550',20,1);
+INSERT INTO "cars_model" VALUES(367,'SL 63 AMG',20,1);
+INSERT INTO "cars_model" VALUES(368,'SL 65 AMG',20,1);
+INSERT INTO "cars_model" VALUES(369,'SLK 300',20,1);
+INSERT INTO "cars_model" VALUES(370,'SLK 350',20,1);
+INSERT INTO "cars_model" VALUES(371,'SLS AMG',20,1);
+INSERT INTO "cars_model" VALUES(372,'smart ForTwo (convertible)',20,1);
+INSERT INTO "cars_model" VALUES(373,'smart fortwo electric drive',20,1);
+INSERT INTO "cars_model" VALUES(374,'LANCER',21,1);
+INSERT INTO "cars_model" VALUES(375,'LANCER EVOLUTION',21,1);
+INSERT INTO "cars_model" VALUES(376,'LANCER SPORTBACK',21,1);
+INSERT INTO "cars_model" VALUES(377,'OUTLANDER 2WD',21,1);
+INSERT INTO "cars_model" VALUES(378,'OUTLANDER 4WD',21,1);
+INSERT INTO "cars_model" VALUES(379,'OUTLANDER SPORT 2WD',21,1);
+INSERT INTO "cars_model" VALUES(380,'OUTLANDER SPORT 4WD',21,1);
+INSERT INTO "cars_model" VALUES(381,'ECLIPSE',21,1);
+INSERT INTO "cars_model" VALUES(382,'ECLIPSE SPYDER',21,1);
+INSERT INTO "cars_model" VALUES(383,'ENDEAVOR 2WD',21,1);
+INSERT INTO "cars_model" VALUES(384,'ENDEAVOR AWD',21,1);
+INSERT INTO "cars_model" VALUES(385,'GALANT',21,1);
+INSERT INTO "cars_model" VALUES(386,'ARMADA SE 5.6L 4X4',22,1);
+INSERT INTO "cars_model" VALUES(387,'FRONTIER KING CAB XE',22,1);
+INSERT INTO "cars_model" VALUES(388,'FRONTIER KING CAB XE 4X2',22,1);
+INSERT INTO "cars_model" VALUES(389,'FRONTIER KING PRO4X4',22,1);
+INSERT INTO "cars_model" VALUES(390,'INFINITI EX35 AWD Journey',22,1);
+INSERT INTO "cars_model" VALUES(391,'INFINITI FX35 AWD',22,1);
+INSERT INTO "cars_model" VALUES(392,'INFINITI FX35 RWD',22,1);
+INSERT INTO "cars_model" VALUES(393,'INFINITI FX50 AWD',22,1);
+INSERT INTO "cars_model" VALUES(394,'INFINITI G25 Journey',22,1);
+INSERT INTO "cars_model" VALUES(395,'INFINITI G25x',22,1);
+INSERT INTO "cars_model" VALUES(396,'INFINITI G37 CONVERTIBLE Journey',22,1);
+INSERT INTO "cars_model" VALUES(397,'INFINITI G37 CONVERTIBLE Sport 6MT',22,1);
+INSERT INTO "cars_model" VALUES(398,'INFINITI G37 sedan Journey',22,1);
+INSERT INTO "cars_model" VALUES(399,'INFINITI G37 sedan Sport 6MT',22,1);
+INSERT INTO "cars_model" VALUES(400,'INFINITI G37X COUPE AWD',22,1);
+INSERT INTO "cars_model" VALUES(401,'INFINITI M37 Base',22,1);
+INSERT INTO "cars_model" VALUES(402,'INFINITI M37X Base',22,1);
+INSERT INTO "cars_model" VALUES(403,'INFINITI M56X Base',22,1);
+INSERT INTO "cars_model" VALUES(404,'INFINITI QX56 2WD',22,1);
+INSERT INTO "cars_model" VALUES(405,'INFINITI QX56 4WD',22,1);
+INSERT INTO "cars_model" VALUES(406,'370Z ROADSTER Touring',22,1);
+INSERT INTO "cars_model" VALUES(408,'ALTIMA 2.5S',22,1);
+INSERT INTO "cars_model" VALUES(409,'ALTIMA 3.5 SR',22,1);
+INSERT INTO "cars_model" VALUES(410,'COUPE 2.5 S',22,1);
+INSERT INTO "cars_model" VALUES(411,'ALTIMA HYBRID 4-DOOR SEDAN',22,1);
+INSERT INTO "cars_model" VALUES(412,'Armada SE 5.6l 4x4',22,1);
+INSERT INTO "cars_model" VALUES(413,'CUBE 1.8 S',22,1);
+INSERT INTO "cars_model" VALUES(414,'CUBE 1.8 SL',22,1);
+INSERT INTO "cars_model" VALUES(415,'FRONTIER 2WD XE',22,1);
+INSERT INTO "cars_model" VALUES(416,'FRONTIER KING CAB PRO-4X 4X4',22,1);
+INSERT INTO "cars_model" VALUES(417,'FRONTIER KING CAB SE',22,1);
+INSERT INTO "cars_model" VALUES(418,'FRONTIER KING CAB SE 4X2',22,1);
+INSERT INTO "cars_model" VALUES(419,'FRONTIER KING CAB SE 4X4',22,1);
+INSERT INTO "cars_model" VALUES(420,'GT-R',22,1);
+INSERT INTO "cars_model" VALUES(421,'JUKE SV',22,1);
+INSERT INTO "cars_model" VALUES(422,'LEAF UPR',22,1);
+INSERT INTO "cars_model" VALUES(423,'MAXIMA 3.5SV',22,1);
+INSERT INTO "cars_model" VALUES(424,'MAXIMA 4-DOOR SEDAN 3.5S',22,1);
+INSERT INTO "cars_model" VALUES(425,'MURANO AWD LE',22,1);
+INSERT INTO "cars_model" VALUES(426,'MURANO AWD SL',22,1);
+INSERT INTO "cars_model" VALUES(427,'MURANO CrossCabriolet Base',22,1);
+INSERT INTO "cars_model" VALUES(428,'PATHFINDER 4WD LE',22,1);
+INSERT INTO "cars_model" VALUES(429,'PATHFINDER SE 4X2',22,1);
+INSERT INTO "cars_model" VALUES(430,'PATHFINDER SE 4X4',22,1);
+INSERT INTO "cars_model" VALUES(431,'QUEST LE',22,1);
+INSERT INTO "cars_model" VALUES(432,'ROGUE AWD S',22,1);
+INSERT INTO "cars_model" VALUES(433,'ROGUE AWD SV',22,1);
+INSERT INTO "cars_model" VALUES(434,'ROGUE FWD S',22,1);
+INSERT INTO "cars_model" VALUES(435,'ROGUE FWD SV',22,1);
+INSERT INTO "cars_model" VALUES(436,'SENTRA 2.0',22,1);
+INSERT INTO "cars_model" VALUES(437,'SENTRA 2.0SL',22,1);
+INSERT INTO "cars_model" VALUES(438,'SENTRA 2.0SR',22,1);
+INSERT INTO "cars_model" VALUES(439,'SENTRA SE-R',22,1);
+INSERT INTO "cars_model" VALUES(440,'VERSA 1.6 4AT',22,1);
+INSERT INTO "cars_model" VALUES(441,'VERSA 1.6 Sedan',22,1);
+INSERT INTO "cars_model" VALUES(442,'VERSA 1.8S',22,1);
+INSERT INTO "cars_model" VALUES(443,'VERSA 1.8SL',22,1);
+INSERT INTO "cars_model" VALUES(444,'XTERRA 2WD S',22,1);
+INSERT INTO "cars_model" VALUES(445,'PATHFINDER SE 4X4',22,1);
+INSERT INTO "cars_model" VALUES(446,'SENTRA SE-R  Spec V',22,1);
+INSERT INTO "cars_model" VALUES(447,'SUZUKI EQUATOR 2WD',22,1);
+INSERT INTO "cars_model" VALUES(448,'TITAN 4WD Crew Cab LE SWB',22,1);
+INSERT INTO "cars_model" VALUES(449,'TITAN KING-5.6LE LWB',22,1);
+INSERT INTO "cars_model" VALUES(450,'TITAN KING-5.6LE SWB',22,1);
+INSERT INTO "cars_model" VALUES(451,'911 Carrera 3.6L',23,1);
+INSERT INTO "cars_model" VALUES(452,'911 Carrera S 3.8L',23,1);
+INSERT INTO "cars_model" VALUES(453,'911 GT2RS',23,1);
+INSERT INTO "cars_model" VALUES(454,'911 GT3',23,1);
+INSERT INTO "cars_model" VALUES(455,'911 Turbo',23,1);
+INSERT INTO "cars_model" VALUES(456,'911 Turbo S',23,1);
+INSERT INTO "cars_model" VALUES(457,'Cayenne',23,1);
+INSERT INTO "cars_model" VALUES(458,'Cayenne S',23,1);
+INSERT INTO "cars_model" VALUES(459,'Cayenne Turbo',23,1);
+INSERT INTO "cars_model" VALUES(460,'Cayman',23,1);
+INSERT INTO "cars_model" VALUES(461,'Cayman S',23,1);
+INSERT INTO "cars_model" VALUES(462,'Panamera',23,1);
+INSERT INTO "cars_model" VALUES(463,'Panamera 4S',23,1);
+INSERT INTO "cars_model" VALUES(464,'Panamera Turbo',23,1);
+INSERT INTO "cars_model" VALUES(465,'Ghost',24,1);
+INSERT INTO "cars_model" VALUES(466,'Phantom',24,1);
+INSERT INTO "cars_model" VALUES(467,'9-3 CONVERTIBLE',25,1);
+INSERT INTO "cars_model" VALUES(468,'9-3 SEDAN AWD',25,1);
+INSERT INTO "cars_model" VALUES(469,'9-3 SPORT SEDAN',25,1);
+INSERT INTO "cars_model" VALUES(470,'9-3 SPORTCOMBI',25,1);
+INSERT INTO "cars_model" VALUES(471,'9-5 SEDAN',25,1);
+INSERT INTO "cars_model" VALUES(472,'9-5 SEDAN AWD',25,1);
+INSERT INTO "cars_model" VALUES(473,'FORESTER AWD',26,1);
+INSERT INTO "cars_model" VALUES(474,'IMPREZA AWD',26,1);
+INSERT INTO "cars_model" VALUES(475,'IMPREZA WAGON AWD',26,1);
+INSERT INTO "cars_model" VALUES(476,'IMPREZA WGN/OUTBACK SPT AWD',26,1);
+INSERT INTO "cars_model" VALUES(477,'LEGACY SDN 4WD',26,1);
+INSERT INTO "cars_model" VALUES(478,'LEGACY SDN AWD',26,1);
+INSERT INTO "cars_model" VALUES(479,'OUTBACK AWD',26,1);
+INSERT INTO "cars_model" VALUES(480,'TRIBECA AWD',26,1);
+INSERT INTO "cars_model" VALUES(481,'GRAND VITARA',27,1);
+INSERT INTO "cars_model" VALUES(482,'GRAND VITARA 4WD',27,1);
+INSERT INTO "cars_model" VALUES(483,'KIZASHI AWD',27,1);
+INSERT INTO "cars_model" VALUES(484,'KIZASHI FWD',27,1);
+INSERT INTO "cars_model" VALUES(485,'SX4 2WD',27,1);
+INSERT INTO "cars_model" VALUES(486,'SX4 4WD',27,1);
+INSERT INTO "cars_model" VALUES(487,'4RUNNER 2WD',28,1);
+INSERT INTO "cars_model" VALUES(488,'4RUNNER 4WD',28,1);
+INSERT INTO "cars_model" VALUES(489,'CAMRY',28,1);
+INSERT INTO "cars_model" VALUES(490,'CAMRY HYBRID',28,1);
+INSERT INTO "cars_model" VALUES(491,'COROLLA',28,1);
+INSERT INTO "cars_model" VALUES(492,'COROLLA MATRIX',28,1);
+INSERT INTO "cars_model" VALUES(493,'CT 200h',28,1);
+INSERT INTO "cars_model" VALUES(494,'ES 350',28,1);
+INSERT INTO "cars_model" VALUES(495,'FJ CRUISER 2WD',28,1);
+INSERT INTO "cars_model" VALUES(496,'FJ CRUISER 4WD',28,1);
+INSERT INTO "cars_model" VALUES(497,'GS 350',28,1);
+INSERT INTO "cars_model" VALUES(498,'GS 350 AWD',28,1);
+INSERT INTO "cars_model" VALUES(499,'GS 450h',28,1);
+INSERT INTO "cars_model" VALUES(500,'GS 460',28,1);
+INSERT INTO "cars_model" VALUES(501,'GX 460',28,1);
+INSERT INTO "cars_model" VALUES(502,'HIGHLANDER 2WD',28,1);
+INSERT INTO "cars_model" VALUES(503,'HIGHLANDER 4WD',28,1);
+INSERT INTO "cars_model" VALUES(504,'HIGHLANDER HYBRID 4WD',28,1);
+INSERT INTO "cars_model" VALUES(505,'HS 250h',28,1);
+INSERT INTO "cars_model" VALUES(506,'iQ',28,1);
+INSERT INTO "cars_model" VALUES(507,'IS 250 AWD',28,1);
+INSERT INTO "cars_model" VALUES(508,'IS 250/IS 250C',28,1);
+INSERT INTO "cars_model" VALUES(509,'IS 350/IS 350C',28,1);
+INSERT INTO "cars_model" VALUES(510,'IS F',28,1);
+INSERT INTO "cars_model" VALUES(511,'LAND CRUISER WAGON 4WD',28,1);
+INSERT INTO "cars_model" VALUES(512,'LS 460 AWD',28,1);
+INSERT INTO "cars_model" VALUES(513,'LS 460 L',28,1);
+INSERT INTO "cars_model" VALUES(514,'LS 600h L',28,1);
+INSERT INTO "cars_model" VALUES(515,'LX 570',28,1);
+INSERT INTO "cars_model" VALUES(516,'PRIUS',28,1);
+INSERT INTO "cars_model" VALUES(517,'RAV4 2WD',28,1);
+INSERT INTO "cars_model" VALUES(518,'RAV4 4WD',28,1);
+INSERT INTO "cars_model" VALUES(519,'RX 350',28,1);
+INSERT INTO "cars_model" VALUES(520,'RX 350 AWD',28,1);
+INSERT INTO "cars_model" VALUES(521,'RX 450h',28,1);
+INSERT INTO "cars_model" VALUES(522,'RX 450h AWD',28,1);
+INSERT INTO "cars_model" VALUES(523,'SCION xB',28,1);
+INSERT INTO "cars_model" VALUES(524,'SCION xD',28,1);
+INSERT INTO "cars_model" VALUES(525,'SEQUOIA 2WD',28,1);
+INSERT INTO "cars_model" VALUES(526,'SEQUOIA 4WD',28,1);
+INSERT INTO "cars_model" VALUES(527,'SIENNA',28,1);
+INSERT INTO "cars_model" VALUES(528,'SIENNA AWD',28,1);
+INSERT INTO "cars_model" VALUES(529,'TACOMA 2WD',28,1);
+INSERT INTO "cars_model" VALUES(530,'TACOMA 4WD',28,1);
+INSERT INTO "cars_model" VALUES(531,'tC',28,1);
+INSERT INTO "cars_model" VALUES(534,'TUNDRA 2WD',28,1);
+INSERT INTO "cars_model" VALUES(535,'TUNDRA 4WD',28,1);
+INSERT INTO "cars_model" VALUES(536,'TUNDRA 2WD',28,1);
+INSERT INTO "cars_model" VALUES(537,'VENZA',28,1);
+INSERT INTO "cars_model" VALUES(538,'VENZA AWD',28,1);
+INSERT INTO "cars_model" VALUES(539,'YARIS',28,1);
+INSERT INTO "cars_model" VALUES(540,'CC',29,1);
+INSERT INTO "cars_model" VALUES(541,'Eos',29,1);
+INSERT INTO "cars_model" VALUES(542,'Golf',29,1);
+INSERT INTO "cars_model" VALUES(543,'Jetta',29,1);
+INSERT INTO "cars_model" VALUES(544,'JETTA SPORTWAGEN',29,1);
+INSERT INTO "cars_model" VALUES(545,'Passat',29,1);
+INSERT INTO "cars_model" VALUES(546,'PASSAT CC 4MOTION',29,1);
+INSERT INTO "cars_model" VALUES(547,'Touareg',29,1);
+INSERT INTO "cars_model" VALUES(548,'C30 T5 FWD',30,1);
+INSERT INTO "cars_model" VALUES(549,'C70 T5 FWD',30,1);
+INSERT INTO "cars_model" VALUES(550,'S60 T6 AWD',30,1);
+INSERT INTO "cars_model" VALUES(551,'S80 3.2 FWD',30,1);
+INSERT INTO "cars_model" VALUES(552,'S80 3.2 FWD PZEV',30,1);
+INSERT INTO "cars_model" VALUES(553,'XC60 3.2 AWD PZEV',30,1);
+INSERT INTO "cars_model" VALUES(554,'XC60 3.2 FWD',30,1);
+INSERT INTO "cars_model" VALUES(555,'XC60 3.2 FWD PZEV',30,1);
+INSERT INTO "cars_model" VALUES(556,'XC60 AWD 3.2',30,1);
+INSERT INTO "cars_model" VALUES(557,'XC60 T6 AWD',30,1);
+INSERT INTO "cars_model" VALUES(558,'XC70 3.2 AWD',30,1);
+INSERT INTO "cars_model" VALUES(559,'XC70 3.2 AWD PZEV',30,1);
+INSERT INTO "cars_model" VALUES(560,'XC70 3.2 FWD',30,1);
+INSERT INTO "cars_model" VALUES(561,'XC70 3.2 FWD PZEV',30,1);
+INSERT INTO "cars_model" VALUES(562,'XC70 T6 AWD',30,1);
+INSERT INTO "cars_model" VALUES(563,'XC90 3.2 AWD',30,1);
+INSERT INTO "cars_model" VALUES(564,'XC90 FWD 3.2',30,1);
+INSERT INTO "cars_model" VALUES(565,'XC90 V8 AWD',30,1);
+INSERT INTO "cars_model" VALUES(566,'MV-1',31,1);
+CREATE TABLE "django_admin_log" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "action_time" datetime NOT NULL,
+    "user_id" integer NOT NULL REFERENCES "auth_user" ("id"),
+    "content_type_id" integer REFERENCES "django_content_type" ("id"),
+    "object_id" text,
+    "object_repr" varchar(200) NOT NULL,
+    "action_flag" smallint unsigned NOT NULL,
+    "change_message" text NOT NULL
+);
+INSERT INTO "django_admin_log" VALUES(1,'2011-11-29 22:10:03.951099',2,7,'1','http://cmpt470.csil.sfu.ca:8010/',2,'Changed domain and name.');
+INSERT INTO "django_admin_log" VALUES(2,'2011-11-29 22:50:47.668888',2,7,'1','http://cmpt470.csil.sfu.ca:8010',2,'Changed domain.');
+INSERT INTO "django_admin_log" VALUES(3,'2011-11-30 10:24:37.474887',2,2,'1','aston martin
+2',3,'');
+INSERT INTO "django_admin_log" VALUES(4,'2011-11-30 10:25:06.667627',2,2,'1','Users',1,'');
+INSERT INTO "django_admin_log" VALUES(5,'2011-11-30 10:25:59.379040',2,3,'3','catherinetan',2,'Changed is_superuser.');
+INSERT INTO "django_admin_log" VALUES(6,'2011-11-30 10:26:11.171018',2,3,'1','ivan',2,'No fields changed.');
+INSERT INTO "django_admin_log" VALUES(7,'2011-11-30 19:54:18.884879',2,11,'254','254',3,'');
+INSERT INTO "django_admin_log" VALUES(8,'2011-11-30 19:54:56.648102',2,11,'344','344',3,'');
+INSERT INTO "django_admin_log" VALUES(9,'2011-12-02 14:51:10.864513',2,7,'1','cmpt470.csil.sfu.ca:8010',2,'Changed domain.');
+INSERT INTO "django_admin_log" VALUES(10,'2011-12-02 15:23:37.859320',2,3,'3','catherinetan',2,'Changed is_staff.');
+INSERT INTO "django_admin_log" VALUES(11,'2011-12-03 16:06:43.675000',2,13,'34','aww what is this PDA going on... this Page Dominated by Automobiles?!',2,'Changed NAME.');
+INSERT INTO "django_admin_log" VALUES(12,'2011-12-03 16:06:58.509754',2,13,'35',' I think you guys need to get a room... a showroom to display all these fine makes of vehicles!',2,'Changed NAME.');
+INSERT INTO "django_admin_log" VALUES(13,'2011-12-06 21:13:11.229889',2,9,'1','Aston Martin',2,'Changed MAKE_NAME.');
+INSERT INTO "django_admin_log" VALUES(14,'2011-12-06 21:14:54.439630',2,9,'19','Mazda',2,'Changed MAKE_NAME.');
+INSERT INTO "django_admin_log" VALUES(15,'2011-12-06 21:17:05.751427',2,3,'1','ivanma',2,'Changed username.');
+INSERT INTO "django_admin_log" VALUES(16,'2011-12-06 21:35:54.234429',2,3,'7','Ivan',2,'Changed is_staff and is_superuser.');
+INSERT INTO "django_admin_log" VALUES(17,'2011-12-06 21:36:33.183991',2,3,'1','ivanma',3,'');
+INSERT INTO "django_admin_log" VALUES(18,'2011-12-06 21:36:43.653471',2,3,'6','christine',2,'Changed is_staff and is_superuser.');
+INSERT INTO "django_admin_log" VALUES(19,'2011-12-06 21:36:48.707851',7,10,'533','TOYOTA TACOMA 4WD',3,'');
+INSERT INTO "django_admin_log" VALUES(20,'2011-12-06 21:36:48.835305',7,10,'532','TOYOTA TACOMA 2WD',3,'');
+INSERT INTO "django_admin_log" VALUES(21,'2011-12-06 21:37:10.642619',7,10,'535','TUNDRA 4WD',2,'Changed MODEL_NAME.');
+INSERT INTO "django_admin_log" VALUES(22,'2011-12-06 21:37:20.714501',7,10,'534','TUNDRA 2WD',2,'Changed MODEL_NAME.');
+INSERT INTO "django_admin_log" VALUES(23,'2011-12-06 21:38:17.747861',7,10,'443','VERSA 1.8SL',2,'Changed MODEL_NAME.');
+INSERT INTO "django_admin_log" VALUES(24,'2011-12-06 21:38:45.097232',7,10,'444','XTERRA 2WD S',2,'Changed MODEL_NAME.');
+INSERT INTO "django_admin_log" VALUES(25,'2011-12-06 21:38:49.033660',7,10,'444','XTERRA 2WD S',2,'No fields changed.');
+INSERT INTO "django_admin_log" VALUES(26,'2011-12-06 21:39:22.399473',7,10,'442','VERSA 1.8S',2,'Changed MODEL_NAME.');
+INSERT INTO "django_admin_log" VALUES(27,'2011-12-06 21:39:39.145753',7,10,'441','VERSA 1.6 Sedan',2,'Changed MODEL_NAME.');
+INSERT INTO "django_admin_log" VALUES(28,'2011-12-06 21:40:00.993436',7,10,'440','VERSA 1.6 4AT',2,'Changed MODEL_NAME.');
+INSERT INTO "django_admin_log" VALUES(29,'2011-12-06 21:40:14.637808',7,10,'439','SENTRA SE-R',2,'Changed MODEL_NAME.');
+INSERT INTO "django_admin_log" VALUES(30,'2011-12-06 21:40:29.814315',7,10,'438','SENTRA 2.0SR',2,'Changed MODEL_NAME.');
+INSERT INTO "django_admin_log" VALUES(31,'2011-12-06 21:40:43.212383',7,10,'437','SENTRA 2.0SL',2,'Changed MODEL_NAME.');
+INSERT INTO "django_admin_log" VALUES(32,'2011-12-06 21:40:59.875665',7,10,'436','SENTRA 2.0',2,'Changed MODEL_NAME.');
+INSERT INTO "django_admin_log" VALUES(33,'2011-12-06 21:41:10.686384',7,10,'435','ROGUE FWD SV',2,'Changed MODEL_NAME.');
+INSERT INTO "django_admin_log" VALUES(34,'2011-12-06 21:41:26.181274',7,10,'434','ROGUE FWD S',2,'Changed MODEL_NAME.');
+INSERT INTO "django_admin_log" VALUES(35,'2011-12-06 21:41:49.426095',7,10,'433','ROGUE AWD SV',2,'Changed MODEL_NAME.');
+INSERT INTO "django_admin_log" VALUES(36,'2011-12-06 21:42:04.684478',7,10,'432','ROGUE AWD S',2,'Changed MODEL_NAME.');
+INSERT INTO "django_admin_log" VALUES(37,'2011-12-06 21:42:16.426536',7,10,'431','QUEST LE',2,'Changed MODEL_NAME.');
+INSERT INTO "django_admin_log" VALUES(38,'2011-12-06 21:42:26.929552',7,10,'430','PATHFINDER SE 4X4',2,'Changed MODEL_NAME.');
+INSERT INTO "django_admin_log" VALUES(39,'2011-12-06 21:42:38.170044',7,10,'429','PATHFINDER SE 4X2',2,'Changed MODEL_NAME.');
+INSERT INTO "django_admin_log" VALUES(40,'2011-12-06 21:42:54.140741',7,10,'428','PATHFINDER 4WD LE',2,'Changed MODEL_NAME.');
+INSERT INTO "django_admin_log" VALUES(41,'2011-12-06 21:43:07.423575',7,10,'427','MURANO CrossCabriolet Base',2,'Changed MODEL_NAME.');
+INSERT INTO "django_admin_log" VALUES(42,'2011-12-06 21:43:27.010283',7,10,'426','MURANO AWD SL',2,'Changed MODEL_NAME.');
+INSERT INTO "django_admin_log" VALUES(43,'2011-12-06 21:43:39.723774',7,10,'425','MURANO AWD LE',2,'Changed MODEL_NAME.');
+INSERT INTO "django_admin_log" VALUES(44,'2011-12-06 21:43:52.484934',7,10,'424','MAXIMA 4-DOOR SEDAN 3.5S',2,'Changed MODEL_NAME.');
+INSERT INTO "django_admin_log" VALUES(45,'2011-12-06 21:44:05.540953',7,10,'423','MAXIMA 3.5SV',2,'Changed MODEL_NAME.');
+INSERT INTO "django_admin_log" VALUES(46,'2011-12-06 21:44:18.138133',7,10,'422','LEAF UPR',2,'Changed MODEL_NAME.');
+INSERT INTO "django_admin_log" VALUES(47,'2011-12-06 21:44:31.904541',7,10,'421','JUKE SV',2,'Changed MODEL_NAME.');
+INSERT INTO "django_admin_log" VALUES(48,'2011-12-06 21:45:04.060471',7,10,'420','GT-R',2,'Changed MODEL_NAME.');
+INSERT INTO "django_admin_log" VALUES(49,'2011-12-06 21:45:17.472132',7,10,'419','FRONTIER KING CAB SE 4X4',2,'Changed MODEL_NAME.');
+INSERT INTO "django_admin_log" VALUES(50,'2011-12-06 21:45:29.075076',7,10,'418','FRONTIER KING CAB SE 4X2',2,'Changed MODEL_NAME.');
+INSERT INTO "django_admin_log" VALUES(51,'2011-12-06 21:45:41.206333',7,10,'417','FRONTIER KING CAB SE',2,'Changed MODEL_NAME.');
+INSERT INTO "django_admin_log" VALUES(52,'2011-12-06 21:46:00.542188',7,10,'416','FRONTIER KING CAB PRO-4X 4X4',2,'Changed MODEL_NAME.');
+INSERT INTO "django_admin_log" VALUES(53,'2011-12-06 21:46:14.097940',7,10,'415','FRONTIER 2WD XE',2,'Changed MODEL_NAME.');
+INSERT INTO "django_admin_log" VALUES(54,'2011-12-06 21:46:28.739999',7,10,'414','CUBE 1.8 SL',2,'Changed MODEL_NAME.');
+INSERT INTO "django_admin_log" VALUES(55,'2011-12-06 21:46:43.988521',7,10,'413','CUBE 1.8 S',2,'Changed MODEL_NAME.');
+INSERT INTO "django_admin_log" VALUES(56,'2011-12-06 21:46:54.708029',7,10,'412','Armada SE 5.6l 4x4',2,'Changed MODEL_NAME.');
+INSERT INTO "django_admin_log" VALUES(57,'2011-12-06 21:47:11.275668',7,10,'411','ALTIMA HYBRID 4-DOOR SEDAN',2,'Changed MODEL_NAME.');
+INSERT INTO "django_admin_log" VALUES(58,'2011-12-06 21:47:34.605414',7,10,'410','ALTIMA COUPE 2.5 S',2,'Changed MODEL_NAME.');
+INSERT INTO "django_admin_log" VALUES(59,'2011-12-06 21:47:43.055007',7,10,'410','COUPE 2.5 S',2,'Changed MODEL_NAME.');
+INSERT INTO "django_admin_log" VALUES(60,'2011-12-06 21:47:49.135510',7,10,'410','COUPE 2.5 S',2,'No fields changed.');
+INSERT INTO "django_admin_log" VALUES(61,'2011-12-06 21:48:35.637203',7,10,'409','ALTIMA 3.5 SR',2,'Changed MODEL_NAME.');
+INSERT INTO "django_admin_log" VALUES(62,'2011-12-06 21:48:53.080045',7,10,'408','ALTIMA 2.5S',2,'Changed MODEL_NAME.');
+INSERT INTO "django_admin_log" VALUES(63,'2011-12-06 21:49:23.612960',7,10,'407','NISSAN ALTIMA 2.5 S',3,'');
+INSERT INTO "django_admin_log" VALUES(64,'2011-12-06 21:49:47.378181',7,10,'406','370Z ROADSTER Touring',2,'Changed MODEL_NAME.');
+INSERT INTO "django_admin_log" VALUES(65,'2011-12-06 21:50:30.343635',7,10,'318','MAZDA3',2,'Changed MODEL_NAME.');
+CREATE TABLE "cars_images" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "CAR_id" integer NOT NULL REFERENCES "cars_car" ("id"),
+    "IMAGE" varchar(100) NOT NULL
+);
+INSERT INTO "cars_images" VALUES(1,2,'/media/2011-2-2');
+CREATE TABLE "cars_comment" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "CAR_id" integer NOT NULL REFERENCES "cars_car" ("id"),
+    "COMMENT" varchar(255) NOT NULL,
+    "NAME" varchar(20) NOT NULL,
+    "DATE" datetime NOT NULL
+);
+INSERT INTO "cars_comment" VALUES(1,8,'supdawg ','dandan','2011-11-28 20:12:15.694369');
+INSERT INTO "cars_comment" VALUES(2,8,'ok ','retard','2011-11-28 20:15:41.366708');
+INSERT INTO "cars_comment" VALUES(3,1,'Hi I like this car! ','Catherine','2011-11-28 20:46:15.035580');
+INSERT INTO "cars_comment" VALUES(4,1,'Me too!!! ','Dan Ho','2011-11-28 20:51:31.774061');
+INSERT INTO "cars_comment" VALUES(5,2,'Yay i am the first :) ','Catherine','2011-11-28 21:00:41.207859');
+INSERT INTO "cars_comment" VALUES(6,2,'Hi ','Dan','2011-11-28 21:09:42.205144');
+INSERT INTO "cars_comment" VALUES(7,2,'How are you? ','Catherine','2011-11-28 21:09:55.244431');
+INSERT INTO "cars_comment" VALUES(8,2,' OH!','Dan Ho','2011-11-28 21:17:15.610247');
+INSERT INTO "cars_comment" VALUES(9,2,' Phillips is also currently offering 30 percent off all orders of $100 or more with free shipping with code "BF2011SALE" through Cyber Monday. Of course, there is a catch -- "TVs, DVD and Blu-ray Players, and Home Theater systems" are excluded. Hey, you can still snag a Norelco for trimming those nose hairs, though!
+','Catherine Tan','2011-11-28 21:17:47.501107');
+INSERT INTO "cars_comment" VALUES(10,2,' Makerbot has a duo of tempting deals through Cyber Monday for anyone who''s been wanting to get into 3D printing. You can snag an assembled Thing-O-Matic printer for $1,999 (normally $2,500) using code "TRYPTOPHAN" or pay $999 (normally about $1,200) and assemble it yourself with code "TURKEYSTUFFER"','Dan','2011-11-28 21:20:57.680388');
+INSERT INTO "cars_comment" VALUES(11,37,'Nice work, change the pic pls. ','Jeffrey','2011-11-29 11:44:54.665583');
+INSERT INTO "cars_comment" VALUES(12,37,'OK! ','Catherine','2011-11-29 11:45:05.816018');
+INSERT INTO "cars_comment" VALUES(13,37,' go change it now... ','Eric','2011-11-29 11:45:28.600477');
+INSERT INTO "cars_comment" VALUES(14,1,'Niceeee~ ','Zael','2011-11-29 15:59:57.444673');
+INSERT INTO "cars_comment" VALUES(15,1,' Where is my name.','Catherine Tan','2011-11-29 22:51:28.833878');
+INSERT INTO "cars_comment" VALUES(16,1,' Cat','','2011-11-29 23:14:55.145760');
+INSERT INTO "cars_comment" VALUES(17,1,' cat','catherinetan','2011-11-29 23:15:24.243659');
+INSERT INTO "cars_comment" VALUES(18,1,' YES this is cat','catherinetan','2011-11-29 23:18:22.209610');
+INSERT INTO "cars_comment" VALUES(19,1,' DAN!','danho','2011-11-29 23:18:43.781177');
+INSERT INTO "cars_comment" VALUES(20,305,' This car rocks.','danho','2011-11-29 23:20:22.361853');
+INSERT INTO "cars_comment" VALUES(21,1,' Helllllo~','','2011-11-29 23:29:53.252604');
+INSERT INTO "cars_comment" VALUES(22,1,' Guest commenting!','guest','2011-11-29 23:30:47.997728');
+INSERT INTO "cars_comment" VALUES(23,1,' lalal','guest','2011-11-30 00:32:13.363446');
+INSERT INTO "cars_comment" VALUES(24,251,' This car is very green.','danho','2011-11-30 11:48:28.921641');
+INSERT INTO "cars_comment" VALUES(25,251,' Yes so true.','guest','2011-11-30 11:50:01.513335');
+INSERT INTO "cars_comment" VALUES(26,243,' Catherine is super awesome and she is my favorite =)','danho','2011-12-01 11:57:49.134687');
+INSERT INTO "cars_comment" VALUES(27,4,'COOL STUFF CATHERINE
+
+YOUR ACCOUNT ACTIVATION LINK IS BROKEN DUDE.  http://http://cmpt470.csil.sfu.ca:8010/greengears/cars/accounts/activate/41ce0693218bb11092a416033d830e33d2f3793b/
+
+LOOK HOW THERES TWO HTTPS. WOOPS.','brent','2011-12-01 14:41:17.009765');
+INSERT INTO "cars_comment" VALUES(28,302,' This Website is Rocks My world...!!','guest','2011-12-01 14:41:54.659508');
+INSERT INTO "cars_comment" VALUES(29,302,' I Selected RangeRover Sports but it shows a picture of Honda... WTF....  ','guest','2011-12-01 14:42:48.418260');
+INSERT INTO "cars_comment" VALUES(30,27,' Good Car!!','guest','2011-12-01 16:22:50.125874');
+INSERT INTO "cars_comment" VALUES(31,302,'Image upload is coming soon. Please come back! :)','danho','2011-12-02 15:13:58.267450');
+INSERT INTO "cars_comment" VALUES(32,269,' Awesome guys! nice work. One day i''m going to use this when i''m buying a car!','marcirawan','2011-12-02 16:08:43.913228');
+INSERT INTO "cars_comment" VALUES(33,4,' Brent! Activation link is working! Catherine told me to say this. :p','marcirawan','2011-12-02 16:09:18.821634');
+INSERT INTO "cars_comment" VALUES(34,243,'aww what is this PDA going on... this Page Dominated by Automobiles?!','mikepalazzo','2011-12-02 21:14:59');
+INSERT INTO "cars_comment" VALUES(35,243,' I think you guys need to get a room... a showroom to display all these fine makes of vehicles!','mikepalazzo','2011-12-02 21:16:13');
+INSERT INTO "cars_comment" VALUES(36,1,'','','2011-12-04 02:02:40.868476');
+INSERT INTO "cars_comment" VALUES(37,300,' abc testing 123
+','guest','2011-12-06 15:15:31.231057');
+INSERT INTO "cars_comment" VALUES(38,300,' abc testing 123
+','guest','2011-12-06 15:15:31.689115');
+INSERT INTO "cars_comment" VALUES(39,300,' abc testing 123 abc testing 123 abc testing 123 abc testing 123 abc testing 123 abc testing 123 abc testing 123 abc testing 123 abc testing 123 abc testing 123 abc testing 123 abc testing 123','guest','2011-12-06 15:16:00.986726');
+CREATE TABLE "registration_registrationprofile" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "user_id" integer NOT NULL UNIQUE REFERENCES "auth_user" ("id"),
+    "activation_key" varchar(40) NOT NULL
+);
+INSERT INTO "registration_registrationprofile" VALUES(1,3,'ALREADY_ACTIVATED');
+INSERT INTO "registration_registrationprofile" VALUES(2,4,'ALREADY_ACTIVATED');
+INSERT INTO "registration_registrationprofile" VALUES(3,5,'ALREADY_ACTIVATED');
+INSERT INTO "registration_registrationprofile" VALUES(4,6,'ALREADY_ACTIVATED');
+INSERT INTO "registration_registrationprofile" VALUES(5,7,'ALREADY_ACTIVATED');
+CREATE TABLE "ratings_rateditem" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "score" real NOT NULL,
+    "user_id" integer NOT NULL REFERENCES "auth_user" ("id"),
+    "hashed" varchar(40) NOT NULL,
+    "object_id" integer NOT NULL,
+    "content_type_id" integer NOT NULL REFERENCES "django_content_type" ("id")
+);
+CREATE TABLE "ratings_similaritem" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "content_type_id" integer NOT NULL REFERENCES "django_content_type" ("id"),
+    "object_id" integer NOT NULL,
+    "similar_content_type_id" integer NOT NULL REFERENCES "django_content_type" ("id"),
+    "similar_object_id" integer NOT NULL,
+    "score" real NOT NULL
+);
+CREATE TABLE 'cars_car' (
+    'id' integer PRIMARY KEY NOT NULL,
+    'YEAR_id' integer NOT NULL,
+    'MAKE_id' integer NOT NULL,
+    'MODEL_id' integer NOT NULL,
+    'MPG' integer NOT NULL,
+    'HP' integer NOT NULL,
+    'BODYTYPE' varchar(20) NOT NULL,
+    'TRANSMISSION' varchar(20) NOT NULL,
+    'NUM_GEARS' integer NOT NULL,
+    'DRIVETRAIN' varchar(20) NOT NULL,
+    'SIL' varchar(5) NOT NULL,
+    'AXELRATIO' real NOT NULL,
+    'NVRATIO' real NOT NULL,
+    'CURBWEIGHT' integer NOT NULL,
+    'CO2' real NOT NULL,
+    'CO' real NOT NULL,
+    'THC' real NOT NULL,
+    'NOX' real NOT NULL,
+    'AFTERTREATMENT_DEVICE' CHAR NOT NULL ON CONFLICT IGNORE,
+    'CYLINDER' INTEGER NOT NULL ON CONFLICT IGNORE DEFAULT 0,
+    'COUNT' INTEGER DEFAULT 0
+);
+INSERT INTO "cars_car" VALUES(1,1,1,5,28.8,430,'Car','Automated Manual',7,'2-Wheel Drive, Rear','Not eqipped',4.18,36.2,4000,306.95,0.1417,0.00034,2.0e-05,'Three-way catalyst',8,9);
+INSERT INTO "cars_car" VALUES(2,1,1,4,27.4,420,'Car','Automated Manual',6,'2-Wheel Drive, Rear','Not eqipped',3.91,38.6,4000,323.1989,0.2568,0.0017,0.0021,'Three-way catalyst',8,3);
+INSERT INTO "cars_car" VALUES(3,1,1,3,26.6,470,'Car','Semi-Automatic',6,'2-Wheel Drive, Rear','Not eqipped',3.46,28.7,4750,332.02,0.006,0.0003,0.0055,'Three-way catalyst',12,0);
+INSERT INTO "cars_car" VALUES(4,1,1,1,23.7,470,'Car','Manual',6,'2-Wheel Drive, Rear','Not eqipped',3.54,34.9,4500,378.31,0.0184,0.00042,0.0079,'NA',-1,1);
+INSERT INTO "cars_car" VALUES(5,1,1,2,22.9,510,'Car','Manual',6,'2-Wheel Drive, Rear','Not eqipped',3.7,35.9,4500,390.5,0.0,0.003,0.058,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(6,1,2,22,43.5,211,'Car','Automatic',6,'All Wheel Drive','Not eqipped',3.44,32.3,3500,204.0,0.14,0.0041,0.001,'Three-way catalyst',4,2);
+INSERT INTO "cars_car" VALUES(7,1,2,14,42,200,'Car','Manual',6,'2-Wheel Drive, Front','Not eqipped',3.09,39.2,3625,212.0,0.18,0.0058,0.001,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(8,1,2,13,44,200,'Car','Automatic',6,'2-Wheel Drive, Front','Not eqipped',4.06,40.7,3375,201.0,0.09,0.0067,0.002,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(9,1,2,6,40,200,'Car','Automatic',6,'2-Wheel Drive, Front','Not eqipped',4.06,40.7,3750,222.0,0.13,0.002,0.002,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(10,1,2,7,37.1,200,'Car','Automatic',6,'All Wheel Drive','Not eqipped',4.06,40.6,3875,239.0,0.23,0.0055,0.003,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(11,1,2,10,40.8,265,'Both','Continuously Variable',1,'2-Wheel Drive, Front','Not eqipped',4.88,26.7,4250,216.0,0.35,0.011,0.004,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(12,1,2,18,35,333,'Car','Automatic',7,'All Wheel Drive','Not eqipped',3.88,32.3,4250,252.0,0.28,0.0114,0.004,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(13,1,2,9,42.1,211,'Car','Manual',6,'All Wheel Drive','Not eqipped',3.46,34.8,4000,210.0,0.17,0.0103,0.004,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(14,1,2,21,35.8,200,'Car','Manual',6,'2-Wheel Drive, Front','Not eqipped',3.3,38.5,3875,248.3542822,0.0925317,0.0030219,0.0041642,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(15,1,2,8,42.9,211,'Car','Continuously Variable',1,'2-Wheel Drive, Front','Not eqipped',3.09,26.1,3875,207.0,0.11,0.0116,0.005,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(16,1,2,20,26.7,429,'Car','Automatic',6,'All Wheel Drive','Not eqipped',3.8,35.5,4750,333.0,0.39,0.006,0.005,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(17,1,2,23,37.3,265,'Car','Automatic',6,'All Wheel Drive','Not eqipped',4.77,41.0,3750,238.0,0.16,0.0153,0.005,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(18,1,2,12,36.1,372,'Car','Automatic',8,'All Wheel Drive','Not eqipped',3.2,26.7,4750,246.0,0.15,0.0398,0.006,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(19,1,2,15,35.9,211,'Both','Automatic',8,'All Wheel Drive','Equipped, not shifted by SIL',3.76,30.3,4500,247.0,0.18,0.0141,0.007,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(20,1,2,17,27.9,430,'Car','Automated Manual',6,'All Wheel Drive','Not eqipped',4.57,43.6,4000,318.0,0.35,0.061,0.007,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(21,1,2,19,29.3,354,'Car','Manual',6,'All Wheel Drive','Not eqipped',3.88,41.2,4250,302.0,0.46,0.0376,0.014,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(22,1,2,11,32.2,350,'Car','Automatic',6,'All Wheel Drive','Not eqipped',3.31,31.3,4500,274.0,0.097,0.0104,0.0293,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(23,1,2,16,37.4,225,'Truck','Automatic',8,'All Wheel Drive','Not eqipped',3.27,26.8,6000,271.5974079,0.0,0.003477,0.0404411,'Selective Catalytic Reduction',6,0);
+INSERT INTO "cars_car" VALUES(24,1,3,24,16.7,621,'Car','Automatic',6,'All Wheel Drive','Not eqipped',3.53,30.4,6000,371.6106239,0.0186057,0.0004749,0.0068407,'Three-way catalyst',12,0);
+INSERT INTO "cars_car" VALUES(25,1,3,25,23.4,505,'Car','Semi-Automatic',8,'2-Wheel Drive, Rear','Not eqipped',2.92,22.3,6000,379.3366325,0.0806486,0.0118786,0.008875,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(26,1,4,35,36.2,230,'Car','Semi-Automatic',6,'All Wheel Drive','Not eqipped',3.91,36.6,3875,245.65,0.0178,5.0e-05,0.0002,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(27,1,4,32,36.8,230,'Car','Semi-Automatic',6,'2-Wheel Drive, Rear','Not eqipped',3.91,36.6,4250,241.98,0.0326,0.00045,0.0003,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(28,1,4,80,36.7,265,'Truck','Automatic',6,'All Wheel Drive','Not eqipped',3.64,30.0,5500,276.99,0.0165,0.01882,0.0008,'Diesel Particulate Filter',6,0);
+INSERT INTO "cars_car" VALUES(29,1,4,67,52.5,122,'Car','Automatic',6,'2-Wheel Drive, Front','Not eqipped',4.1,40.7,2875,168.74,0.0602,0.00665,0.0009,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(30,1,4,68,50.1,122,'Car','Automatic',6,'2-Wheel Drive, Front','Not eqipped',4.1,39.9,3125,177.41,0.1024,0.02335,0.001,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(31,1,4,69,50.7,122,'Car','Automatic',6,'2-Wheel Drive, Front','Not eqipped',4.1,40.7,3125,175.3,0.0766,0.01022,0.001,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(32,1,4,26,40.9,230,'Both','Manual',6,'2-Wheel Drive, Rear','Not eqipped',3.23,37.8,3500,216.4,0.0006,0.00047,0.001,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(33,1,4,78,47.2,205,'Car','Manual',6,'2-Wheel Drive, Front','Not eqipped',3.65,42.5,3125,187.93,0.2538,0.01276,0.0012,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(34,1,4,45,43.2,300,'Car','Semi-Automatic',8,'2-Wheel Drive, Rear','Not eqipped',3.08,20.7,4500,206.37,0.033,0.00038,0.0012,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(35,1,4,66,51.6,122,'Car','Automatic',6,'2-Wheel Drive, Front','Not eqipped',4.1,40.7,3125,171.58,0.0813,0.00725,0.0013,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(36,1,4,72,46.5,205,'Car','Manual',6,'2-Wheel Drive, Front','Not eqipped',3.65,42.5,3250,190.89,0.2459,0.01017,0.0013,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(37,1,4,31,35.9,230,'Car','Manual',6,'2-Wheel Drive, Rear','Not eqipped',3.38,39.6,4000,248.3,0.0,0.00156,0.0014,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(38,1,4,49,41.9,300,'Car','Semi-Automatic',8,'2-Wheel Drive, Rear','Not eqipped',3.08,26.7,4500,212.46,0.035,0.00171,0.0014,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(39,1,4,27,37,230,'Both','Automatic',6,'2-Wheel Drive, Rear','Not eqipped',3.73,34.5,3875,239.74,0.0042,0.00086,0.0015,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(40,1,4,71,46.1,205,'Car','Manual',6,'2-Wheel Drive, Front','Not eqipped',3.65,42.5,3000,192.66,0.2194,0.01145,0.0018,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(41,1,4,38,37.3,300,'Both','Manual',6,'All Wheel Drive','Not eqipped',3.08,36.1,4000,237.67,0.1636,0.00415,0.0018,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(42,1,4,43,35.8,320,'Car','Semi-Automatic',7,'2-Wheel Drive, Rear','Not eqipped',2.56,35.5,4250,248.23,0.0,0.00043,0.0018,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(43,1,4,46,40.9,300,'Car','Semi-Automatic',8,'2-Wheel Drive, Rear','Not eqipped',3.08,25.7,4750,217.48,0.0508,0.00065,0.0019,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(44,1,4,30,38.2,230,'Both','Manual',6,'2-Wheel Drive, Rear','Not eqipped',3.23,38.0,3625,230.94,0.014,0.00054,0.0019,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(45,1,4,34,34.9,230,'Car','Manual',6,'All Wheel Drive','Not eqipped',3.38,40.0,3875,255.29,0.0,0.00045,0.002,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(46,1,4,70,42,122,'Car','Automatic',6,'2-Wheel Drive, Front','Not eqipped',4.64,42.5,3375,210.72,0.1276,0.01073,0.0021,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(47,1,4,33,37.9,230,'Both','Manual',6,'2-Wheel Drive, Rear','Not eqipped',3.23,38.0,3875,235.08,0.0036,0.00104,0.0022,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(48,1,4,39,40.8,300,'Both','Semi-Automatic',6,'2-Wheel Drive, Rear','Not eqipped',3.46,33.1,3875,216.37,0.5773,0.0904,0.0022,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(49,1,4,42,37.1,300,'Both','Semi-Automatic',6,'All Wheel Drive','Not eqipped',3.46,33.1,4000,238.1,0.3927,0.08539,0.0024,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(50,1,4,52,33.1,400,'Car','Automatic',8,'All Wheel Drive','Not eqipped',3.08,26.7,4750,267.74,0.3737,0.0064,0.0025,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(51,1,4,63,28.5,500,'Car','Automatic',6,'All Wheel Drive','Not eqipped',3.46,18.6,5250,312.28,0.1879,0.0,0.0025,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(52,1,4,83,22.9,555,'Truck','Semi-Automatic',6,'All Wheel Drive','Not eqipped',3.91,32.6,5500,386.9565727,0.6722118,0.0461362,0.0025632,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(53,1,4,36,40.5,300,'Both','Manual',6,'2-Wheel Drive, Rear','Not eqipped',3.08,36.1,3875,218.65,0.2792,0.00792,0.0027,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(54,1,4,79,35.5,300,'Both','Semi-Automatic',8,'All Wheel Drive','Not eqipped',3.38,28.2,4500,250.2012308,0.2643622,0.0342144,0.0027176,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(55,1,4,58,26.1,535,'Car','Automatic',8,'2-Wheel Drive, Rear','Not eqipped',2.81,23.4,5250,341.2947673,0.0822936,0.0001299,0.0027922,'Three-way catalyst',12,0);
+INSERT INTO "cars_car" VALUES(56,1,4,88,37.6,335,'Car','Semi-Automatic',7,'2-Wheel Drive, Rear','Not eqipped',2.56,35.3,3875,235.78,0.0213,0.00225,0.0028,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(57,1,4,73,49.3,180,'Car','Manual',6,'2-Wheel Drive, Front','Not eqipped',3.71,43.1,3000,180.27,0.0804,0.00742,0.0029,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(58,1,4,28,39.7,300,'Both','Manual',6,'2-Wheel Drive, Rear','Not eqipped',3.08,36.4,3625,222.83,0.5941,0.0179,0.0029,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(59,1,4,54,30.8,400,'Car','Automatic',8,'All Wheel Drive','Not eqipped',3.08,25.7,5250,287.62,0.1972,0.02531,0.0029,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(60,1,4,55,34.9,315,'Car','Semi-Automatic',6,'2-Wheel Drive, Rear','Not eqipped',3.46,29.9,4750,254.84,0.0457,0.00334,0.003,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(61,1,4,85,28.5,400,'Truck','Automatic',8,'All Wheel Drive','Not eqipped',3.15,25.4,5500,310.64,0.3744,0.08244,0.003,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(62,1,4,50,34.9,400,'Car','Automatic',8,'2-Wheel Drive, Rear','Not eqipped',2.81,24.4,4750,253.61,0.1448,0.01558,0.0031,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(63,1,4,56,27.7,408,'Car','Automatic',8,'All Wheel Drive','Not eqipped',3.08,29.9,5250,317.62,0.468,0.10913,0.0031,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(64,1,4,82,28,400,'Truck','Automatic',8,'All Wheel Drive','Not eqipped',3.15,25.4,5500,316.7,0.285,0.04346,0.0032,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(65,1,4,74,46.3,180,'Car','Automatic',6,'2-Wheel Drive, Front','Not eqipped',3.68,35.3,3125,191.74,0.061,0.00324,0.0033,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(66,1,4,53,30.3,400,'Car','Automatic',8,'All Wheel Drive','Not eqipped',3.08,25.7,5250,291.82,0.532,0.00382,0.0033,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(67,1,4,81,32.1,300,'Truck','Semi-Automatic',8,'All Wheel Drive','Not eqipped',3.15,25.4,5250,274.7464566,1.0064821,0.0230875,0.0034972,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(68,1,4,76,45.3,180,'Car','Automatic',6,'2-Wheel Drive, Front','Not eqipped',3.68,33.1,3375,195.52,0.1199,0.01968,0.0036,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(69,1,4,48,38.1,300,'Car','Semi-Automatic',8,'All Wheel Drive','Not eqipped',3.08,25.6,5000,232.91,0.1867,0.00129,0.0036,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(70,1,4,41,37.2,300,'Car','Manual',6,'2-Wheel Drive, Rear','Not eqipped',3.08,37.1,3875,237.63,0.0,0.00089,0.0036,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(71,1,4,65,26.5,414,'Car','Manual',7,'2-Wheel Drive, Rear','Not eqipped',3.15,25.2,4500,335.31,0.0385,0.00057,0.0039,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(72,1,4,59,34.1,455,'Car','Automatic',8,'2-Wheel Drive, Rear','Not eqipped',2.81,23.4,5000,259.69,0.2303,0.00267,0.004,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(73,1,4,47,38.9,300,'Car','Semi-Automatic',8,'All Wheel Drive','Not eqipped',3.08,26.7,4500,228.14,0.223,0.03251,0.0041,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(74,1,4,62,29.7,500,'Car','Automatic',6,'2-Wheel Drive, Rear','Not eqipped',3.46,18.6,5000,298.57,0.1557,0.0,0.0041,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(75,1,4,77,43.7,180,'Car','Manual',6,'All Wheel Drive','Not eqipped',3.71,40.4,3500,203.25,0.1854,0.01521,0.0048,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(76,1,4,44,31.9,320,'Car','Semi-Automatic',7,'2-Wheel Drive, Rear','Not eqipped',2.56,35.5,3875,279.47,0.0149,0.00395,0.0048,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(77,1,4,61,26.6,400,'Truck','Automatic',7,'All Wheel Drive','Not eqipped',3.64,31.2,6000,334.37,0.5318,0.043,0.0048,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(78,1,4,29,38.5,300,'Both','Manual',6,'2-Wheel Drive, Rear','Not eqipped',3.08,36.4,4000,229.94,0.7372,0.05389,0.0051,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(79,1,4,84,33.1,300,'Truck','Semi-Automatic',8,'All Wheel Drive','Not eqipped',3.15,25.4,5000,265.61,1.3283,0.09047,0.0053,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(80,1,4,86,23.7,555,'Truck','Semi-Automatic',6,'All Wheel Drive','Not eqipped',3.91,32.6,5500,372.42,0.4385,0.04768,0.0053,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(81,1,4,87,36.6,300,'Car','Manual',6,'2-Wheel Drive, Rear','Not eqipped',3.08,37.2,3750,243.23,0.0893,0.00378,0.0054,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(82,1,4,37,36.4,300,'Car','Manual',6,'2-Wheel Drive, Rear','Not eqipped',3.08,37.1,4250,244.63,0.0207,0.00046,0.0054,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(83,1,4,64,28.9,414,'Car','Manual',7,'2-Wheel Drive, Rear','Not eqipped',3.15,25.2,4000,308.29,0.034,0.002,0.007,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(84,1,4,75,50.7,180,'Car','Manual',6,'2-Wheel Drive, Front','Not eqipped',3.71,42.9,3125,175.07,0.1063,0.00871,0.0073,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(85,1,4,60,33.3,455,'Car','Automatic',8,'2-Wheel Drive, Rear','Not eqipped',2.81,23.4,5250,266.3503316,0.3847146,0.0111241,0.0084647,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(86,1,4,40,51.1,265,'Car','Automatic',6,'2-Wheel Drive, Rear','Not eqipped',2.81,26.9,4000,199.2551875,0.0047062,0.0072388,0.0084851,'Oxidation catalyst',6,0);
+INSERT INTO "cars_car" VALUES(87,1,4,57,30.4,400,'Car','Semi-Automatic',6,'2-Wheel Drive, Rear','Not eqipped',3.46,29.9,4750,292.16,0.1132,0.00607,0.0103,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(88,1,4,51,31.6,400,'Car','Automatic',8,'2-Wheel Drive, Rear','Not eqipped',3.08,25.7,5250,280.57,0.0236,0.01195,0.0238,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(89,1,5,89,17.9,1200,'Car','Automatic',7,'All Wheel Drive','Not eqipped',2.59,24.9,4750,495.0,0.076,0.0171,0.0133,'Three-way catalyst',16,0);
+INSERT INTO "cars_car" VALUES(90,1,6,113,27.8,215,'Truck','Automatic',4,'2-Wheel Drive, Rear','Not eqipped',3.55,26.7,5000,319.067,0.123641,0.004627,0.000484,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(91,1,6,95,29.2,283,'Both','Automatic',6,'2-Wheel Drive, Front','Not eqipped',2.06,26.7,3875,211.704,0.066437,0.00286,0.000816,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(92,1,6,96,45,158,'Both','Manual',5,'2-Wheel Drive, Front','Not eqipped',2.97,39.6,3250,197.002,0.141019,0.004315,0.001398,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(93,1,6,91,25.9,292,'Car','Automatic',5,'2-Wheel Drive, Rear','Not eqipped',2.65,26.6,4250,239.073,0.055716,0.007961,0.001516,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(94,1,6,116,27.7,200,'Truck','Automatic',4,'4-Wheel Drive','Not eqipped',3.73,28.3,4750,319.535,0.062609,0.002867,0.002016,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(95,1,6,106,23.6,290,'Truck','Automatic',5,'2-Wheel Drive, Rear','Not eqipped',3.06,29.0,4750,263.7,0.0353,0.0078,0.0023,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(96,1,6,107,25.5,283,'Both','Automatic',6,'2-Wheel Drive, Front','Not eqipped',2.06,24.4,4500,243.36,0.127558,0.004259,0.002315,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(97,1,6,98,37.9,292,'Car','Automatic',5,'2-Wheel Drive, Rear','Not eqipped',2.65,27.3,4250,233.528,0.100944,0.008144,0.003639,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(98,1,6,90,43.5,173,'Both','Automatic',6,'2-Wheel Drive, Front','Not eqipped',2.24,29.0,3750,203.594,0.092598,0.003502,0.005354,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(99,1,6,94,17.2,303,'Truck','Automatic',5,'2-Wheel Drive, Rear','Not eqipped',3.55,27.3,5500,357.6718523,0.6809687,0.0205751,0.0053665,'NA',-1,3);
+INSERT INTO "cars_car" VALUES(100,1,6,111,31.9,172,'Truck','Continuously Variable',1,'4-Wheel Drive','Not eqipped',3.21,39.8,3750,277.615,0.111091,0.003316,0.0059,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(101,1,6,93,34.5,340,'Car','Automatic',5,'2-Wheel Drive, Rear','Not eqipped',2.65,26.7,4500,256.584,0.206043,0.009269,0.014867,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(102,1,6,92,32.7,359,'Car','Automatic',5,'All Wheel Drive','Not eqipped',3.06,30.3,4750,271.092,0.258241,0.006684,0.015649,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(103,1,6,100,17.2,200,'Truck','Automatic',5,'4-Wheel Drive','Not eqipped',3.55,28.3,5000,357.760866,0.366293,0.008675,0.019006,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(104,1,6,105,31.3,290,'Truck','Automatic',5,'2-Wheel Drive, Rear','Not eqipped',3.06,29.0,4750,283.5645274,0.0423703,0.0078256,0.0194259,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(105,1,6,104,27.7,390,'Truck','Automatic',5,'4-Wheel Drive','Not eqipped',3.47,26.5,5500,319.736,0.104815,0.007392,0.022896,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(106,1,6,115,24.8,283,'Both','Automatic',6,'2-Wheel Drive, Front','Not eqipped',2.06,26.3,4750,250.166,0.028325,0.005638,0.028432,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(107,1,6,114,16.5,295,'Truck','Automatic',5,'4-Wheel Drive','Not eqipped',3.55,25.4,6000,374.4,0.2125,0.0237,0.0512,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(108,1,6,97,29.9,470,'Car','Automatic',5,'2-Wheel Drive, Rear','Not eqipped',3.06,30.4,4500,296.585,0.179632,0.003953,0.072443,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(109,1,6,99,40.7,158,'Both','Manual',5,'2-Wheel Drive, Front','Not eqipped',2.97,38.1,3375,-1.0,-1.0,-1.0,-1.0,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(110,1,6,110,39.7,172,'Both','Manual',5,'2-Wheel Drive, Front','Not eqipped',2.97,37.7,3500,-1.0,-1.0,-1.0,-1.0,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(111,1,6,109,30.4,210,'Truck','Automatic',4,'2-Wheel Drive, Rear','Not eqipped',3.73,30.6,4250,-1.0,-1.0,-1.0,-1.0,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(112,1,6,101,25.7,295,'Truck','Automatic',5,'2-Wheel Drive, Rear','Not eqipped',3.92,29.9,4750,-1.0,-1.0,-1.0,-1.0,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(113,1,6,112,27.2,345,'Truck','Automatic',5,'2-Wheel Drive, Rear','Not eqipped',3.21,22.8,5500,-1.0,-1.0,-1.0,-1.0,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(114,1,6,102,28.1,210,'Truck','Automatic',4,'2-Wheel Drive, Rear','Not eqipped',3.55,29.6,4750,-1.0,-1.0,-1.0,-1.0,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(115,1,6,103,24.4,210,'Truck','Automatic',4,'4-Wheel Drive','Not eqipped',3.92,32.1,4750,-1.0,-1.0,-1.0,-1.0,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(116,1,6,108,29.4,260,'Truck','Automatic',5,'2-Wheel Drive, Rear','Not eqipped',3.21,31.8,4500,-1.0,-1.0,-1.0,-1.0,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(117,1,7,117,20.9,190,'Truck','Automatic',4,'2-Wheel Drive, Rear','Not eqipped',3.55,29.8,3750,312.3,0.08,0.01,0.06,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(118,1,8,166,32.7,143,'Truck','Automatic',5,'2-Wheel Drive, Rear','Not eqipped',4.1,39.0,3750,272.191,0.150165,0.0007952,0.0001768,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(119,1,8,157,24.5,234,'Car','Automatic',4,'2-Wheel Drive, Rear','Not eqipped',2.73,24.0,4500,255.382,0.211793,0.023191,0.0005083,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(120,1,8,118,21.2,250,'Car','Automatic',4,'2-Wheel Drive, Rear','Not eqipped',3.27,29.3,4500,294.693,0.232673,0.0180265,0.000663,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(121,1,8,172,29.1,207,'Truck','Manual',5,'2-Wheel Drive, Rear','Not eqipped',3.55,33.8,4000,304.456,0.594626,0.040623,0.000808,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(122,1,8,159,38.3,155,'Truck','Continuously Variable',1,'4-Wheel Drive','Not eqipped',1.0,8.4,4250,231.804,0.0694842,0.0008371,0.0008714,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(123,1,8,131,42.9,155,'Truck','Continuously Variable',1,'2-Wheel Drive, Front','Not eqipped',1.0,8.4,4000,206.501,0.0457691,0.0,0.0009416,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(124,1,8,155,45.3,132,'Car','Automatic',4,'2-Wheel Drive, Front','Not eqipped',3.34,35.2,3000,196.075,0.060807,0.0033476,0.001216,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(125,1,8,167,37.7,143,'Truck','Manual',5,'2-Wheel Drive, Rear','Not eqipped',3.73,37.4,3500,234.501,0.124525,0.0189941,0.001401,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(126,1,8,160,26,223,'Car','Automatic',6,'All Wheel Drive','Not eqipped',3.21,32.2,4000,241.055,0.0644272,0.0017347,0.0014716,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(127,1,8,156,40.2,173,'Car','Manual',6,'2-Wheel Drive, Front','Not eqipped',4.39,40.2,3625,221.308,0.0391465,0.0024871,0.0017489,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(128,1,8,138,29.3,360,'Truck','Semi-Automatic',6,'4-Wheel Drive','Not eqipped',3.73,27.9,6000,304.172,0.0434018,0.0022853,0.0018606,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(129,1,8,168,26.2,207,'Truck','Manual',5,'Part-time 4-Wheel Drive','Not eqipped',3.73,34.2,4250,337.616,0.867594,0.0432196,0.0019191,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(130,1,8,130,22.8,240,'Truck','Automatic',6,'All Wheel Drive','Not eqipped',3.51,31.9,4000,275.4,0.0381146,0.0009328,0.0020467,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(131,1,8,163,40.1,300,'Car','Automatic',6,'2-Wheel Drive, Rear','Not eqipped',2.73,24.1,4000,221.899,0.0050121,0.0015591,0.0020642,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(132,1,8,175,23,239,'Car','Automatic',4,'2-Wheel Drive, Rear','Not eqipped',3.27,28.8,4750,272.06,0.112589,0.0010829,0.0021702,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(133,1,8,136,30.1,360,'Truck','Semi-Automatic',6,'2-Wheel Drive, Rear','Not eqipped',3.15,24.8,6000,295.703,0.0188716,0.0013375,0.0023587,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(134,1,8,152,52.6,118,'Car','Manual',5,'2-Wheel Drive, Front','Not eqipped',3.9,39.3,2875,168.084,0.503212,0.025134,0.0024735,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(135,1,8,129,37,175,'Truck','Automatic',6,'All Wheel Drive','Not eqipped',3.51,31.4,3875,239.635,0.123717,0.0014464,0.0025508,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(136,1,8,128,25.8,240,'Truck','Automatic',6,'2-Wheel Drive, Front','Not eqipped',3.51,31.4,3750,242.761,0.0256703,0.0053376,0.002761,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(137,1,8,139,17.9,360,'Truck','Automatic',6,'4-Wheel Drive','Not eqipped',3.73,27.9,6000,350.298,0.0729717,4.86e-05,0.0032929,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(138,1,8,140,23.7,275,'Truck','Automatic',6,'2-Wheel Drive, Rear','Not eqipped',3.55,27.6,5000,264.524,0.0252457,0.0009271,0.0033545,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(139,1,8,141,20.6,275,'Truck','Automatic',6,'4-Wheel Drive','Not eqipped',3.73,28.5,5500,303.846,0.08548,0.0045094,0.0033578,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(140,1,8,176,36.8,140,'Truck','Automatic',4,'2-Wheel Drive, Front','Not eqipped',3.96,39.4,3625,241.284,0.175004,0.0140334,0.0034064,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(141,1,8,169,24.9,207,'Truck','Automatic',5,'Part-time 4-Wheel Drive','Not eqipped',3.73,32.4,4250,355.479,1.2094,0.0591996,0.0035025,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(142,1,8,146,21,275,'Truck','Automatic',6,'4-Wheel Drive','Not eqipped',3.73,29.0,5500,298.153,0.0441885,0.0009609,0.0035888,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(143,1,8,120,15.9,225,'Truck','Automatic',4,'2-Wheel Drive, Rear','Not eqipped',4.1,34.1,6000,393.09,0.331406,0.0025709,0.0039526,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(144,1,8,132,20.5,310,'Truck','Automatic',6,'2-Wheel Drive, Rear','Not eqipped',3.31,24.8,6000,305.943,0.0694762,0.0056801,0.0040887,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(145,1,8,164,17.4,310,'Truck','Automatic',6,'4-Wheel Drive','Not eqipped',3.73,28.1,6500,360.036,0.16218,0.0096311,0.0044424,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(146,1,8,145,22.4,275,'Truck','Automatic',6,'2-Wheel Drive, Rear','Not eqipped',3.73,29.3,5500,280.029,0.0324053,0.0069496,0.0054357,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(147,1,8,119,21.3,250,'Car','Automatic',4,'2-Wheel Drive, Rear','Not eqipped',3.55,31.8,4500,294.057,0.199897,0.0283173,0.0060529,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(148,1,8,123,15.5,255,'Truck','Automatic',4,'2-Wheel Drive, Rear','Not eqipped',3.73,29.8,6500,405.371,0.0975681,0.0032702,0.006864,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(149,1,8,137,23.4,415,'Truck','Automatic',6,'2-Wheel Drive, Rear','Not eqipped',3.73,28.2,6000,380.128,0.253534,0.012891,0.0073982,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(150,1,8,143,25.1,415,'Truck','Automatic',6,'2-Wheel Drive, Rear','Not eqipped',3.73,29.3,6000,353.904,0.210997,0.0060735,0.0083809,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(151,1,8,126,37.5,305,'Truck','Semi-Automatic',6,'2-Wheel Drive, Front','Not eqipped',3.16,27.6,4500,236.52,0.170541,0.0109412,0.0084501,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(152,1,8,135,35.7,287,'Truck','Semi-Automatic',6,'2-Wheel Drive, Front','Not eqipped',3.16,27.1,4750,249.331,0.165,0.0094381,0.0094216,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(153,1,8,134,31.4,287,'Truck','Semi-Automatic',6,'4-Wheel Drive','Not eqipped',3.39,29.1,5000,283.117,0.292164,0.0150437,0.0101314,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(154,1,8,127,39.3,175,'Truck','Automatic',6,'2-Wheel Drive, Front','Not eqipped',3.51,31.4,3625,226.1971118,0.1245477,0.0068916,0.010326,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(155,1,8,162,35.8,305,'Truck','Semi-Automatic',6,'2-Wheel Drive, Front','Not eqipped',3.16,27.6,4500,248.197,0.100204,0.0114377,0.0106154,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(156,1,8,122,17.7,305,'Truck','Automatic',5,'2-Wheel Drive, Rear','Not eqipped',3.73,30.3,7000,499.617,1.23078,0.0274635,0.0109831,'Three-way catalyst',10,0);
+INSERT INTO "cars_car" VALUES(157,1,8,147,19.6,415,'Truck','Automatic',6,'4-Wheel Drive','Not eqipped',4.1,28.7,6500,452.27588,0.4358694,0.0154382,0.0131351,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(158,1,8,170,32.3,143,'Truck','Automatic',5,'2-Wheel Drive, Rear','Not eqipped',4.1,39.0,3750,274.8389578,0.1838489,0.0246695,0.020614,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(159,1,8,171,24.1,207,'Truck','Automatic',5,'Part-time 4-Wheel Drive','Not eqipped',4.1,35.6,4250,366.751,1.30589,0.06692,0.0259781,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(160,1,8,125,35.7,305,'Truck','Semi-Automatic',6,'All Wheel Drive','Not eqipped',3.16,28.1,4500,-1.0,-1.0,-1.0,-1.0,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(161,1,8,153,30.2,355,'Car','Automatic',6,'All Wheel Drive','Not eqipped',3.16,28.1,5250,-1.0,-1.0,-1.0,-1.0,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(162,1,8,161,30.4,265,'Car','Automatic',6,'All Wheel Drive','Not eqipped',3.39,30.0,5250,-1.0,-1.0,-1.0,-1.0,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(163,1,8,173,34.4,365,'Car','Automatic',6,'All Wheel Drive','Not eqipped',2.77,24.9,4750,-1.0,-1.0,-1.0,-1.0,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(164,1,8,174,37.4,263,'Car','Automatic',6,'2-Wheel Drive, Front','Not eqipped',2.77,25.3,4250,-1.0,-1.0,-1.0,-1.0,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(165,1,8,121,16.4,255,'Truck','Automatic',4,'2-Wheel Drive, Rear','Not eqipped',3.73,31.0,5500,-1.0,-1.0,-1.0,-1.0,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(166,1,8,133,24.2,310,'Truck','Automatic',6,'4-Wheel Drive','Not eqipped',3.73,27.9,6500,-1.0,-1.0,-1.0,-1.0,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(167,1,8,142,19.5,415,'Truck','Automatic',6,'4-Wheel Drive','Not eqipped',3.73,28.2,6500,-1.0,-1.0,-1.0,-1.0,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(168,1,8,144,23.5,415,'Truck','Automatic',6,'4-Wheel Drive','Not eqipped',3.73,27.9,6500,-1.0,-1.0,-1.0,-1.0,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(169,1,8,148,21,415,'Truck','Automatic',6,'4-Wheel Drive','Not eqipped',4.1,28.7,6500,-1.0,-1.0,-1.0,-1.0,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(170,1,8,149,24.9,415,'Truck','Automatic',6,'2-Wheel Drive, Rear','Not eqipped',3.73,28.1,6000,-1.0,-1.0,-1.0,-1.0,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(171,1,8,150,23.6,415,'Truck','Automatic',6,'4-Wheel Drive','Not eqipped',3.73,27.9,6500,-1.0,-1.0,-1.0,-1.0,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(172,1,8,151,21,415,'Truck','Automatic',6,'4-Wheel Drive','Not eqipped',3.73,28.1,6500,-1.0,-1.0,-1.0,-1.0,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(173,1,8,165,23,310,'Truck','Automatic',6,'4-Wheel Drive','Not eqipped',3.73,28.0,6500,-1.0,-1.0,-1.0,-1.0,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(174,1,8,124,18.6,305,'Truck','Automatic',5,'2-Wheel Drive, Rear','Not eqipped',3.73,30.3,6000,-1.0,-1.0,-1.0,-1.0,'Three-way catalyst',10,0);
+INSERT INTO "cars_car" VALUES(175,1,8,154,33.1,262,'Car','Automatic',6,'2-Wheel Drive, Front','Not eqipped',3.16,28.0,4750,-1.0,-1.0,-1.0,-1.0,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(176,1,8,158,33.4,270,'Car','Automatic',6,'2-Wheel Drive, Front','Not eqipped',3.16,28.9,4500,-1.0,-1.0,-1.0,-1.0,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(177,1,9,177,47.9,103,'Car','Automatic',4,'2-Wheel Drive, Front','Not eqipped',3.84,40.9,2875,185.219,0.15929,0.00279,0.00247,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(178,1,10,178,34.7,252,'Car','Semi-Automatic',6,'2-Wheel Drive, Front','Not eqipped',2.77,26.5,4000,254.933,0.1699,0.00593,0.0,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(179,1,10,227,27.3,236,'Car','Automatic',4,'2-Wheel Drive, Front','Not eqipped',2.93,25.9,4250,229.229,0.62401,0.00584,0.0,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(180,1,10,220,21.9,320,'Truck','Automatic',6,'4-Wheel Drive','Not eqipped',3.42,25.0,6000,284.714,0.07176,0.007,0.0,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(181,1,10,222,18.1,403,'Truck','Automatic',6,'All Wheel Drive','Not eqipped',3.42,24.9,6500,344.09,0.22698,0.0053,0.00039,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(182,1,10,184,22.2,320,'Truck','Automatic',6,'2-Wheel Drive, Rear','Not eqipped',3.42,26.0,5250,280.961,0.06145,0.00415,0.00054,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(183,1,10,186,22.2,320,'Truck','Automatic',6,'2-Wheel Drive, Rear','Not eqipped',3.08,22.5,6000,280.961,0.06145,0.00415,0.00054,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(184,1,10,219,21.8,320,'Truck','Automatic',6,'4-Wheel Drive','Not eqipped',3.42,24.9,5250,280.961,0.06145,0.00415,0.00054,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(185,1,10,194,27.7,245,'Truck','Automatic',4,'2-Wheel Drive, Rear','Not eqipped',3.73,30.3,4500,302.376,0.2758,0.00921,0.00062,'Three-way catalyst',5,0);
+INSERT INTO "cars_car" VALUES(186,1,10,196,29.8,245,'Truck','Automatic',4,'4-Wheel Drive','Not eqipped',3.73,28.4,4500,302.376,0.2758,0.00921,0.00062,'Three-way catalyst',5,0);
+INSERT INTO "cars_car" VALUES(187,1,10,198,50.2,140,'Car','Automatic',6,'2-Wheel Drive, Front','Not eqipped',3.87,38.5,3375,177.4397935,0.0542031,0.0032609,0.000827,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(188,1,10,195,31.6,245,'Truck','Automatic',4,'2-Wheel Drive, Rear','Not eqipped',3.73,32.5,4000,280.737,0.3274,0.01161,0.00141,'Three-way catalyst',5,0);
+INSERT INTO "cars_car" VALUES(189,1,10,183,22.5,315,'Truck','Automatic',6,'2-Wheel Drive, Rear','Not eqipped',3.08,22.4,5250,277.51,0.08734,0.00519,0.00157,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(190,1,10,185,22.5,315,'Truck','Automatic',6,'2-Wheel Drive, Rear','Not eqipped',3.08,23.4,5250,277.51,0.08734,0.00519,0.00157,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(191,1,10,215,15.9,323,'Truck','Automatic',6,'2-Wheel Drive, Rear','Not eqipped',3.42,26.0,7000,393.437,0.26553,0.01998,0.00162,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(192,1,10,203,32.3,275,'Car','Automatic',4,'2-Wheel Drive, Front','Not eqipped',3.11,26.7,4250,279.847,0.15646,0.00737,0.00165,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(193,1,10,224,37,255,'Both','Semi-Automatic',6,'2-Wheel Drive, Front','Not eqipped',2.77,26.5,4500,233.114,0.07628,0.00512,0.00169,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(194,1,10,225,36.1,255,'Both','Semi-Automatic',6,'All Wheel Drive','Not eqipped',2.77,26.1,4500,233.114,0.07628,0.00512,0.00169,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(195,1,10,192,35.2,190,'Truck','Manual',5,'2-Wheel Drive, Rear','Not eqipped',3.73,33.9,3750,251.303,0.09576,0.00255,0.00176,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(196,1,10,193,34.1,190,'Truck','Manual',5,'4-Wheel Drive','Not eqipped',3.73,31.6,4000,251.303,0.09576,0.00255,0.00176,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(197,1,10,190,22,195,'Truck','Automatic',4,'4-Wheel Drive','Not eqipped',3.73,28.6,5250,403.542,0.07216,0.01286,0.00186,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(198,1,10,199,54,140,'Car','Semi-Automatic',6,'2-Wheel Drive, Front','Not eqipped',3.87,38.5,3375,164.098,0.311303,0.0061738,0.0019904,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(199,1,10,214,16.6,280,'Truck','Automatic',6,'2-Wheel Drive, Rear','Not eqipped',3.42,26.0,6500,376.461,0.05029,0.01035,0.00205,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(200,1,10,182,30.3,300,'Both','Semi-Automatic',6,'All Wheel Drive','Not eqipped',3.75,29.5,5000,291.817,0.20748,0.01284,0.00209,'Three-way catalyst',6,1);
+INSERT INTO "cars_car" VALUES(201,1,10,218,30.3,211,'Car','Automatic',4,'2-Wheel Drive, Front','Not eqipped',2.86,25.9,3875,207.905,0.37372,0.03,0.00215,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(202,1,10,200,37.4,300,'Car','Manual',6,'2-Wheel Drive, Rear','Equipped, shifted by SIL',3.42,25.7,4250,244.497,0.14791,0.00808,0.00247,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(203,1,10,205,32.3,264,'Both','Automatic',6,'All Wheel Drive','Not eqipped',2.77,25.3,4500,274.681,0.0475736,0.0028628,0.0027242,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(204,1,10,206,34,264,'Truck','Automatic',6,'2-Wheel Drive, Front','Not eqipped',2.77,25.3,4250,274.681,0.0475736,0.0028628,0.0027242,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(205,1,10,201,37.3,304,'Car','Semi-Automatic',6,'All Wheel Drive','Not eqipped',3.23,27.5,4500,239.963,0.12182,0.01963,0.00285,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(206,1,10,202,37,304,'Car','Semi-Automatic',6,'2-Wheel Drive, Rear','Not eqipped',3.42,29.1,4500,239.963,0.12182,0.01963,0.00285,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(207,1,10,212,18.2,301,'Truck','Automatic',4,'2-Wheel Drive, Rear','Not eqipped',3.42,27.2,5500,348.414,0.13283,0.00396,0.00304,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(208,1,10,189,40.1,304,'Both','Semi-Automatic',6,'2-Wheel Drive, Rear','Not eqipped',3.27,26.3,4000,212.396,0.03547,0.00376,0.00365,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(209,1,10,188,21.7,352,'Truck','Automatic',6,'2-Wheel Drive, Rear','Not eqipped',3.73,28.4,6500,408.091,0.590972,0.0274817,0.0036639,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(210,1,10,229,31.2,220,'Car','Manual',6,'2-Wheel Drive, Front','Not eqipped',3.76,29.6,4000,184.799,0.087,0.0052,0.0037,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(211,1,10,208,32.4,332,'Truck','Continuously Variable',1,'4-Wheel Drive','Not eqipped',3.08,24.6,6500,273.277,0.0762396,0.0056135,0.0037139,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(212,1,10,187,32.8,332,'Truck','Continuously Variable',1,'2-Wheel Drive, Rear','Not eqipped',3.08,25.0,6000,271.3,0.222366,0.0043799,0.0040283,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(213,1,10,221,32.5,332,'Truck','Continuously Variable',1,'4-Wheel Drive','Not eqipped',3.08,25.0,6000,271.3,0.222366,0.0043799,0.0040283,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(214,1,10,197,34.5,420,'Car','Semi-Automatic',6,'2-Wheel Drive, Rear','Not eqipped',2.56,22.1,3625,257.562,0.19487,0.01183,0.00428,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(215,1,10,207,20.7,403,'Truck','Automatic',6,'2-Wheel Drive, Rear','Not eqipped',3.42,24.7,6000,325.94,0.31623,0.00822,0.00444,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(216,1,10,209,20,403,'Truck','Automatic',6,'All Wheel Drive','Not eqipped',3.42,24.7,6000,325.94,0.31623,0.00822,0.00444,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(217,1,10,210,36.3,210,'Car','Semi-Automatic',6,'All Wheel Drive','Not eqipped',3.33,30.3,4250,245.027,0.02481,0.01911,0.00482,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(218,1,10,234,52.6,85,'Car','Continuously Variable',1,'2-Wheel Drive, Front','Not eqipped',2.16,92.1,4000,168.0803047,0.4399892,0.0102683,0.0048618,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(219,1,10,213,17.4,301,'Truck','Automatic',4,'2-Wheel Drive, Rear','Not eqipped',3.73,29.6,6000,357.907,0.10209,0.00675,0.00532,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(220,1,10,216,17.4,301,'Truck','Automatic',4,'All Wheel Drive','Not eqipped',3.73,29.6,5500,357.907,0.10209,0.00675,0.00532,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(221,1,10,223,21.2,352,'Truck','Automatic',6,'4-Wheel Drive','Not eqipped',3.73,27.4,7000,417.563,0.474835,0.0221009,0.0059453,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(222,1,10,217,16.7,301,'Truck','Automatic',4,'All Wheel Drive','Not eqipped',3.73,29.6,6000,374.611,0.11374,0.00802,0.00721,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(223,1,10,228,36.4,250,'Car','Semi-Automatic',6,'2-Wheel Drive, Front','Not eqipped',2.77,26.4,3875,242.894,0.81052,0.05387,0.00919,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(224,1,10,231,31.3,265,'Both','Semi-Automatic',6,'All Wheel Drive','Not eqipped',3.39,28.9,4750,284.409,0.17296,0.01316,0.00947,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(225,1,10,179,42.5,182,'Both','Semi-Automatic',6,'2-Wheel Drive, Front','Not eqipped',3.23,31.5,4000,212.5592956,0.336936,0.0113093,0.0098764,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(226,1,10,211,22.7,275,'Car','Automatic',4,'2-Wheel Drive, Front','Not eqipped',3.11,26.1,6000,391.543,0.37746,0.01228,0.00992,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(227,1,10,204,31.1,288,'Both','Automatic',6,'All Wheel Drive','Not eqipped',3.16,26.2,5500,287.172,0.11171,0.00986,0.00994,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(228,1,10,232,31.6,288,'Both','Automatic',6,'All Wheel Drive','Not eqipped',3.16,26.0,5250,287.172,0.11171,0.00986,0.00994,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(229,1,10,233,33,288,'Both','Automatic',6,'2-Wheel Drive, Front','Not eqipped',3.16,26.0,5000,287.172,0.11171,0.00986,0.00994,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(230,1,10,226,26.9,275,'Car','Automatic',4,'2-Wheel Drive, Front','Not eqipped',3.11,26.1,5250,362.0639,0.05602,0.022052,0.010117,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(231,1,10,181,24,275,'Car','Automatic',4,'2-Wheel Drive, Front','Not eqipped',3.11,26.1,6500,368.705,0.22415,0.00876,0.0103,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(232,1,10,191,14.8,323,'Truck','Automatic',6,'2-Wheel Drive, Rear','Not eqipped',3.42,27.1,7000,423.417,0.22511,0.02121,0.01409,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(233,1,10,230,34.4,265,'Both','Semi-Automatic',6,'2-Wheel Drive, Front','Not eqipped',3.39,29.0,4750,257.625,0.0356,0.00249,0.02213,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(234,1,10,180,24.5,550,'Car','Semi-Automatic',6,'2-Wheel Drive, Rear','Not eqipped',3.23,27.9,4500,363.589,0.046,0.00926,0.04599,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(235,1,11,245,65,110,'Car','Continuously Variable',1,'2-Wheel Drive, Front','Not eqipped',4.94,29.1,3125,136.703344,0.1249669,0.0003854,0.0,'NA',4,0);
+INSERT INTO "cars_car" VALUES(236,1,11,251,55.1,122,'Car','Continuously Variable',1,'2-Wheel Drive, Front','Not eqipped',4.2,25.4,3000,161.4239502,0.0973237,0.000133,0.0007345,'NA',4,0);
+INSERT INTO "cars_car" VALUES(237,1,11,242,48.1,177,'Car','Manual',5,'2-Wheel Drive, Front','Not eqipped',4.39,38.0,3625,186.47,0.007,0.0017,0.0018,'NA',4,0);
+INSERT INTO "cars_car" VALUES(238,1,11,255,61.2,98,'Car','Continuously Variable',1,'2-Wheel Drive, Front','Not eqipped',4.2,32.5,3000,145.17,0.065,0.00323,0.0019,'NA',4,0);
+INSERT INTO "cars_car" VALUES(239,1,11,244,50.5,113,'Car','Automatic',5,'2-Wheel Drive, Front','Not eqipped',4.44,32.6,3250,132.43,0.203,'',0.002,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(240,1,11,240,45.1,190,'Car','Manual',5,'2-Wheel Drive, Front','Not eqipped',4.39,38.1,3625,198.41,0.008,0.00822,0.0021,'NA',4,1);
+INSERT INTO "cars_car" VALUES(241,1,11,237,44.5,190,'Car','Manual',5,'2-Wheel Drive, Front','Not eqipped',4.39,38.1,3625,201.48,0.006,0.00628,0.0024,'NA',4,0);
+INSERT INTO "cars_car" VALUES(242,1,11,241,46.4,190,'Car','Automatic',5,'2-Wheel Drive, Front','Not eqipped',4.44,32.0,3625,190.6,0.029,0.00181,0.0024,'NA',4,0);
+INSERT INTO "cars_car" VALUES(243,1,11,264,28.2,250,'Truck','Automatic',5,'All Wheel Drive','Not eqipped',4.53,28.7,4750,314.7,0.006,0.00182,0.0025,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(244,1,11,258,38.3,248,'Truck','Automatic',5,'2-Wheel Drive, Front','Not eqipped',4.31,32.2,4750,233.28,0.065,0.0031,0.003,'NA',6,0);
+INSERT INTO "cars_car" VALUES(245,1,11,257,28.7,300,'Truck','Semi-Automatic',6,'All Wheel Drive','Not eqipped',4.25,28.2,5000,310.13,0.006,0.00253,0.0032,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(246,1,11,267,34.3,305,'Car','Semi-Automatic',5,'All Wheel Drive','Not eqipped',4.53,29.1,4250,260.33,0.018,0.00077,0.0033,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(247,1,11,252,34.3,166,'Car','Automatic',5,'2-Wheel Drive, Front','Not eqipped',4.5,32.2,3875,257.91,0.191,0.0,0.0034,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(248,1,11,266,36.8,280,'Car','Semi-Automatic',5,'2-Wheel Drive, Front','Not eqipped',4.31,27.7,4000,241.44,0.002,0.00217,0.0034,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(249,1,11,246,52.2,140,'Car','Automatic',5,'2-Wheel Drive, Front','Not eqipped',4.44,32.6,3000,170.01,0.046,0.0023,0.0036,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(250,1,11,238,42.6,271,'Car','Automatic',5,'2-Wheel Drive, Front','Not eqipped',4.31,31.2,3875,207.75,0.0,0.00172,0.0037,'NA',6,0);
+INSERT INTO "cars_car" VALUES(251,1,11,239,36.6,271,'Car','Manual',6,'2-Wheel Drive, Front','Not eqipped',3.55,35.9,3750,242.14,0.001,0.00113,0.0038,'NA',6,0);
+INSERT INTO "cars_car" VALUES(252,1,11,259,38.8,248,'Truck','Automatic',6,'2-Wheel Drive, Front','Not eqipped',4.25,28.6,4750,229.58,0.059,0.00239,0.0038,'NA',6,0);
+INSERT INTO "cars_car" VALUES(253,1,11,268,31.6,300,'Car','Semi-Automatic',6,'All Wheel Drive','Not eqipped',4.25,28.1,4750,281.3384821,0.0181996,0.0046651,0.0038507,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(254,1,11,236,36.2,271,'Car','Automatic',5,'All Wheel Drive','Not eqipped',4.53,34.0,4250,244.57,0.004,0.00156,0.0039,'NA',6,0);
+INSERT INTO "cars_car" VALUES(255,1,11,235,38.3,271,'Car','Automatic',5,'2-Wheel Drive, Front','Not eqipped',4.53,34.0,4250,232.43,0.004,0.00222,0.004,'NA',6,0);
+INSERT INTO "cars_car" VALUES(256,1,11,262,31.8,250,'Truck','Automatic',5,'2-Wheel Drive, Front','Not eqipped',4.31,31.3,4750,278.6,0.02,0.00456,0.004,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(257,1,11,243,50.1,140,'Car','Automatic',5,'2-Wheel Drive, Front','Not eqipped',4.44,32.6,3125,177.8168934,0.0312994,0.0033715,0.0042086,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(258,1,11,263,34.4,240,'Truck','Semi-Automatic',5,'2-Wheel Drive, Front','Not eqipped',4.31,34.6,4000,259.43,0.14,0.00033,0.0043,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(259,1,11,260,32.5,250,'Truck','Automatic',5,'2-Wheel Drive, Front','Not eqipped',4.31,31.3,4500,272.52,0.019,0.00401,0.0052,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(260,1,11,253,33.5,166,'Car','Automatic',5,'All Wheel Drive','Not eqipped',4.5,32.2,4000,263.97,0.17,2.0e-05,0.0053,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(261,1,11,256,61.2,98,'Car','Other',1,'2-Wheel Drive, Front','Not eqipped',4.2,32.5,3000,145.19,0.071,0.00427,0.0066,'NA',4,0);
+INSERT INTO "cars_car" VALUES(262,1,11,248,39.2,180,'Truck','Automatic',5,'2-Wheel Drive, Front','Not eqipped',4.5,31.5,3750,226.81,0.009,0.00348,0.0067,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(263,1,11,261,30.5,250,'Truck','Automatic',5,'All Wheel Drive','Not eqipped',4.31,31.3,4750,290.93,0.026,0.00299,0.0069,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(264,1,11,250,37.8,180,'Truck','Automatic',5,'All Wheel Drive','Not eqipped',4.5,31.5,3875,234.66,0.021,0.00728,0.0074,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(265,1,11,247,40.5,197,'Car','Manual',6,'2-Wheel Drive, Front','Not eqipped',4.76,44.0,3250,218.4,0.097,0.01172,0.0075,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(266,1,11,249,36.7,180,'Truck','Automatic',5,'All Wheel Drive','Not eqipped',4.5,31.5,3875,242.05,0.033,0.00859,0.0081,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(267,1,11,265,33.6,300,'Car','Semi-Automatic',6,'All Wheel Drive','Not eqipped',3.72,27.0,4500,265.82,0.011,0.00117,0.0105,'NA',6,0);
+INSERT INTO "cars_car" VALUES(268,1,11,254,-1,100,'Car','Other',1,'2-Wheel Drive, Front','Not eqipped',3.75,126.4,3875,-1.0,-1.0,-1.0,-1.0,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(269,1,12,279,59.9,166,'Car','Automatic',6,'2-Wheel Drive, Front','Not eqipped',3.32,34.5,3750,148.3990605,0.1755325,0.0023897,5.23e-05,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(270,1,12,278,49,190,'Car','Automatic',6,'2-Wheel Drive, Front','Not eqipped',2.89,30.0,3500,182.0278,0.0355,0.0013,0.0016,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(271,1,12,272,56.5,145,'Car','Automatic',6,'2-Wheel Drive, Front','Not eqipped',3.07,33.2,3000,157.01,0.0703,0.0006,0.0026,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(272,1,12,274,33.9,385,'Car','Automatic',6,'2-Wheel Drive, Rear','Not eqipped',3.13,27.5,4750,261.7542092,0.0263628,0.0003202,0.0035903,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(273,1,12,280,37.6,165,'Truck','Manual',5,'2-Wheel Drive, Front','Not eqipped',4.53,47.1,3500,236.99,0.0465,0.0043,0.0036,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(274,1,12,269,50.4,110,'Car','Automatic',4,'2-Wheel Drive, Front','Not eqipped',4.04,42.0,2875,177.41,0.0938,0.0018,0.0043,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(275,1,12,270,51.3,110,'Car','Manual',5,'2-Wheel Drive, Front','Equipped, shifted by SIL',4.06,43.9,2875,173.3702469,0.0511008,0.0017971,0.0045942,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(276,1,12,275,34.4,385,'Car','Automatic',6,'2-Wheel Drive, Rear','Not eqipped',3.13,28.1,4500,259.33,0.0161,0.0015,0.0052,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(277,1,12,281,31.1,260,'Truck','Automatic',6,'4-Wheel Drive','Not eqipped',3.46,30.9,4750,284.88,0.3234,0.0031,0.0073,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(278,1,12,276,41.9,210,'Car','Automatic',5,'2-Wheel Drive, Rear','Not eqipped',3.91,42.7,3750,212.2583499,0.0171288,0.0004283,0.0074349,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(279,1,12,273,42.6,138,'Car','Automatic',4,'2-Wheel Drive, Front','Not eqipped',4.12,41.4,3375,208.7476587,0.062503,0.0011756,0.0093071,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(280,1,12,271,38.1,283,'Car','Automatic',6,'2-Wheel Drive, Front','Not eqipped',3.04,30.3,4000,234.23,0.0553,0.0006,0.0113,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(281,1,12,277,36.4,276,'Truck','Automatic',6,'2-Wheel Drive, Front','Not eqipped',3.2,30.1,4250,244.63,0.0061,0.0023,0.012,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(282,1,13,287,30.4,510,'Car','Automatic',6,'2-Wheel Drive, Rear','Not eqipped',3.31,29.6,4250,290.14,0.3811,0.02951,0.00191,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(283,1,13,286,32.9,385,'Car','Automatic',6,'2-Wheel Drive, Rear','Not eqipped',3.31,29.6,4000,268.18,0.0758,0.01287,0.00233,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(284,1,13,285,30.9,385,'Car','Automatic',6,'2-Wheel Drive, Rear','Not eqipped',3.31,29.6,4250,286.27,0.082,0.01277,0.00248,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(285,1,13,284,31.1,385,'Car','Semi-Automatic',6,'2-Wheel Drive, Rear','Not eqipped',3.31,28.6,4500,285.43,0.0256,0.00715,0.01906,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(286,1,13,283,29.8,510,'Car','Automatic',6,'2-Wheel Drive, Rear','Not eqipped',3.31,29.6,4500,296.44,0.0418,0.00593,0.02023,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(287,1,13,282,32.7,385,'Car','Automatic',6,'2-Wheel Drive, Rear','Not eqipped',3.31,29.6,4250,270.02,0.0161,0.00753,0.02846,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(288,1,14,290,51,154,'Car','Automatic',6,'2-Wheel Drive, Front','Not eqipped',2.89,31.2,3125,173.5959984,0.0451516,0.0010095,0.0014416,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(289,1,14,289,49.1,154,'Car','Automatic',6,'2-Wheel Drive, Front','Not eqipped',2.89,31.2,3250,180.7,0.0122,0.0,0.0015,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(290,1,14,292,49.1,192,'Car','Automatic',6,'2-Wheel Drive, Front','Not eqipped',2.89,30.0,3500,181.1141,0.027,0.002,0.002,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(291,1,14,294,37.1,175,'Car','Automatic',4,'2-Wheel Drive, Front','Not eqipped',4.07,39.5,3750,239.34,0.044,0.003,0.002,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(292,1,14,298,38.8,170,'Truck','Automatic',6,'4-Wheel Drive','Not eqipped',3.2,31.2,3750,229.79,0.0087,0.0014,0.0029,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(293,1,14,296,37.3,175,'Truck','Manual',6,'2-Wheel Drive, Front','Not eqipped',3.74,40.5,3875,239.63,0.0443,0.0012,0.0036,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(294,1,14,288,28.4,337,'Truck','Automatic',6,'4-Wheel Drive','Not eqipped',3.36,26.8,5000,312.05,0.005,0.0014,0.0039,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(295,1,14,297,44.2,124,'Car','Manual',5,'2-Wheel Drive, Front','Not eqipped',4.27,50.1,3000,200.59,0.0625,0.001,0.007,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(296,1,14,291,46.2,156,'Car','Manual',6,'2-Wheel Drive, Front','Not eqipped',4.19,44.3,3125,192.56,0.0352,0.0031,0.0094,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(297,1,14,295,34.4,271,'Truck','Automatic',6,'2-Wheel Drive, Front','Not eqipped',3.04,29.3,4750,259.124,0.2213,0.0024,0.0115,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(298,1,14,293,49.1,110,'Car','Automatic',4,'2-Wheel Drive, Front','Not eqipped',4.04,42.0,2875,180.663179,0.0740642,0.0017009,0.0152305,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(299,1,15,303,23.6,510,'Truck','Automatic',6,'4-Wheel Drive','Not eqipped',3.54,32.5,6000,374.24,0.0192,0.00214,0.0022,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(300,1,15,302,24.8,375,'Truck','Automatic',6,'4-Wheel Drive','Not eqipped',3.54,32.0,6000,355.83,0.0339,0.0118,0.0035,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(301,1,15,300,23.8,375,'Truck','Automatic',6,'4-Wheel Drive','Not eqipped',3.54,31.0,6000,369.58,0.2013,0.02916,0.00411,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(302,1,15,299,30.3,230,'Truck','Automatic',6,'4-Wheel Drive','Not eqipped',3.75,30.6,4500,293.8,0.3783,0.01191,0.01056,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(303,1,15,304,24.6,510,'Truck','Automatic',6,'4-Wheel Drive','Not eqipped',3.54,31.0,6000,357.55,0.8348,0.05058,0.01719,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(304,1,15,301,25.5,375,'Truck','Automatic',6,'4-Wheel Drive','Not eqipped',3.54,30.9,6000,345.82,0.0477,0.0002,0.0189,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(305,1,16,306,33.8,345,'Car','Manual',6,'2-Wheel Drive, Rear','Not eqipped',3.77,48.0,3500,262.447,0.61124,0.03453,0.00042,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(306,1,16,305,37,260,'Car','Manual',6,'2-Wheel Drive, Rear','Not eqipped',4.53,51.0,2375,238.542,0.97023,0.04847,0.00165,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(307,1,17,307,31.5,140,'Truck','Automatic',6,'4-Wheel Drive','Not eqipped',4.55,35.1,5000,323.2162883,0.0304395,0.0035931,0.0137539,'Diesel Particulate Filter',4,2);
+INSERT INTO "cars_car" VALUES(308,1,18,309,27.3,434,'Car','Automatic',6,'2-Wheel Drive, Rear','Equipped, not shifted by SIL',3.73,32.1,4750,324.453,0.149,0.003,0.006,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(309,1,18,308,27.6,399,'Car','Automatic',6,'2-Wheel Drive, Rear','Equipped, not shifted by SIL',3.73,32.1,4500,321.428,0.039,0.008,0.015,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(310,1,18,310,27.8,434,'Car','Automatic',6,'2-Wheel Drive, Rear','Equipped, not shifted by SIL',3.54,30.5,4500,318.398,0.116,0.008,0.015,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(311,1,18,312,26.5,424,'Car','Automatic',6,'2-Wheel Drive, Rear','Equipped, not shifted by SIL',3.54,31.4,4750,334.283,0.194,0.024,0.026,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(312,1,18,311,27.4,396,'Car','Automatic',6,'2-Wheel Drive, Rear','Equipped, not shifted by SIL',3.54,31.4,4750,323.699,0.105,0.022,0.044,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(313,1,19,318,46.7,148,'Car','Semi-Automatic',5,'2-Wheel Drive, Front','Not eqipped',3.46,33.3,3250,187.0,0.01,0.001785,0.0017,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(314,1,19,321,39.9,158,'Car','Manual',6,'2-Wheel Drive, Rear','Not eqipped',4.1,34.5,2875,219.0,0.0376,0.002984,0.00217,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(315,1,19,314,34.7,244,'Truck','Automatic',6,'2-Wheel Drive, Front','Not eqipped',3.75,30.8,4000,256.0,0.0674,0.015386,0.00248,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(316,1,19,319,43.7,168,'Car','Semi-Automatic',5,'2-Wheel Drive, Front','Not eqipped',3.65,31.9,3625,203.78,0.15,0.00204,0.0028,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(317,1,19,313,36.3,272,'Car','Automatic',6,'2-Wheel Drive, Front','Not eqipped',3.2,28.9,3875,244.969,0.135752,0.002835,0.0045184,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(318,1,19,320,34.7,263,'Car','Manual',6,'2-Wheel Drive, Front','Not eqipped',3.53,38.5,3625,255.0,0.1154,0.014502,0.00491,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(319,1,19,317,49.6,100,'Car','Manual',5,'2-Wheel Drive, Front','Not eqipped',3.85,44.9,2625,179.51,0.027,0.00691,0.0056,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(320,1,19,322,32.4,212,'Car','Automatic',6,'2-Wheel Drive, Rear','Not eqipped',4.3,33.5,3375,263.0,0.2469,0.011187,0.00712,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(321,1,19,316,33.8,273,'Truck','Automatic',6,'2-Wheel Drive, Front','Not eqipped',3.46,27.9,4750,262.889,0.213607,0.0094729,0.0073311,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(322,1,19,315,30.3,274,'Truck','Automatic',6,'4-Wheel Drive','Not eqipped',3.46,27.8,4750,292.68,0.0917543,0.0049775,0.0228037,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(323,1,20,347,31.5,210,'Truck','Automatic',7,'4-Wheel Drive','Not eqipped',3.7,30.2,6000,323.12,0.0037,0.00306,0.0006,'Diesel Particulate Filter',6,0);
+INSERT INTO "cars_car" VALUES(324,1,20,329,25.3,510,'Car','Automatic',5,'2-Wheel Drive, Rear','Not eqipped',2.65,27.5,5250,351.38,0.15482,0.0071,0.00064,'Three-way catalyst',12,0);
+INSERT INTO "cars_car" VALUES(325,1,20,338,35.7,268,'Both','Automatic',7,'2-Wheel Drive, Rear','Not eqipped',2.82,28.5,4000,245.67,0.0428,0.00439,0.0007,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(326,1,20,360,35,275,'Car','Automatic',7,'2-Wheel Drive, Rear','Not eqipped',3.07,28.6,5000,248.8401166,0.0802477,0.002405,0.0008046,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(327,1,20,368,25,603,'Car','Automatic',5,'2-Wheel Drive, Rear','Not eqipped',2.65,29.5,4750,355.26,0.2306,0.01041,0.0009,'Three-way catalyst',12,0);
+INSERT INTO "cars_car" VALUES(328,1,20,372,57.8,70,'Car','Automated Manual',5,'2-Wheel Drive, Rear','Equipped, not shifted by SIL',4.53,52.9,2125,154.19,0.2211,0.01106,0.0012,'Three-way catalyst',3,0);
+INSERT INTO "cars_car" VALUES(329,1,20,334,33.2,268,'Both','Automatic',7,'2-Wheel Drive, Rear','Not eqipped',3.07,30.7,4250,266.75,0.0267,0.00148,0.00127,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(330,1,20,359,33.3,210,'Truck','Automatic',7,'4-Wheel Drive','Not eqipped',3.45,30.0,5500,305.81,0.0032,0.00255,0.0013,'Diesel Particulate Filter',6,0);
+INSERT INTO "cars_car" VALUES(331,1,20,350,31.3,268,'Both','Automatic',7,'2-Wheel Drive, Rear','Not eqipped',3.27,29.2,4500,284.13,0.1025,0.00257,0.0014,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(332,1,20,335,34.9,268,'Car','Automatic',7,'2-Wheel Drive, Rear','Not eqipped',2.82,28.5,4250,253.58,0.0938,0.014,0.00145,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(333,1,20,337,47.1,210,'Car','Automatic',7,'2-Wheel Drive, Rear','Not eqipped',2.65,26.1,4500,216.24,0.0048,0.00939,0.0015,'Selective Catalytic Reduction',6,0);
+INSERT INTO "cars_car" VALUES(334,1,20,354,34.4,210,'Truck','Automatic',7,'4-Wheel Drive','Not eqipped',3.45,30.0,5250,296.38,0.0043,0.00384,0.0015,'Selective Catalytic Reduction',6,0);
+INSERT INTO "cars_car" VALUES(335,1,20,327,35.9,228,'Both','Automatic',7,'2-Wheel Drive, Rear','Not eqipped',3.07,31.3,3875,243.28,0.0458,0.00139,0.0015,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(336,1,20,357,33.7,275,'Truck','Continuously Variable',1,'4-Wheel Drive','Not eqipped',3.45,29.8,5500,262.13,0.134,0.00153,0.0015,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(337,1,20,339,32.3,382,'Both','Automatic',7,'2-Wheel Drive, Rear','Not eqipped',2.47,24.7,4500,274.97,0.1479,0.04909,0.0016,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(338,1,20,336,33.2,268,'Car','Automatic',7,'4-Wheel Drive','Not eqipped',3.07,30.2,4500,267.3,0.1332,0.01391,0.0017,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(339,1,20,342,31.5,382,'Both','Automatic',7,'4-Wheel Drive','Not eqipped',2.47,24.3,4750,282.26,0.1584,0.04506,0.0018,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(340,1,20,351,29.4,268,'Both','Automatic',7,'4-Wheel Drive','Not eqipped',3.46,32.8,4500,301.91,0.055,0.00177,0.0019,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(341,1,20,365,26.3,621,'Car','Automatic',5,'2-Wheel Drive, Rear','Not eqipped',2.65,27.7,5500,337.48,0.1952,0.0097,0.0024,'Three-way catalyst',12,0);
+INSERT INTO "cars_car" VALUES(342,1,20,362,29.8,382,'Both','Automatic',7,'4-Wheel Drive','Not eqipped',2.65,24.7,5000,297.19,0.1491,0.03233,0.0025,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(343,1,20,331,25.3,621,'Car','Automatic',5,'2-Wheel Drive, Rear','Not eqipped',2.65,27.7,5250,349.9,0.229,0.028,0.0027,'Three-way catalyst',12,0);
+INSERT INTO "cars_car" VALUES(344,1,20,358,26.5,268,'Truck','Automatic',7,'4-Wheel Drive','Not eqipped',3.7,32.1,5500,333.53,0.4316,0.0196,0.0028,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(345,1,20,370,35.2,301,'Car','Automatic',7,'2-Wheel Drive, Rear','Not eqipped',3.27,32.9,3625,251.87,0.0717,0.0182,0.0029,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(346,1,20,332,29,382,'Car','Automatic',7,'2-Wheel Drive, Rear','Not eqipped',2.82,27.9,4500,307.0,0.2884,0.0448,0.0029,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(347,1,20,324,34.9,228,'Car','Automatic',7,'4-Wheel Drive','Not eqipped',3.07,31.3,4000,251.96,0.0787,0.00903,0.00293,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(348,1,20,366,28.6,382,'Both','Automatic',7,'2-Wheel Drive, Rear','Not eqipped',2.65,25.7,4500,310.36,0.2411,0.06144,0.003,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(349,1,20,345,18.7,500,'Truck','Automatic',5,'4-Wheel Drive','Not eqipped',4.11,41.5,6000,472.78,0.2449,0.00335,0.0034,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(350,1,20,341,31.7,268,'Both','Automatic',7,'2-Wheel Drive, Rear','Not eqipped',2.65,26.8,4250,277.23,0.2761,0.0444,0.0036,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(351,1,20,352,28.1,268,'Truck','Automatic',7,'2-Wheel Drive, Rear','Not eqipped',3.9,33.8,5000,312.15,0.3462,0.02993,0.0037,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(352,1,20,340,30.6,268,'Both','Automatic',7,'2-Wheel Drive, Rear','Not eqipped',2.65,26.8,4500,288.813,0.24591,0.0412,0.00386,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(353,1,20,364,30.2,544,'Car','Automatic',7,'2-Wheel Drive, Rear','Not eqipped',2.65,28.0,5250,294.4,0.1622,0.00869,0.0053,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(354,1,20,371,26.8,563,'Car','Automated Manual',7,'2-Wheel Drive, Rear','Not eqipped',3.67,33.8,4000,329.52,0.1014,0.00753,0.0054,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(355,1,20,356,19.7,503,'Both','Automatic',7,'4-Wheel Drive','Not eqipped',3.45,29.6,5500,451.29,0.8418,0.01,0.0055,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(356,1,20,353,27.1,268,'Truck','Automatic',7,'2-Wheel Drive, Rear','Not eqipped',3.9,33.8,5250,325.83,0.398,0.03605,0.0058,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(357,1,20,367,26,518,'Both','Automatic',7,'2-Wheel Drive, Rear','Not eqipped',2.65,25.7,4750,341.76,0.1847,0.00281,0.0058,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(358,1,20,355,25.3,382,'Both','Automatic',7,'4-Wheel Drive','Not eqipped',3.7,32.0,5500,350.26,0.2681,0.01609,0.0061,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(359,1,20,333,25,507,'Both','Automatic',7,'2-Wheel Drive, Rear','Not eqipped',2.82,26.0,4500,355.12,0.145,0.00361,0.0062,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(360,1,20,323,35.4,228,'Car','Automatic',7,'2-Wheel Drive, Rear','Not eqipped',3.07,31.3,3875,248.17,0.0658,0.00278,0.0066,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(361,1,20,349,23.2,382,'Both','Automatic',7,'4-Wheel Drive','Not eqipped',3.7,31.0,6000,379.76,0.3592,0.02784,0.00683,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(362,1,20,369,36.2,228,'Car','Automatic',7,'2-Wheel Drive, Rear','Not eqipped',3.27,33.2,3625,244.82,0.0881,0.00119,0.0087,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(363,1,20,325,34.8,268,'Car','Automatic',7,'2-Wheel Drive, Rear','Not eqipped',2.82,28.7,3875,254.98,0.1191,0.01674,0.00885,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(364,1,20,361,32,382,'Both','Automatic',7,'2-Wheel Drive, Rear','Not eqipped',2.65,24.7,4750,275.94,0.2391,0.05164,0.00888,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(365,1,20,346,20.1,382,'Both','Automatic',7,'4-Wheel Drive','Not eqipped',4.38,41.3,6000,438.52,0.2923,0.03344,0.0089,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(366,1,20,326,26.8,451,'Car','Automatic',7,'2-Wheel Drive, Rear','Not eqipped',2.82,28.4,4250,330.49,0.17494,0.00531,0.00933,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(367,1,20,348,24.2,335,'Both','Automatic',7,'4-Wheel Drive','Not eqipped',3.7,30.2,6000,366.26,0.4741,0.03219,0.0116,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(368,1,20,343,26.9,518,'Both','Automatic',7,'2-Wheel Drive, Rear','Not eqipped',2.82,29.7,4500,327.71,0.2646,0.00556,0.0118,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(369,1,20,363,25.6,510,'Car','Automatic',5,'2-Wheel Drive, Rear','Not eqipped',2.65,25.3,5250,347.04,0.19167,0.0008,0.014,'Three-way catalyst',12,0);
+INSERT INTO "cars_car" VALUES(370,1,20,330,28.9,544,'Car','Automatic',7,'2-Wheel Drive, Rear','Not eqipped',2.65,28.0,5250,305.65,0.5642,0.03154,0.0154,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(371,1,20,328,31.8,435,'Car','Automatic',7,'4-Wheel Drive','Not eqipped',2.65,24.7,5000,279.46,0.0472,0.00161,0.0459,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(372,1,20,344,-1,134,'Car','Automatic',1,'2-Wheel Drive, Front','Not eqipped',1.0,0.0,4000,-1.0,-1.0,-1.0,-1.0,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(373,1,20,373,112.9,41,'Car','Automatic',1,'2-Wheel Drive, Rear','Not eqipped',1.0,151.2,2375,-1.0,-1.0,-1.0,-1.0,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(374,1,21,374,46.6,143,'Car','Manual',5,'2-Wheel Drive, Front','Not eqipped',3.94,41.9,3250,191.33184,0.00267,0.00105,0.00071,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(375,1,21,380,41.2,148,'Truck','Other',1,'4-Wheel Drive','Not eqipped',6.47,32.2,3625,214.80894,0.36191,0.0101,0.00087,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(376,1,21,376,44.4,143,'Car','Other',1,'2-Wheel Drive, Front','Not eqipped',5.41,29.2,3375,200.0207,0.00269,0.00089,0.00123,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(377,1,21,377,36,230,'Truck','Semi-Automatic',6,'2-Wheel Drive, Front','Not eqipped',3.57,30.9,4000,246.16432,0.33494,0.01986,0.00297,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(378,1,21,378,34.5,230,'Truck','Semi-Automatic',6,'4-Wheel Drive','Not eqipped',3.57,30.9,4250,257.0752486,0.2380908,0.0134269,0.0036379,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(379,1,21,384,26.9,225,'Truck','Semi-Automatic',4,'All Wheel Drive','Not eqipped',4.32,35.6,4500,323.90029,0.19556,0.01527,0.00389,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(380,1,21,379,41.5,143,'Truck','Other',1,'2-Wheel Drive, Front','Not eqipped',6.47,32.2,3500,214.221016,0.0004485,0.0011548,0.0039212,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(381,1,21,375,30.6,291,'Car','Automated Manual',6,'All Wheel Drive','Not eqipped',4.06,42.3,3875,289.64471,0.26164,0.01352,0.00602,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(382,1,21,385,42.5,155,'Car','Semi-Automatic',4,'2-Wheel Drive, Front','Not eqipped',4.21,38.8,3625,208.58954,0.05042,0.00177,0.00617,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(383,1,21,382,38.2,162,'Car','Semi-Automatic',4,'2-Wheel Drive, Front','Not eqipped',4.21,38.9,3875,233.19306,0.05223,0.00487,0.00824,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(384,1,21,383,29.8,225,'Truck','Semi-Automatic',4,'2-Wheel Drive, Front','Not eqipped',4.01,33.1,4250,292.54076,0.13827,0.01314,0.01004,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(385,1,21,381,39.4,162,'Car','Semi-Automatic',4,'2-Wheel Drive, Front','Not eqipped',4.21,38.1,3750,225.74037,0.05844,0.0057,0.01797,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(386,1,22,413,43.5,118,'Car','Continuously Variable',1,'2-Wheel Drive, Front','Not eqipped',5.47,33.7,3125,201.0,0.1517,0.0014,0.0009,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(387,1,22,438,48,135,'Car','Continuously Variable',1,'2-Wheel Drive, Front','Not eqipped',5.12,27.3,3250,182.0,0.1368,0.0009,0.001,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(388,1,22,442,44.2,120,'Car','Manual',6,'2-Wheel Drive, Front','Not eqipped',3.93,45.7,3000,201.0,0.0747,0.0021,0.0012,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(390,1,22,428,26.6,266,'Truck','Semi-Automatic',5,'4-Wheel Drive','Not eqipped',3.36,32.2,5250,335.0,0.081,0.0046,0.0016,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(391,1,22,430,28.3,266,'Truck','Automatic',5,'4-Wheel Drive','Not eqipped',3.36,32.4,5000,315.0,0.0904,0.004,0.0017,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(392,1,22,389,26,261,'Truck','Automatic',5,'4-Wheel Drive','Not eqipped',3.36,32.1,4750,343.0,0.087,0.0019,0.0024,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(393,1,22,418,28.7,261,'Truck','Automatic',5,'2-Wheel Drive, Rear','Not eqipped',2.94,28.1,4500,310.0,0.0915,0.0045,0.0024,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(394,1,22,427,30.6,265,'Truck','Continuously Variable',1,'All Wheel Drive','Not eqipped',5.17,26.4,4750,291.0,0.1035,0.0015,0.0024,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(395,1,22,394,41,219,'Car','Semi-Automatic',7,'2-Wheel Drive, Rear','Not eqipped',3.36,34.2,3875,218.0,0.0855,0.0028,0.0025,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(396,1,22,395,38,219,'Car','Semi-Automatic',7,'All Wheel Drive','Not eqipped',3.36,34.2,4000,235.0,0.1202,0.0029,0.0025,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(397,1,22,415,29.9,152,'Truck','Automatic',5,'2-Wheel Drive, Rear','Not eqipped',3.69,37.0,4000,298.0,0.0951,0.0013,0.0026,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(398,1,22,388,31.8,151,'Truck','Manual',5,'2-Wheel Drive, Rear','Not eqipped',4.08,39.6,4000,280.0,0.0598,0.0021,0.0026,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(399,1,22,431,34.8,253,'Truck','Continuously Variable',1,'2-Wheel Drive, Front','Not eqipped',4.88,27.5,4750,256.0,0.0457,0.001,0.0027,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(400,1,22,444,30.4,261,'Truck','Automatic',5,'2-Wheel Drive, Rear','Not eqipped',2.94,28.1,4500,292.0,0.1406,0.0028,0.0028,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(401,1,22,440,46.5,107,'Car','Automatic',4,'2-Wheel Drive, Front','Not eqipped',4.07,42.5,2875,190.5182951,0.0577529,0.0017566,0.0028749,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(402,1,22,429,29.9,266,'Truck','Semi-Automatic',5,'2-Wheel Drive, Rear','Not eqipped',3.13,30.0,5000,298.0,0.0002,0.0024,0.0029,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(403,1,22,448,16.1,317,'Truck','Automatic',5,'4-Wheel Drive','Not eqipped',3.36,29.9,6000,392.0,0.1017,0.0008,0.0033,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(404,1,22,450,22.7,317,'Truck','Automatic',5,'4-Wheel Drive','Not eqipped',3.36,29.4,6000,392.0,0.0637,0.0022,0.0037,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(405,1,22,421,45.4,188,'Car','Continuously Variable',1,'2-Wheel Drive, Front','Not eqipped',5.8,30.5,3375,197.0,0.0182,0.0002,0.0039,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(406,1,22,417,28.1,261,'Truck','Manual',6,'2-Wheel Drive, Rear','Not eqipped',3.54,31.1,4500,317.0,0.1261,0.002,0.0039,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(407,1,22,390,34,297,'Car','Semi-Automatic',7,'2-Wheel Drive, Rear','Not eqipped',3.13,30.5,4250,262.0,0.1091,0.0041,0.004,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(408,1,22,412,25.7,317,'Truck','Automatic',5,'2-Wheel Drive, Rear','Not eqipped',2.94,25.8,6000,346.0,0.0673,0.001,0.004,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(409,1,22,386,25.8,317,'Truck','Automatic',5,'2-Wheel Drive, Rear','Not eqipped',2.94,25.8,6000,345.0,0.0436,0.0022,0.0041,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(410,1,22,408,44.7,175,'Both','Continuously Variable',1,'2-Wheel Drive, Front','Not eqipped',5.12,26.8,3500,199.0,0.1513,0.0047,0.0042,'NA',4,0);
+INSERT INTO "cars_car" VALUES(411,1,22,419,27.4,261,'Truck','Automatic',5,'4-Wheel Drive','Not eqipped',3.13,30.0,4750,325.0,0.0906,0.0068,0.0042,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(412,1,22,393,27.5,390,'Truck','Semi-Automatic',7,'All Wheel Drive','Not eqipped',3.54,31.3,5000,324.0,0.0825,0.0031,0.0042,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(413,1,22,436,43.2,140,'Car','Manual',6,'2-Wheel Drive, Front','Not eqipped',3.93,42.8,3250,206.0,0.2095,0.004,0.0045,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(414,1,22,392,30.9,300,'Both','Semi-Automatic',7,'2-Wheel Drive, Rear','Not eqipped',3.36,29.8,4500,288.0,0.058,0.0034,0.0048,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(415,1,22,411,46.6,163,'Car','Continuously Variable',1,'2-Wheel Drive, Front','Not eqipped',3.54,25.0,3750,187.0,0.0703,0.0002,0.0048,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(416,1,22,420,29.3,480,'Car','Semi-Automatic',6,'All Wheel Drive','Not eqipped',3.7,36.5,4250,304.0,0.0284,0.002,0.005,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(417,1,22,445,24.2,310,'Truck','Automatic',5,'4-Wheel Drive','Not eqipped',2.94,28.0,5250,368.0,0.0691,0.003,0.0052,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(418,1,22,437,49.1,140,'Car','Continuously Variable',1,'2-Wheel Drive, Front','Not eqipped',5.12,27.3,3250,182.0,0.0859,0.0011,0.0054,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(419,1,22,391,29.5,300,'Both','Semi-Automatic',7,'All Wheel Drive','Not eqipped',3.69,32.8,4750,301.0,0.1587,0.0018,0.0055,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(420,1,22,410,43.8,175,'Both','Manual',6,'2-Wheel Drive, Front','Not eqipped',3.81,34.0,3500,203.0,0.1603,0.0032,0.0057,'NA',4,0);
+INSERT INTO "cars_car" VALUES(421,1,22,416,26.4,261,'Truck','Manual',6,'4-Wheel Drive','Not eqipped',3.69,31.3,4750,337.0,0.1482,0.009,0.0058,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(422,1,22,404,28.1,400,'Truck','Semi-Automatic',7,'2-Wheel Drive, Rear','Not eqipped',2.94,23.8,6000,317.0,0.2158,0.0152,0.0066,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(423,1,22,441,47.3,102,'Car','Manual',5,'2-Wheel Drive, Front','Not eqipped',4.07,49.9,2875,188.0,0.0548,0.0007,0.0068,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(424,1,22,402,33.3,330,'Car','Semi-Automatic',7,'All Wheel Drive','Not eqipped',3.36,32.9,4500,267.0,0.0885,0.0066,0.0076,'NA',6,0);
+INSERT INTO "cars_car" VALUES(425,1,22,426,32.9,265,'Truck','Continuously Variable',1,'All Wheel Drive','Not eqipped',5.17,26.7,4250,272.0,0.0819,0.0026,0.0081,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(426,1,22,399,35.1,326,'Car','Manual',6,'2-Wheel Drive, Rear','Not eqipped',3.69,37.8,4000,253.0,0.38,0.0084,0.0082,'NA',6,0);
+INSERT INTO "cars_car" VALUES(427,1,22,449,18.4,317,'Truck','Automatic',5,'2-Wheel Drive, Rear','Not eqipped',2.94,26.1,5500,342.0,0.0553,0.0014,0.0088,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(428,1,22,405,27,400,'Truck','Semi-Automatic',7,'4-Wheel Drive','Not eqipped',2.94,23.8,6000,330.0,0.2183,0.0119,0.0089,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(429,1,22,400,34.9,326,'Car','Semi-Automatic',7,'All Wheel Drive','Not eqipped',3.36,33.6,4250,255.0,0.1017,0.0035,0.0094,'NA',6,0);
+INSERT INTO "cars_car" VALUES(430,1,22,425,32.5,265,'Truck','Continuously Variable',1,'2-Wheel Drive, Front','Not eqipped',5.17,26.7,4250,275.0,0.0636,0.0022,0.0099,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(431,1,22,439,42.6,177,'Car','Continuously Variable',1,'2-Wheel Drive, Front','Not eqipped',5.41,29.6,3375,209.0,0.074,0.0082,0.01,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(432,1,22,401,37,330,'Car','Semi-Automatic',7,'2-Wheel Drive, Rear','Not eqipped',3.36,32.9,4250,241.0,0.0978,0.01,0.0113,'NA',6,0);
+INSERT INTO "cars_car" VALUES(433,1,22,396,34.9,320,'Car','Semi-Automatic',7,'2-Wheel Drive, Rear','Not eqipped',3.36,33.4,4500,255.0,0.063,0.002,0.012,'NA',6,0);
+INSERT INTO "cars_car" VALUES(434,1,22,409,38.4,270,'Car','Continuously Variable',1,'2-Wheel Drive, Front','Not eqipped',4.88,28.0,3625,232.0,0.118,0.001,0.0126,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(435,1,22,403,34.3,420,'Car','Semi-Automatic',7,'2-Wheel Drive, Rear','Not eqipped',2.61,25.6,4500,260.0,0.1169,0.017,0.013,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(436,1,22,424,36.3,290,'Car','Continuously Variable',1,'2-Wheel Drive, Front','Not eqipped',5.17,29.4,3875,245.0,0.0854,0.0025,0.0138,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(437,1,22,423,35.2,290,'Both','Continuously Variable',1,'2-Wheel Drive, Front','Not eqipped',5.17,29.6,3875,253.0,0.1253,0.0025,0.0157,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(438,1,22,435,39.4,170,'Both','Continuously Variable',1,'2-Wheel Drive, Front','Not eqipped',5.8,29.1,3625,225.4802545,0.1130929,0.0028259,0.0172524,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(439,1,22,446,39.6,200,'Car','Manual',6,'2-Wheel Drive, Front','Not eqipped',4.43,38.8,3375,225.0,0.1121,0.0098,0.0185,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(440,1,22,398,37.1,326,'Car','Semi-Automatic',7,'2-Wheel Drive, Rear','Not eqipped',3.36,33.6,4000,240.0,0.1066,0.0083,0.0202,'NA',6,0);
+INSERT INTO "cars_car" VALUES(441,1,22,406,36.9,332,'Car','Semi-Automatic',7,'2-Wheel Drive, Rear','Not eqipped',3.36,33.8,3625,241.0,0.0708,0.0093,0.0208,'NA',6,0);
+INSERT INTO "cars_car" VALUES(442,1,22,443,48.2,122,'Car','Continuously Variable',1,'2-Wheel Drive, Front','Not eqipped',5.47,33.5,3125,185.0,0.0531,0.0019,0.0277,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(443,1,22,414,43.7,122,'Car','Continuously Variable',1,'2-Wheel Drive, Front','Not eqipped',5.47,33.7,3125,202.8505994,0.1708374,0.0059101,0.0307274,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(444,1,22,434,38.9,170,'Both','Continuously Variable',1,'2-Wheel Drive, Front','Not eqipped',5.8,28.9,3625,230.0,0.0911,0.0024,0.036,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(445,1,22,432,36.8,170,'Both','Continuously Variable',1,'All Wheel Drive','Not eqipped',5.8,28.9,3750,242.0,0.0688,0.0011,0.0738,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(446,1,22,433,37.9,170,'Both','Continuously Variable',1,'All Wheel Drive','Not eqipped',5.8,29.1,3875,235.0,0.0885,0.0021,0.0768,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(447,1,22,387,32.1,152,'Truck','Manual',5,'2-Wheel Drive, Rear','Not eqipped',4.36,40.4,4000,-1.0,-1.0,-1.0,-1.0,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(448,1,22,447,30.6,152,'Truck','Automatic',5,'2-Wheel Drive, Rear','Not eqipped',3.92,37.5,4000,-1.0,-1.0,-1.0,-1.0,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(449,1,22,397,32.9,325,'Car','Manual',6,'2-Wheel Drive, Rear','Not eqipped',3.92,40.1,4500,-1.0,-1.0,-1.0,-1.0,'NA',6,0);
+INSERT INTO "cars_car" VALUES(450,1,22,422,130.6,107,'Car','Other',1,'2-Wheel Drive, Front','Not eqipped',7.94,111.1,3750,-1.0,-1.0,-1.0,-1.0,'NA',-1,1);
+INSERT INTO "cars_car" VALUES(451,1,23,452,36,385,'Car','Manual',6,'2-Wheel Drive, Rear','Not eqipped',3.44,40.5,3750,245.78149,0.0249,0.00552,0.00225,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(452,1,23,464,32,500,'Car','Automatic',7,'All Wheel Drive','Not eqipped',3.15,38.8,4750,276.5349,0.337,0.00196,0.00322,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(453,1,23,455,33.2,500,'Car','Manual',6,'2-Wheel Drive, Rear','Not eqipped',3.44,35.9,3875,267.30796,0.02538,0.0,0.0034,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(454,1,23,459,29.9,500,'Truck','Automatic',8,'All Wheel Drive','Not eqipped',2.92,42.0,5250,296.51336,0.02431,0.0,0.00367,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(455,1,23,461,37.1,320,'Car','Manual',6,'2-Wheel Drive, Rear','Not eqipped',3.89,41.6,3500,241.1267,0.0095,0.00035,0.0044,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(456,1,23,463,33.2,400,'Car','Automatic',7,'2-Wheel Drive, Rear','Not eqipped',3.55,44.2,4500,266.6925,0.0546,0.00417,0.00445,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(457,1,23,457,32.3,300,'Truck','Semi-Automatic',8,'All Wheel Drive','Not eqipped',3.7,53.7,5000,274.6329096,0.0345752,0.0034084,0.0044778,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(458,1,23,453,32.3,530,'Car','Manual',6,'2-Wheel Drive, Rear','Not eqipped',3.44,32.7,3500,275.21596,0.2084,0.00036,0.0049,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(459,1,23,458,31.6,400,'Truck','Automatic',8,'All Wheel Drive','Not eqipped',3.1,43.9,5000,280.68138,0.026,0.0,0.0051,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(460,1,23,451,35.6,345,'Car','Manual',6,'2-Wheel Drive, Rear','Not eqipped',3.44,40.0,3625,249.33,0.01951,0.01138,0.0054,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(461,1,23,456,34.1,530,'Car','Automatic',7,'2-Wheel Drive, Rear','Not eqipped',3.44,28.2,4000,260.00128,0.0274,0.00446,0.0056,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(462,1,23,460,41.4,265,'Car','Automatic',7,'2-Wheel Drive, Rear','Not eqipped',3.25,43.1,3500,214.17055,0.00732,0.00069,0.006,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(463,1,23,454,28.4,435,'Car','Manual',6,'2-Wheel Drive, Rear','Equipped, shifted by survey schedule',3.44,41.7,3375,312.5799361,0.1042989,0.0065232,0.0062125,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(464,1,23,462,36.5,300,'Car','Automatic',7,'4-Wheel Drive','Not eqipped',3.9,48.7,4500,242.83073,0.2204,0.0,0.0072,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(465,1,24,466,24.2,453,'Car','Semi-Automatic',6,'2-Wheel Drive, Rear','Not eqipped',3.46,26.6,6000,368.14,0.3918,0.00057,0.0001,'Three-way catalyst',12,0);
+INSERT INTO "cars_car" VALUES(466,1,24,465,27.3,563,'Car','Automatic',8,'2-Wheel Drive, Rear','Not eqipped',2.81,22.3,5500,324.89,0.2105,0.0,0.0035,'Three-way catalyst',12,0);
+INSERT INTO "cars_car" VALUES(467,1,25,467,40.5,207,'Car','Manual',6,'2-Wheel Drive, Front','Not eqipped',3.55,30.1,4000,205.0,0.02,0.005,0.0,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(468,1,25,468,41,207,'Car','Manual',6,'All Wheel Drive','Not eqipped',3.76,31.2,4000,205.0,0.02,0.005,0.0,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(469,1,25,469,43.1,207,'Car','Manual',6,'2-Wheel Drive, Front','Not eqipped',3.55,29.9,3625,205.0,0.02,0.005,0.0,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(470,1,25,472,37.6,300,'Car','Semi-Automatic',6,'All Wheel Drive','Not eqipped',3.2,28.7,4500,232.803,0.0127,0.00056,0.00153,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(471,1,25,471,32.7,220,'Car','Manual',6,'2-Wheel Drive, Front','Not eqipped',3.76,30.3,4000,184.799,0.087,0.0052,0.0037,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(472,1,25,470,37.4,210,'Car','Semi-Automatic',5,'2-Wheel Drive, Front','Not eqipped',2.44,33.1,3875,237.914,0.05881,0.01366,0.0053,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(473,1,26,476,37,170,'Both','Manual',5,'All Wheel Drive','Not eqipped',3.9,42.4,3375,240.1078,0.0005,0.0004,0.0021,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(474,1,26,473,37,170,'Both','Semi-Automatic',4,'All Wheel Drive','Not eqipped',4.44,40.4,3625,241.0,0.03,0.0004,0.003,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(475,1,26,477,34.4,256,'Both','Manual',5,'All Wheel Drive','Not eqipped',3.08,34.5,3875,258.0,0.01,0.0003,0.003,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(476,1,26,478,42.1,170,'Both','Continuously Variable',1,'All Wheel Drive','Not eqipped',3.7,28.4,3625,211.0910664,0.0183288,0.0031025,0.003902,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(477,1,26,479,33.5,256,'Both','Automatic',5,'All Wheel Drive','Not eqipped',3.08,32.8,4000,265.0,0.01,0.0005,0.004,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(478,1,26,480,29.5,256,'Both','Semi-Automatic',5,'All Wheel Drive','Not eqipped',3.58,35.6,4500,301.0,0.05,0.0013,0.004,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(479,1,26,474,31.2,305,'Both','Manual',6,'All Wheel Drive','Not eqipped',3.9,39.8,3750,283.9865967,0.2805962,0.0347465,0.0067226,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(480,1,26,475,34.6,265,'Both','Manual',5,'All Wheel Drive','Not eqipped',3.9,39.4,3625,258.0,0.07,0.0159,0.007,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(481,1,27,482,32.3,166,'Truck','Automatic',4,'4-Wheel Drive','Not eqipped',5.13,43.0,3875,273.0272,0.0635453,0.0009101,0.0025189,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(482,1,27,481,34.3,166,'Truck','Automatic',4,'2-Wheel Drive, Rear','Not eqipped',5.13,43.0,3750,257.4626,0.0651116,0.000897,0.0043659,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(483,1,27,483,40.8,185,'Car','Continuously Variable',1,'All Wheel Drive','Not eqipped',5.8,30.0,3750,216.9521,0.0238245,0.0020227,0.0055833,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(484,1,27,485,41.6,150,'Car','Continuously Variable',1,'2-Wheel Drive, Front','Not eqipped',5.8,31.5,3250,211.8351,0.0274944,0.0045266,0.0058807,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(485,1,27,484,42.4,185,'Car','Continuously Variable',1,'2-Wheel Drive, Front','Not eqipped',5.8,30.0,3625,208.9891,0.0215993,0.0022582,0.0063344,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(486,1,27,486,41.3,150,'Car','Continuously Variable',1,'All Wheel Drive','Not eqipped',5.8,30.9,3375,214.6839876,0.1375115,0.0093168,0.0081284,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(487,1,28,524,46.9,128,'Car','Manual',5,'2-Wheel Drive, Front','Not eqipped',3.94,44.8,3000,185.5892404,0.101331,0.0078351,0.0012007,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(488,1,28,521,39.5,245,'Truck','Continuously Variable',1,'2-Wheel Drive, Front','Not eqipped',3.54,25.1,5000,224.3584132,0.0385796,0.0003359,0.0014563,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(489,1,28,522,38.8,245,'Truck','Continuously Variable',1,'All Wheel Drive','Not eqipped',3.54,25.1,5000,228.0741092,0.0239236,0.0003862,0.0017528,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(490,1,28,493,57.9,98,'Car','Continuously Variable',1,'2-Wheel Drive, Front','Not eqipped',3.27,26.9,3500,152.7639478,0.0418111,0.0005757,0.001872,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(491,1,28,516,69.6,98,'Car','Continuously Variable',1,'2-Wheel Drive, Front','Not eqipped',3.27,26.8,3375,127.1332557,0.0155781,0.0002426,0.0019926,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(492,1,28,506,58.5,94,'Car','Continuously Variable',1,'2-Wheel Drive, Front','Not eqipped',5.4,33.2,2375,148.9969681,0.0371828,0.002233,0.002041,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(493,1,28,529,36.1,159,'Truck','Manual',5,'2-Wheel Drive, Rear','Not eqipped',3.31,34.6,3875,244.58192,0.017167,0.0025941,0.0021371,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(494,1,28,530,30.2,159,'Truck','Manual',5,'Part-time 4-Wheel Drive','Not eqipped',4.1,38.0,4250,289.5728875,0.0282382,0.0023149,0.002141,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(495,1,28,504,38.4,231,'Truck','Continuously Variable',1,'All Wheel Drive','Not eqipped',3.54,24.2,5000,230.381738,0.0394164,0.0003197,0.0022658,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(496,1,28,496,27,260,'Truck','Manual',6,'4-Wheel Drive','Not eqipped',3.91,34.2,4750,327.0417144,0.0969096,0.005376,0.0025175,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(497,1,28,491,42.6,158,'Car','Automatic',5,'2-Wheel Drive, Front','Not eqipped',3.39,33.5,3250,209.4892783,0.0085799,0.0016547,0.0025843,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(498,1,28,531,43.8,180,'Car','Automatic',6,'2-Wheel Drive, Front','Not eqipped',3.82,31.1,3500,201.6995461,0.0081271,0.0016758,0.0030833,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(499,1,28,514,30.3,389,'Car','Continuously Variable',1,'All Wheel Drive','Not eqipped',3.92,19.4,5500,293.8015854,0.0043914,0.000679,0.0031336,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(500,1,28,487,31.4,270,'Truck','Automatic',5,'2-Wheel Drive, Rear','Not eqipped',3.73,29.2,4750,281.3089209,0.0632929,0.0048892,0.0032027,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(501,1,28,488,30,270,'Truck','Automatic',5,'4-Wheel Drive','Not eqipped',3.73,29.2,5000,291.6814878,0.0591742,0.0042553,0.003297,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(502,1,28,495,30.2,260,'Truck','Automatic',5,'2-Wheel Drive, Rear','Not eqipped',3.73,29.2,4500,292.952708,0.0686513,0.0043447,0.0033139,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(503,1,28,494,38.3,272,'Car','Automatic',6,'2-Wheel Drive, Front','Not eqipped',3.69,29.9,4000,227.834395,0.0025229,0.0007069,0.0034208,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(504,1,28,505,49.1,147,'Car','Continuously Variable',1,'2-Wheel Drive, Front','Not eqipped',3.54,28.1,4000,179.774062,0.002481,0.0002384,0.00405,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(505,1,28,512,32.2,380,'Car','Automatic',8,'All Wheel Drive','Not eqipped',3.13,27.6,5000,275.4849131,0.0027057,0.0009367,0.0042483,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(506,1,28,534,25.4,381,'Truck','Automatic',6,'2-Wheel Drive, Rear','Not eqipped',4.3,27.3,6000,348.3977482,0.0134818,0.0055742,0.0045977,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(507,1,28,497,36.5,303,'Car','Automatic',6,'2-Wheel Drive, Rear','Not eqipped',3.77,29.7,4000,242.267912,0.0085056,0.0009063,0.0046899,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(508,1,28,526,24.5,381,'Truck','Automatic',6,'Part-time 4-Wheel Drive','Not eqipped',4.3,27.5,6500,361.1277911,0.0060733,0.0062518,0.0048047,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(509,1,28,490,48.2,147,'Car','Continuously Variable',1,'2-Wheel Drive, Front','Not eqipped',3.54,22.1,4000,180.7638111,0.0069064,0.0003788,0.0049118,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(510,1,28,515,24.3,383,'Truck','Automatic',6,'4-Wheel Drive','Not eqipped',3.91,25.8,6500,364.1291493,0.0059873,0.0055732,0.0050237,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(511,1,28,513,34.1,380,'Car','Automatic',8,'2-Wheel Drive, Rear','Not eqipped',2.94,25.3,4750,256.1145167,0.0175252,0.0022885,0.0050521,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(512,1,28,498,34.6,303,'Car','Automatic',6,'All Wheel Drive','Not eqipped',3.77,29.7,4250,251.7888799,0.0105774,0.0011823,0.0050812,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(513,1,28,535,24.2,381,'Truck','Automatic',6,'Part-time 4-Wheel Drive','Not eqipped',4.3,27.4,5500,364.940288,0.0167182,0.0083262,0.0054248,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(514,1,28,517,37.4,269,'Truck','Automatic',5,'2-Wheel Drive, Front','Not eqipped',3.08,28.8,3875,235.858019,0.0060587,0.0012195,0.0054434,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(515,1,28,510,31.5,416,'Car','Automatic',8,'2-Wheel Drive, Rear','Not eqipped',2.94,26.7,4250,276.6657778,0.0053951,0.0,0.0057555,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(516,1,28,527,34,266,'Truck','Automatic',6,'2-Wheel Drive, Front','Not eqipped',3.94,29.9,4750,260.2960658,0.0146249,0.00142,0.0059119,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(517,1,28,489,46.8,169,'Car','Manual',6,'2-Wheel Drive, Front','Not eqipped',4.06,35.8,3625,189.2914533,0.0096062,0.0019508,0.0061092,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(518,1,28,539,47.9,106,'Car','Automatic',4,'2-Wheel Drive, Front','Not eqipped',4.24,44.0,2625,184.8605225,0.0044038,0.0026296,0.0061724,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(519,1,28,525,25.9,381,'Truck','Automatic',6,'2-Wheel Drive, Rear','Not eqipped',4.3,27.5,6000,340.6992581,0.0121621,0.0069672,0.0064569,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(520,1,28,537,36.6,268,'Truck','Automatic',6,'2-Wheel Drive, Front','Not eqipped',4.4,31.5,4250,241.9757992,0.0172246,0.0048422,0.006683,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(521,1,28,538,35,268,'Truck','Automatic',6,'All Wheel Drive','Not eqipped',4.4,31.5,4500,252.708132,0.0121787,0.0039095,0.0068232,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(522,1,28,523,38.7,158,'Car','Automatic',4,'2-Wheel Drive, Front','Not eqipped',2.74,39.1,3500,226.4674552,0.0,0.0011528,0.0069471,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(523,1,28,536,27.7,270,'Truck','Automatic',5,'2-Wheel Drive, Rear','Not eqipped',3.91,30.3,5250,315.5671034,0.0397984,0.0071744,0.0072786,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(524,1,28,501,28.3,301,'Truck','Semi-Automatic',6,'Part-time 4-Wheel Drive','Not eqipped',3.91,26.5,5500,309.9367967,0.0482744,0.004897,0.0074797,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(525,1,28,499,35.5,292,'Car','Continuously Variable',1,'2-Wheel Drive, Rear','Not eqipped',3.77,22.6,4500,246.1092552,0.0231578,0.0006057,0.0079799,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(526,1,28,518,35.6,269,'Truck','Automatic',5,'All Wheel Drive','Not eqipped',3.08,28.8,4000,248.2256633,0.011858,0.0019459,0.0086415,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(527,1,28,509,38.1,306,'Car','Automatic',6,'2-Wheel Drive, Rear','Not eqipped',4.08,31.8,4000,231.9677669,0.0002553,0.0007933,0.0103526,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(528,1,28,520,34.1,275,'Truck','Automatic',6,'All Wheel Drive','Not eqipped',4.4,32.3,4750,260.277867,0.0260428,0.0035237,0.0108634,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(529,1,28,508,41.7,204,'Car','Automatic',6,'2-Wheel Drive, Rear','Not eqipped',3.91,30.3,3875,211.981317,0.0239296,0.001771,0.0109419,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(530,1,28,528,30.2,266,'Truck','Automatic',6,'All Wheel Drive','Not eqipped',4.15,30.9,5000,288.6812776,0.0447864,0.0040645,0.0143763,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(531,1,28,492,39.3,158,'Car','Manual',5,'2-Wheel Drive, Front','Not eqipped',4.24,43.4,3500,224.8214831,0.0057684,0.0010008,0.0158182,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(532,1,28,502,33.6,270,'Truck','Automatic',5,'2-Wheel Drive, Front','Not eqipped',3.48,31.5,4500,262.6136709,0.0222164,0.0031386,0.0195627,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(533,1,28,503,31,270,'Truck','Automatic',5,'All Wheel Drive','Not eqipped',3.48,31.5,4750,281.2777708,0.0717938,0.0067561,0.0205039,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(534,1,28,519,34.5,275,'Truck','Automatic',6,'2-Wheel Drive, Front','Not eqipped',4.4,32.3,4750,255.7711551,0.0283757,0.0039113,0.0220681,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(535,1,28,507,36.6,204,'Car','Automatic',6,'All Wheel Drive','Not eqipped',4.1,33.4,4000,-1.0,-1.0,-1.0,-1.0,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(537,1,28,500,34,342,'Car','Automatic',8,'2-Wheel Drive, Rear','Not eqipped',2.94,27.0,4250,-1.0,-1.0,-1.0,-1.0,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(538,1,28,511,24.6,381,'Truck','Automatic',6,'4-Wheel Drive','Not eqipped',3.91,25.8,6000,-1.0,-1.0,-1.0,-1.0,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(540,1,29,543,60.5,140,'Car','Manual',6,'2-Wheel Drive, Front','Not eqipped',3.04,27.5,3500,168.0,0.0,0.0544,0.0006,'Oxidation catalyst',4,0);
+INSERT INTO "cars_car" VALUES(541,1,29,542,62,140,'Car','Manual',6,'2-Wheel Drive, Front','Not eqipped',2.76,27.5,3375,164.0,0.002,0.0308,0.0008,'NOx Adsorber',4,0);
+INSERT INTO "cars_car" VALUES(542,1,29,541,41.5,200,'Car','Automatic',6,'2-Wheel Drive, Front','Not eqipped',3.14,32.4,3875,213.0,0.1,0.0003,0.001,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(543,1,29,540,42,200,'Car','Automatic',6,'2-Wheel Drive, Front','Not eqipped',3.14,32.4,3625,210.0,0.12,0.0088,0.002,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(544,1,29,544,56.2,140,'Car','Automatic',6,'2-Wheel Drive, Front','Not eqipped',3.04,32.0,3750,181.1734085,0.0074327,0.0021418,0.0045899,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(545,1,29,545,41.7,200,'Car','Manual',6,'2-Wheel Drive, Front','Not eqipped',3.09,39.1,3625,213.0,0.14,0.0031,0.006,'Three-way catalyst',4,0);
+INSERT INTO "cars_car" VALUES(546,1,29,547,31.6,280,'Truck','Automatic',8,'All Wheel Drive','Not eqipped',3.7,44.1,5250,281.0,0.05,0.0095,0.009,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(547,1,29,546,33.5,280,'Car','Automatic',6,'All Wheel Drive','Not eqipped',3.45,32.4,4250,265.0,0.13,0.0016,0.009,'NA',-1,0);
+INSERT INTO "cars_car" VALUES(548,1,30,551,37.6,240,'Both','Semi-Automatic',6,'2-Wheel Drive, Front','Not eqipped',3.33,30.7,4000,232.0825578,0.1163317,0.0021877,0.001553,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(549,1,30,557,31.1,300,'Both','Semi-Automatic',6,'All Wheel Drive','Not eqipped',3.75,30.8,4500,280.427969,0.3392049,0.0110977,0.0018766,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(550,1,30,552,37.3,230,'Both','Semi-Automatic',6,'2-Wheel Drive, Front','Not eqipped',3.33,30.7,4000,235.0,0.27,0.0,0.002,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(551,1,30,555,34.2,230,'Both','Semi-Automatic',6,'2-Wheel Drive, Front','Not eqipped',3.75,30.8,4250,256.0,0.33,0.0,0.002,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(552,1,30,559,33.1,230,'Both','Semi-Automatic',6,'All Wheel Drive','Not eqipped',3.75,33.2,4500,265.0,0.24,0.0,0.002,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(553,1,30,561,33.3,230,'Both','Semi-Automatic',6,'2-Wheel Drive, Front','Not eqipped',3.75,33.2,4250,263.0,0.28,0.0,0.002,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(554,1,30,548,41.8,227,'Car','Semi-Automatic',5,'2-Wheel Drive, Front','Not eqipped',2.27,31.9,3500,210.0,0.05,0.01,0.003,'Three-way catalyst',5,0);
+INSERT INTO "cars_car" VALUES(555,1,30,549,39,227,'Car','Semi-Automatic',5,'2-Wheel Drive, Front','Not eqipped',2.27,31.6,4000,225.0,0.06,0.018,0.003,'Three-way catalyst',5,0);
+INSERT INTO "cars_car" VALUES(556,1,30,554,35.1,240,'Both','Semi-Automatic',6,'2-Wheel Drive, Front','Not eqipped',3.75,30.8,4250,250.0,0.09,0.003,0.003,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(557,1,30,550,35.8,300,'Both','Semi-Automatic',6,'All Wheel Drive','Not eqipped',3.33,31.4,4000,245.0,0.24,0.016,0.005,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(558,1,30,553,32.7,230,'Both','Semi-Automatic',6,'All Wheel Drive','Not eqipped',3.75,30.8,4500,268.0,0.23,0.0004,0.005,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(559,1,30,562,32.7,300,'Both','Semi-Automatic',6,'All Wheel Drive','Not eqipped',3.46,30.3,4500,268.0,0.29,0.016,0.005,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(560,1,30,560,35,240,'Both','Semi-Automatic',6,'2-Wheel Drive, Front','Not eqipped',3.75,33.2,4250,251.0,0.12,0.006,0.008,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(561,1,30,565,27.2,311,'Truck','Semi-Automatic',6,'All Wheel Drive','Not eqipped',3.33,26.9,5250,323.0,0.19,0.008,0.008,'Three-way catalyst',8,0);
+INSERT INTO "cars_car" VALUES(562,1,30,558,34.1,240,'Both','Semi-Automatic',6,'All Wheel Drive','Not eqipped',3.75,33.2,4500,257.0,0.12,0.006,0.01,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(563,1,30,556,33.9,240,'Both','Semi-Automatic',6,'All Wheel Drive','Not eqipped',3.75,30.8,4500,259.0,0.14,0.008,0.013,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(564,1,30,564,30.8,240,'Both','Semi-Automatic',6,'2-Wheel Drive, Front','Not eqipped',4.06,32.8,5000,285.0,0.25,0.009,0.016,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(565,1,30,563,30.4,240,'Both','Semi-Automatic',6,'All Wheel Drive','Not eqipped',4.06,32.8,5000,288.0,0.25,0.008,0.019,'Three-way catalyst',6,0);
+INSERT INTO "cars_car" VALUES(566,1,31,566,28,213,'Car','Automatic',4,'2-Wheel Drive, Rear','Not eqipped',3.45,28.4,5500,292.55,0.17198,0.00504,0.00988,'NA',-1,0);
+CREATE TABLE "votes" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "user_id" integer NOT NULL REFERENCES "auth_user" ("id"),
+    "content_type_id" integer NOT NULL REFERENCES "django_content_type" ("id"),
+    "object_id" integer unsigned NOT NULL,
+    "vote" smallint NOT NULL,
+    UNIQUE ("user_id", "content_type_id", "object_id")
+);
+CREATE INDEX "auth_permission_1bb8f392" ON "auth_permission" ("content_type_id");
+CREATE INDEX "auth_group_permissions_425ae3c4" ON "auth_group_permissions" ("group_id");
+CREATE INDEX "auth_group_permissions_1e014c8f" ON "auth_group_permissions" ("permission_id");
+CREATE INDEX "auth_user_user_permissions_403f60f" ON "auth_user_user_permissions" ("user_id");
+CREATE INDEX "auth_user_user_permissions_1e014c8f" ON "auth_user_user_permissions" ("permission_id");
+CREATE INDEX "auth_user_groups_403f60f" ON "auth_user_groups" ("user_id");
+CREATE INDEX "auth_user_groups_425ae3c4" ON "auth_user_groups" ("group_id");
+CREATE INDEX "auth_message_403f60f" ON "auth_message" ("user_id");
+CREATE INDEX "django_session_3da3d3d8" ON "django_session" ("expire_date");
+CREATE INDEX "django_admin_log_403f60f" ON "django_admin_log" ("user_id");
+CREATE INDEX "django_admin_log_1bb8f392" ON "django_admin_log" ("content_type_id");
+CREATE INDEX "cars_images_3a9646e7" ON "cars_images" ("CAR_id");
+CREATE INDEX "cars_comment_3a9646e7" ON "cars_comment" ("CAR_id");
+CREATE INDEX "ratings_rateditem_3fa9fe1c" ON "ratings_rateditem" ("score");
+CREATE INDEX "ratings_rateditem_403f60f" ON "ratings_rateditem" ("user_id");
+CREATE INDEX "ratings_rateditem_2799e35a" ON "ratings_rateditem" ("hashed");
+CREATE INDEX "ratings_rateditem_1bb8f392" ON "ratings_rateditem" ("content_type_id");
+CREATE INDEX "ratings_similaritem_1bb8f392" ON "ratings_similaritem" ("content_type_id");
+CREATE INDEX "ratings_similaritem_4716dc84" ON "ratings_similaritem" ("similar_content_type_id");
+CREATE INDEX "votes_403f60f" ON "votes" ("user_id");
+CREATE INDEX "votes_1bb8f392" ON "votes" ("content_type_id");
+COMMIT;

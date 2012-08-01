@@ -1,0 +1,313 @@
+{% extends "cars/base.html"%}
+
+{% block extrahead %}
+<script type="text/javascript" charset="utf-8">
+	function highlights(){
+		if ( {{car1.HP}} > {{car2.HP}}){
+			a = document.getElementById('hp1');
+			a.style.color = 'red';
+		}
+		else if ( {{car1.HP}} < {{car2.HP}}){
+			a = document.getElementById('hp');
+                        a.style.color = 'red';
+		}
+		else{
+			a = document.getElementById('hp');
+			b = document.getElementById('hp1');
+                        a.style.color = 'gray';
+			b.style.color = 'gray';
+		}
+		
+		if ( {{car1.CO2}} > {{car2.CO2}}){
+                        a = document.getElementById('co21');
+                        a.style.color = 'red';
+                }
+                else if ( {{car1.CO2}} < {{car2.CO2}}){
+                        a = document.getElementById('co2');
+                        a.style.color = 'red';
+                }
+                else{
+                        a = document.getElementById('co21');
+                        b = document.getElementById('co2');
+                        a.style.color = 'gray';
+                        b.style.color = 'gray';
+                }
+	}
+</script>
+
+{% endblock %}
+
+{% block extrabody %}
+ onload="highlights()"
+
+{% endblock %}
+
+{% block content %}
+<h1 id="carName"> Vehicle Comparison </h1>
+<div id="compareTable">
+<table>
+
+<tr style="border-bottom: 1px solid black;">
+	<th>
+		
+	</th>
+        <th>
+		<a href="/greengears/cars/{{car1.id}}">{{car1.MAKE}} &nbsp; {{car1.MODEL}}</a>
+        </th>
+        <th>
+		<a href="/greengears/cars/{{car2.id}}">{{car2.MAKE}} &nbsp; {{car2.MODEL}}</a>
+        </th>	
+	
+</tr>
+<tr>
+	<td>
+		
+	</td>
+        <td>
+		<a href="/greengears/cars/{{car1.id}}"><img src="{{ MEDIA_URL }}{{car1.YEAR}}-{{car1.id}}-{{count1}}" width = "300" height="200" onerror="this.src='{{ MEDIA_URL }}default.jpg'"/></a>
+        </td>
+        <td>
+		<a href="/greengears/cars/{{car2.id}}"><img src="{{ MEDIA_URL }}{{car2.YEAR}}-{{car2.id}}-{{count2}}" width = "300" height="200" onerror="this.src='{{ MEDIA_URL }}default.jpg'"/></a>
+        </td>
+</tr>
+
+<tr>
+        <td class="field">
+                Year
+        </td>
+        <td>
+                {{ car1.YEAR }}
+        </td>
+        <td>
+                {{ car2.YEAR }}
+        </td>
+</tr>
+<tr>
+        <td class="field">
+		Horse Power
+        </td>
+        <td>
+		{{ car1.HP }}
+        </td>
+        <td>
+		{{ car2.HP }}
+        </td>
+</tr>
+<tr>
+        <td class="field">
+		Body Type
+        </td>
+        <td>
+		 {{ car1.BODYTYPE }} 
+        </td>
+        <td>
+		 {{ car2.BODYTYPE }} 
+        </td>
+</tr>
+<tr>
+        <td class="field">
+		Transmission
+        </td>
+        <td>
+		{{ car1.TRANSMISSION }}
+        </td>
+        <td>
+		{{ car2.TRANSMISSION }}
+        </td>
+
+</tr>
+<tr>
+        <td class="field">
+		MPG
+        </td>
+        <td>
+		{{car1.MPG}}
+        </td>
+        <td>
+		{{car2.MPG}}
+        </td>
+</tr>
+<tr>
+        <td class="field">
+		Number of Gears
+        </td>
+        <td>
+		{{ car1.NUM_GEARS }}
+        </td>
+        <td>
+		{{ car2.NUM_GEARS }}
+        </td>
+</tr>
+
+<tr>
+        <td class="field">
+                Drivetrain
+        </td>
+        <td>
+                {{ car1.DRIVETRAIN }}
+        </td>
+        <td>
+                {{ car2.DRIVETRAIN }}
+        </td>
+</tr>
+
+<tr>
+        <td class="field">
+                Shift Indicator Light
+        </td>
+        <td>
+                {{ car1.SIL }}
+        </td>
+        <td>
+                {{ car2.SIL }}
+        </td>
+</tr>
+
+<tr>
+        <td class="field">
+                Axle Ratio
+        </td>
+        <td>
+                {{ car1.AXELRATIO }}
+        </td>
+        <td>
+                {{ car2.AXELRATIO }}
+        </td>
+</tr>
+
+<tr>
+        <td class="field">
+                NV Ratio
+        </td>
+        <td>
+                {{ car1.NVRATIO }}
+        </td>
+        <td>
+                {{ car2.NVRATIO }}
+        </td>
+</tr>
+
+<tr>
+        <td class="field">
+                Curb Weight
+        </td>
+        <td>
+                {{ car1.CURBWEIGHT }}
+        </td>
+        <td>
+                {{ car2.CURBWEIGHT }}
+        </td>
+</tr>
+
+<tr>
+        <td class="field">
+                CO2 Output
+        </td>
+        <td>
+                {{ car1.CO2 }}
+        </td>
+        <td>
+                {{ car2.CO2 }}
+        </td>
+</tr>
+
+<tr>
+        <td class="field">
+                CO Output
+        </td>
+        <td>
+                {{ car1.CO }}
+        </td>
+        <td>
+                {{ car2.CO }}
+        </td>
+</tr>
+
+<tr>
+        <td class="field">
+                THC Output
+        </td>
+        <td>
+                {{ car1.THC }}
+        </td>
+        <td>
+                {{ car2.THC }}
+        </td>
+</tr>
+
+<tr>
+        <td class="field">
+                NOX Output
+        </td>
+        <td>
+                {{ car1.NOX }}
+        </td>
+        <td>
+                {{ car2.NOX }}
+        </td>
+</tr>
+
+<tr>
+        <td class="field">
+                After Treatment Device
+        </td>
+        <td>
+                {{ car1.AFTERTREATMENT_DEVICE }}
+        </td>
+        <td>
+                {{ car2.AFTERTREATMENT_DEVICE }}
+        </td>
+</tr>
+
+</table>
+</div>
+
+
+<!--
+<div id="CarCompareA">
+<h1><a href="/greengears/cars/{{car1.id}}"> {{car1.YEAR}} &nbsp;{{car1.MAKE}} &nbsp; {{car1.MODEL}}</a></h1>
+<ul class="CarCompareList" id="CarDetailListA">
+    <li> <a href="/greengears/cars/{{car1.id}}"><img src="{{ MEDIA_URL }}{{car1.YEAR}}-{{car1.id}}-{{count1}}" width = "300" height="200" onerror="this.src='{{ MEDIA_URL }}default.jpg'"/></a> </li>
+    <li id="hp1"> HP:<span> {{ car1.HP }}</span> </li>
+    <li id="bodytype1"> Body Type:<span> {{ car1.BODYTYPE }} </span></li>
+    <li id="trans1"> Transmission: <span>{{ car1.TRANSMISSION }}</span> </li>
+    <li id="mpg"> MPG: <span>{{car1.MPG}}</span> </li>
+    <li id="gears1"> # of Gears:<span> {{ car1.NUM_GEARS }}</span> </li>
+    <li id="drivetrain1"> Drivetrain:<span> {{ car1.DRIVETRAIN }} </span></li>
+    <li id="shiftind1"> Shift Indicator Light:<span> {{ car1.SIL }}</span> </li>
+    <li id="axelratio1"> Axel Ratio: <span>{{car1.AXELRATIO}}</span> </li>
+    <li id="nvratio1"> NV Ratio: <span>{{car1.NVRATIO}} </span></li>
+    <li id="cweight1"> Curb Weight: <span>{{car1.CURBWEIGHT}} </span></li>
+    <li id="co21"> CO2: <span>{{car1.CO2}}</span> </li>
+    <li id="co1"> CO:<span> {{car1.CO}} </span></li>
+    <li id="thc1"> THC: <span>{{car1.THC}} </span></li>
+    <li id="nox1"> NOX: <span>{{car1.NOX}} </span></li>
+    <li id="aftert1"> After Treatment Device: <span>{{car1.AFTERTREATMENT_DEVICE}} </span></li>
+</ul>
+</div>
+
+<div id="CarCompareB">
+<h1><a href="/greengears/cars/{{car1.id}}"> {{car2.YEAR}} &nbsp;{{car2.MAKE}} &nbsp; {{car2.MODEL}}</a></h1>
+<ul class="CarCompareList" id="CarDetailListB">
+    <li> <a href="/greengears/cars/{{car2.id}}"><img src="{{ MEDIA_URL }}{{car2.YEAR}}-{{car2.id}}-{{count2}}" width = "300" height="200" onerror="this.src='{{ MEDIA_URL }}default.jpg'"/></a> </li>
+    <li id="hp"> HP:<span> {{ car2.HP }}</span> </li>
+    <li id="bodytype"> Body Type:<span> {{ car2.BODYTYPE }} </span></li>
+    <li id="trans"> Transmission: <span>{{ car2.TRANSMISSION }}</span> </li>
+    <li id="gears"> # of Gears:<span> {{ car2.NUM_GEARS }}</span> </li>
+    <li id="drivetrain"> Drivetrain:<span> {{ car2.DRIVETRAIN }} </span></li>
+    <li id="shiftind"> Shift Indicator Light:<span> {{ car2.SIL }}</span> </li>
+    <li id="axelratio"> Axel Ratio: <span>{{car2.AXELRATIO}}</span> </li>
+    <li id="nvratio"> NV Ratio: <span>{{car2.NVRATIO}} </span></li>
+    <li id="cweight"> Curb Weight: <span>{{car2.CURBWEIGHT}} </span></li>
+    <li id="co2"> CO2: <span>{{car2.CO2}}</span> </li>
+    <li id="co"> CO:<span> {{car2.CO}} </span></li>
+    <li id="thc"> THC: <span>{{car2.THC}} </span></li>
+    <li id="nox"> NOX: <span>{{car2.NOX}} </span></li>
+    <li id="aftert"> After Treatment Device: <span>{{car2.AFTERTREATMENT_DEVICE}} </span></li>
+
+</div>
+-->
+<div id="links">
+<a href ="/greengears/cars/">Home</a>
+</div>
+{% endblock %}

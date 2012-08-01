@@ -1,0 +1,53 @@
+{% extends "cars/base.html"%}
+{% block extrahead %}
+<title> Edit a Vehicle </title>
+
+<script type="text/javascript" charset="utf-8">
+	function disableFields()
+	{
+		document.getElementById("id_MAKE").parentElement.parentElement.style.display = "none";
+		document.getElementById("id_MODEL").parentElement.parentElement.style.display = "none";
+		//document.getElementById("id_MODEL").parentElement.style.display = "none";
+		document.getElementById("id_YEAR").parentElement.parentElement.style.display = "none";
+		//document.getElementById("id_YEAR").style.display = "none";
+		//document.getElementsByName("MAKE")[0].disabled= true;
+		//document.getElementsByName("YEAR")[0].disabled= true;
+		//document.getElementsByName("MODEL")[0].disabled= true;
+	}
+	
+	function appendCarDetail()
+	{
+	
+	}
+	
+</script>
+
+{% endblock %}
+{% block extrabody %}
+onload="disableFields()"
+{% endblock %}
+
+	
+	{% block content %}
+	
+   <h1> Edit Vehicle Details</h1>
+   
+   Make: <span>{{ car.MAKE }}</span> <br>
+   Model: <span>{{ car.MODEL }}</span>
+   <br>
+   <form name='form' method='post' action='.'>{% csrf_token %}
+       <table>
+       <!-- display the form fields -->
+       {{ form.as_table }}
+
+       <!-- submit button -->
+     </table>
+
+         <input type='submit'>
+         <a href='/greengears/cars/{{car.id}}'> Cancel </a>
+      
+      
+   </form>
+	{% endblock %}
+
+</body>

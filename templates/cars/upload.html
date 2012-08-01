@@ -1,0 +1,31 @@
+{% extends "cars/base.html"%}
+{% block extrahead %}
+<title> Upload an Image </title>
+{% endblock %}
+{% block extrabody %}
+onload="disableFields()"
+{% endblock %}
+
+	
+	{% block content %}
+<h1 id="carName"> Photo Upload </h1>	
+   <p>Upload a New photo for <b>{{car.MAKE}} {{car.MODEL}}</b></p>
+	 <img style="border-radius: 5px;" title="Current Car Image" src="{{ MEDIA_URL }}{{car.YEAR}}-{{car.id}}-{{count}}" width = "150" height="100" onerror="this.src='{{ MEDIA_URL }}default.jpg'"/>
+	
+   <form style="padding: 10px; width: 260px; margin: 10px auto; background: whitesmoke; border-radius: 10px;" enctype='multipart/form-data' name='form' method='post' action='.'>{% csrf_token %}
+       <table>
+       <!-- display the form fields -->
+       {{ form.as_table }}
+
+       <!-- submit button -->
+     </table>
+   
+      <input type='submit'>
+	</form>
+         <div id="links"> <a href='/greengears/cars/{{car.id}}/'> Return to details </a>
+      </div>
+      
+   
+	{% endblock %}
+
+</body>

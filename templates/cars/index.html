@@ -1,0 +1,135 @@
+{% extends "cars/base.html"%}
+
+{% block extrahead %}
+    <script src="http://www.google.com/jsapi"></script>
+    <script>
+    
+    google.load("prototype", "1.6.0.3");
+    
+    function my_callback(data){
+        alert(data+' received from server');
+    }
+    
+    </script>
+    <script type="text/javascript" charset="utf-8">
+    
+    /* Copyright (c) 2009-2010, Benito Jorge Bastida :: For further information check COPYING */
+    var Dajax = Class.create();
+    Dajax.prototype = {
+        initialize: function(){},
+        process: function(data)
+        {
+            if(data==Dajaxice.EXCEPTION){
+                alert('Something went wrong, please reload the page.');
+            }
+            else{
+                data.each(function(elem){
+                switch(elem.cmd)
+                {
+                    case 'alert':
+                        alert(elem.val)
+                    break;
+            
+                    case 'data':
+                        eval( elem.fun+"(elem.val);" );
+                    break;
+            
+                    case 'as':
+                        $$(elem.id).each(function(e){e[elem.prop] = elem.val;});
+                    break;
+            
+                    case 'addcc':
+                        elem.val.each(function(cssclass){
+                            $$(elem.id).each(function(e){ e.addClassName(cssclass);});
+                        });
+                    break;
+            
+                    case 'remcc':
+                        elem.val.each(function(cssclass){
+                            $$(elem.id).each(function(e){ e.removeClassName(cssclass);});
+                        });
+                    break;
+            
+                    case 'ap':
+                        $$(elem.id).each(function(e){ e[elem.prop] += elem.val;});
+                    break;
+            
+                    case 'pp':
+                        $$(elem.id).each(function(e){ e[elem.prop] = elem.val + e[elem.prop];});
+                    break;
+            
+                    case 'clr':
+                        $$(elem.id).each(function(e){e[elem.prop] = "";});
+                    break;
+            
+                    case 'red':
+                        window.setTimeout('window.location="'+elem.url+'";',elem.delay);
+                    break;
+            
+                    case 'js':
+                        eval(elem.val);
+                    break;
+            
+                    case 'rm':
+                        $$(elem.id).each(function(e){e.remove();});
+                    break;
+            
+                    default:
+                        alert('Unknown action!');
+                    }
+                });
+            }
+        }
+    };
+
+    Dajax = new Dajax();
+    </script>
+    <script type="text/javascript">
+
+    function selectCarValidate(){
+	    yearField = document.getElementById('year');
+	    modelField = document.getElementById('models');
+	    //var selected = selectForm.models.selectedIndex.value;
+	
+	    if (modelField.value == ''){
+		    alert('Please select make and model');
+		    return false;
+	    }
+	    else if (yearField.value == 'Year'){
+		    alert('Please select a year');
+                          return false;
+	    }
+	    return true;
+	    //if (selected == null){
+	    //	alert('hi');			
+	    //}
+    }
+    </script>
+    
+{% endblock %}
+
+{% block content %}
+    <!--This is the body.-->
+    <h1 id="welcome">Welcome To GreenGears</h1> 
+    <div id="selectCarForm">
+    <p> Start Here! </p>
+    <form name="selectForm" action="" method="post" accept-charset="utf-8" onsubmit="return selectCarValidate()">
+        {% csrf_token %}
+        <select name="year" id="year">
+            <option>Year</option>
+            <option value="2011">2011</option>
+        </select>
+        <select name="makes" id="makes" onchange="Dajaxice.cars.getmodel(Dajax.process,{'option':this.value});">
+            <option value="0">Make</option>
+            {% for make in make_list %}
+    		    <option value= {{make.id}}>{{make.MAKE_NAME }}</option>
+          	{% endfor %}
+        </select>
+        <select name="models" id="models">
+        
+        </select>
+        <input type=submit value="GO!">
+    </form>
+    </div>
+
+{% endblock %}

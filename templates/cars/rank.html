@@ -1,0 +1,178 @@
+{% extends "cars/base.html"%}
+{% block extrahead %}
+
+<script  type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}jquery.scrollTo.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+			$('a.panel').click(function () {
+
+				$('a.panel').removeClass('selected');
+				$(this).addClass('selected');
+				current = $(this);
+				$('#wrapper').scrollTo($(this).attr('href'), 800);		
+				return false;
+		});
+
+		//$(window).resize(function () {
+		//	resizePanel();
+		//});
+	
+	});
+
+		function resizePanel() {
+		
+			width = $(window).width();
+			height = $(window).height();
+			
+			mask_width = width * $('.rankList').length;
+				
+			$('#debug').html(width  + ' ' + height + ' ' + mask_width);
+				
+			$('#wrapper, .rankList').css({width: width, height: height});
+			$('#mask').css({width: mask_width, height: height});
+			$('#wrapper').scrollTo($('a.selected').attr('href'), 0);
+				
+		}
+		
+			
+			
+/*			$(document).ready(function() {
+			function filterPath(string) {
+			return string
+			.replace(/^\//,'')
+			.replace(/(index|default).[a-zA-Z]{3,4}$/,'')
+			.replace(/\/$/,'');
+			}
+			var locationPath = filterPath(location.pathname);
+			var scrollElem = scrollableElement('html', 'body');
+			
+			$('a[href*=#]').each(function() {
+			var thisPath = filterPath(this.pathname) || locationPath;
+			if (  locationPath == thisPath
+			&& (location.hostname == this.hostname || !this.hostname)
+			&& this.hash.replace(/#/,'') ) {
+			  var $target = $(this.hash), target = this.hash;
+			  if (target) {
+				var targetOffset = $target.offset().top;
+				$(this).click(function(event) {
+				  event.preventDefault();
+				  $(scrollElem).animate({scrollTop: targetOffset}, 400, function() {
+					location.hash = target;
+				  });
+				});
+			  }
+			}
+			});
+			
+			// use the first element that is "scrollable"
+			function scrollableElement(els) {
+			for (var i = 0, argLength = arguments.length; i <argLength; i++) {
+			  var el = arguments[i],
+				  $scrollElement = $(el);
+			  if ($scrollElement.scrollTop()> 0) {
+				return el;
+			  } else {
+				$scrollElement.scrollTop(1);
+				var isScrollable = $scrollElement.scrollTop()> 0;
+				$scrollElement.scrollTop(0);
+				if (isScrollable) {
+				  return el;
+				}
+			  }
+			}
+			return [];
+			}
+			
+			});
+*/
+</script>
+{% endblock %}
+
+{% block content %}
+
+
+<h1 id="carName"> GreenGears Top 10s </h1>
+
+<div id="rankings">
+<ul id="rankIndex">
+<a class="panel" href="#mpgList"><li>Most Fuel Efficient</li></a>
+<a class="panel" href="#hpList"><li>Most Powerful</li></a>
+<a class="panel" href="#weightList"><li>The Lightest</li></a>
+<a class="panel" href="#co2List"><li>Lowest CO2</li></a>
+<a class="panel" href="#coList"><li>Lowest CO</li></a>
+<a class="panel" href="#thcList"><li>Lowest THC</li></a>
+<a class="panel" href="#noxList"><li>Lowest NOX</li></a>
+</ul>
+<div id="wrapper">
+<div id="mask">
+
+<div id="mpgList"  class="ranklist">
+<h2> Top 10 Most Fuel Efficient Cars </h2>
+    <ol>
+    {% for mpg in mpg_list %}
+        <li><a href="/greengears/cars/{{mpg.id}}"> {{ mpg.MAKE }} {{ mpg.MODEL }}</a><span>{{ mpg.MPG }} MPG</span></li>
+    {% endfor %}
+    </ol>
+</div>
+
+<div id="hpList" class="ranklist">
+<h2> Top 10 Most Powerful Cars </h2>
+    <ol>
+    {% for hp in hp_list %}
+        <li><a href="/greengears/cars/{{hp.id}}"> {{ hp.MAKE }} {{ hp.MODEL }}</a><span>{{ hp.HP }} HP</span></li>
+    {% endfor %}
+    </ol>
+</div>
+
+<div id="weightList"  class="ranklist">
+<h2> Top 10 Lightest Cars </h2>
+    <ol>
+    {% for weight in weight_list %}
+        <li><a href="/greengears/cars/{{weight.id}}"> {{ weight.MAKE }} {{ weight.MODEL }}</a><span>{{ weight.CURBWEIGHT }} LB</span></li>
+    {% endfor %}
+    </ol>
+</div>
+
+<div id="co2List" class="ranklist">
+<h2> Top 10 Lowest CO2 Emissions </h2>
+    <ol>
+    {% for co2 in co2_list %}
+        <li><a href="/greengears/cars/{{co2.id}}">{{ co2.MAKE }} {{ co2.MODEL }}</a><span>{{ co2.CO2 }}</span></li>
+    {% endfor %}
+    </ol>
+</div>
+
+<div id="coList"  class="ranklist">
+<h2> Top 10 Lowest CO Emissions </h2>
+    <ol>
+    {% for co in co_list %}
+        <li><a href="/greengears/cars/{{co.id}}"> {{ co.MAKE }} {{ co.MODEL }}</a><span>{{ co.CO }}</span></li>
+    {% endfor %}
+    </ol>
+</div>
+
+<div id="thcList"  class="ranklist">
+<h2> Top 10 Lowest THC Emissions </h2>
+    <ol>
+    {% for thc in thc_list %}
+        <li><a href="/greengears/cars/{{thc.id}}"> {{ thc.MAKE }} {{ thc.MODEL }}</a><span>{{ thc.THC }}</span></li>
+    {% endfor %}
+    </ol>
+</div>
+
+<div id="noxList"  class="ranklist">
+<h2> Top 10 Lowest NOX Emission </h2>
+    <ol>
+    {% for nox in nox_list %}
+        <li><a href="/greengears/cars/{{nox.id}}">{{ nox.MAKE }} {{ nox.MODEL }}</a><span>{{ nox.NOX }}</span></li>
+    {% endfor %}
+    </ol>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}

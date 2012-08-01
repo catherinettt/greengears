@@ -1,0 +1,442 @@
+body{
+	background: #C9DBC8;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+th{
+	text-align: right;
+	}
+	
+div#content{
+	width: 1000px;
+	margin: 100px auto;
+	text-align: center;
+	background: white;
+	border-radius: 15px;
+	padding: 20px;
+	}
+
+div#nav{
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: black;
+	width: 100%;
+	-moz-box-shadow: 0 3px 3px gray;
+	-webkit-box-shadow: 0 3px 3px gray;
+	box-shadow: 0 3px 3px gray;
+	z-index: 1000;
+	white-space: nowrap;
+	height: 40px;
+	line-height: 40px;
+}
+
+div#nav ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	line-height: 40px;
+	white-space: nowrap;
+	display: inline;
+	color: white;
+	}
+
+div#nav ul li{
+	display: inline;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+div#nav ul li a{
+	text-decoration: none;
+        color: white;
+        text-shadow: 0 1px 0 gray;
+		
+}
+
+div#nav ul li a:hover{
+	text-shadow: 0 1px 0 black;
+	color: gray;
+}
+
+div#navlistLeft{
+	left: 0;
+	padding-left: 30px;
+	z-index: 1000;	
+	position: absolute;
+	}
+
+div#navlistRight{
+	right: 0;
+	padding-right: 30px;
+	z-index: 1000;
+	position: absolute;
+	}
+
+div#navlistRight li{
+	padding-left: 5px !important ;
+	padding-right: 5px !important ;
+}
+
+li.search input{
+	font-size: 14px;
+	padding-left: 5px;
+	}
+input#searchBox{
+	font-size: 14px;
+        border-radius: 5px;
+	}
+
+h1#welcome{
+	margin-top: 25px;
+	margin-bottom: 25px;
+	font-family:  'Paytone One', sans-serif;
+	text-shadow: 0 2px 0 gray;
+	font-size: 48px;
+	}	
+h1#carName{
+	font-family:  'Paytone One', sans-serif;
+        text-shadow: 0 1px 0 gray;
+        font-size: 48px;
+	}
+
+h1 a{
+	text-decoration: none;
+	color: black;
+	text-shadow: 0 2px 0 gray;
+	}
+
+h1 a:hover{
+	color: gray;
+}	
+
+div#selectCarForm{
+        width: 600px;
+	margin: 50px auto;
+        padding-bottom: 20px;
+        background: #E0E0E0;
+        border: 5px solid #E0E0E0;
+        border-radius: 10px;
+	-moz-box-shadow: 3px 3px 4px gray;
+        -webkit-box-shadow: 3px 3px 4px gray;
+        box-shadow: 3px 3px 4px gray;
+        }
+
+div#selectCarForm select{
+	font-size: 16px;
+	}
+div#selectCarForm input{
+	font-weight: bold;
+	font-size: 16px;
+	}
+div#carDetailArea{
+	float:left;
+	width: 600px;
+	margin-bottom: 50px;
+	margin-left: 30px;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	overflow: hidden;
+}
+
+div#carDetailArea h2{
+	font-weight: bold;
+
+}
+
+ul.CarDetailList{
+	list-style: none;
+	text-align: left;
+	margin: 15px auto;
+	font-size: 16px;
+	width: 440px;
+	padding: 0px;
+}
+
+ul.CarDetailList li{
+	font-weight: bold;
+	border-bottom: 1px dotted lightgray;
+	height:24px;
+	position: relative;
+	width: 350px;
+	padding-right: 100px;
+	}
+	
+
+ul.CarDetailList li span{
+	font-weight: normal;
+	margin-left: 15px;
+	color: #9c836e;
+	position: absolute;
+	right: 5px;
+	}
+
+div#holder{
+	background-color: #E0E0E0;
+	border-radius: 10px;
+	width: 330px;
+	height: 280px;	
+	margin: 20px auto;
+}
+
+div#holder svg{
+	overflow: hidden;
+	height: 205px;
+	width: 280px;
+	padding: 10px;
+	margin-left:-40px;
+	}
+
+
+
+ul#graphlable{
+	padding: 0;
+	margin-top: 0;
+	}
+
+ul#graphlable li{
+	list-style: none;
+	display: inline;
+	padding-left: 25px;
+	padding-right: 25px;
+}
+	
+div#sidebar {
+	float: right;
+	width: 350px;
+	margin-right: 10px;
+	margin-bottom: 50px;
+}
+
+
+div#sidebar img{
+	border: 2px solid gray;
+	box-shadow: 3px 3px 3px gray;
+}
+div#links{
+	text-align: right;
+	font-size: 18px;
+	margin: 10px;
+	margin-right: 30px;
+	margin-top: 40px;
+	clear: both;
+
+}
+div#links a{
+	font-size: 20px;
+	font-family:  'Paytone One', sans-serif;
+        text-shadow: 0 1px 0 gray;
+	color: black;
+	text-decoration: none;
+}
+div#links a:hover{
+	color: gray;
+	}	
+
+div#compareCarForm{
+	text-align: left;
+	}
+
+
+
+
+div#compareCarForm input{
+	text-align: left;
+	font-size: 20px;
+	}
+
+div#commentArea{
+	clear: both;
+	margin: 10px auto;
+	margin-top: 30px;
+	width: 950px;
+	background: #E0E0E0;
+	border:5px solid #E0E0E0;
+	border-radius: 20px;
+	padding: 10px;
+	-moz-box-shadow: 3px 3px 4px gray;
+        -webkit-box-shadow: 3px 3px 4px gray;
+        box-shadow: 3px 3px 4px gray;
+	}
+
+div#commentForm{
+	font-size: 16px;
+	}
+ul#commentList{
+        list-style: none;
+        text-align: left;
+	margin-right: 30px;
+        }
+ul#commentList li{
+	background: rgba(255, 255, 255, 0.3);
+	padding: 5px;
+	}
+
+ul#commentList li:nth-child(odd)
+	{
+	background: rgba(255, 255, 255, 0.7);
+	padding: 5px;	
+	}
+
+ul#commentList li b{ }
+
+ul#commentList span{
+	font-size: 12px;
+}
+
+input#id_name{
+	font-size: 16px;
+	border-radius: 8px;
+	
+}
+textarea#id_comment{
+	resize: none;
+	font-size: 16px;
+	border-radius: 8px;
+	}
+
+input#commentSubmit{
+	font-size: 16px;
+}
+
+ul.errorlist{
+	list-style: none;
+	margin: 0;
+	font-size: 11px;
+}
+
+div#CarCompareA{
+	float: left;
+	width: 450px;
+}
+
+
+div#CarCompareA h1{
+        height: 100px;
+}
+
+div#CarCompareB h1{
+	height: 100px;
+}
+
+ul.CarCompareList{
+	list-style: none;
+	text-align: left;
+}
+
+div#authForm{
+	margin: 10px auto;
+	width: 340px; 
+	text-align: center;
+        background: #E0E0E0;
+        border: 5px solid #E0E0E0;
+        border-radius: 10px;
+        -moz-box-shadow: 3px 3px 4px gray;
+        -webkit-box-shadow: 3px 3px 4px gray;
+        box-shadow: 3px 3px 4px gray;
+	padding: 20px;
+}	
+
+div#authForm form{
+}
+div#authForm td input{
+        border-radius: 4px;
+	font-size: 14px;
+	padding-left: 5px;
+}
+
+div#rankings{
+	margin-top: -20px;
+}
+
+div.ranklist{
+	margin: 40px auto;
+	float: left;
+	margin-right: 30px;
+	background-color: #E0E0E0;
+	border-radius: 8px;
+	box-shadow: 3px 3px 3px gray;
+}
+
+.ranklist ol{
+	text-align: left;
+	display: inline;
+}
+
+
+.ranklist ol li{;
+	position: relative;
+	padding-right: 120px;
+	border-bottom: 1px solid #f3f2e8;
+	width: 480px;
+	list-style: none;
+	margin-left: 30px;
+	margin-right: 30px;
+}
+
+.ranklist ol li span{
+	font-weight: bold;
+	margin-left: 20px;
+	color: #9c836e;
+	position: absolute;
+	right: 5px;
+	vertical-align: middle;
+	}
+
+.ranklist ol li a{
+	text-decoration: none;
+	color: black;
+	position: relative;
+}
+
+.ranklist ol li a:hover
+{
+	color: green;
+	font-weight: bold;
+	text-decoration: blink;
+}
+
+ul#rankIndex{
+	padding: 0;
+	margin: 0;
+}
+
+ul#rankIndex li{
+	display: inline;
+	padding: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+	background: black;
+	border-radius: 3px;
+	box-shadow: 2px 2px 2px gray;
+	margin: 2px;	
+	list-style: none;
+	line-height: 40px;
+	}
+
+
+ul#rankIndex a {
+	text-decoration: none;
+	font-weight: bold;
+	color: white;
+	font-size: 14px;
+	}
+
+ul#rankIndex a:hover{
+	text-decoration: underline;
+	
+}
+
+#wrapper {
+	left: 0;
+	overflow: hidden;
+	position: relative;
+	top: 0;
+	width: 670px;
+	margin: 5px auto;
+}
+
+#mask {
+	width: 800%;
+	}
+
+

@@ -1,0 +1,17 @@
+{% extends "cars/base.html" %}
+{% load i18n %}
+
+{% block content %}
+
+<h1> Register </h1>
+<div id="authForm">
+<form method="post" action=".">{% csrf_token %}
+	<table>
+	 {{ form.as_table }}
+	</table>
+	
+  <input style="font-size: 16px" type="submit" value="{% trans 'Submit' %}" />
+</form>
+
+</div>
+{% endblock %}

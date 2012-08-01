@@ -1,0 +1,255 @@
+{% extends "cars/base.html"%}
+
+{% block extrahead %}
+<script src="{{ STATIC_URL }}star-rating/jquery.js" type="text/javascript"></script>
+<script src="{{ STATIC_URL }}star-rating/jquery.MetaData.js" type="text/javascript" language="javascript"></script>
+<script src="{{ STATIC_URL }}star-rating/jquery.rating.js" type="text/javascript" language="javascript"></script>
+<script src="{{ STATIC_URL }}js/jquery.form.js" type="text/javascript" language="javascript"></script>
+<link href="{{ STATIC_URL }}star-rating/jquery.rating.css" type="text/css" rel="stylesheet"/>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}js/raphael-min.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}js/g.raphael-min.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}js/g.bar-min.js"></script>
+
+ <script type="text/javascript" >
+            window.onload = function () {
+                var r = Raphael("holder"),
+                    fin = function () {
+                        this.flag = r.popup(this.bar.x, this.bar.y, this.bar.value || "0").insertBefore(this);
+                    },
+                    fout = function () {
+                        this.flag.animate({opacity: 0}, 300, function () {this.remove();});
+                    },
+                    fin2 = function () {
+                        var y = [], res = [];
+                        for (var i = this.bars.length; i--;) {
+                            y.push(this.bars[i].y);
+                            res.push(this.bars[i].value || "0");
+                        }
+                        this.flag = r.popup(this.bars[0].x, Math.min.apply(Math, y), res.join(", ")).insertBefore(this);
+                    },
+                    fout2 = function () {
+                        this.flag.animate({opacity: 0}, 300, function () {this.remove();});
+                    },
+                    txtattr ={font: "20px sans-serif" };
+	r.text(160, 10, "Pollutants").attr(txtattr);
+	r.barchart(10, 10, 300, 220, [[{{car.CO}}, {{car.THC}},{{car.NOX}}]], {colors: ["#cc3333"]}).hover(fin, fout);
+
+
+
+ 	};
+        </script>
+
+<!--script>
+	jQuery(document).ready(function($){
+	$(function() {
+	//	$( "#accordion" ).accordion({
+	//	autoHeight: false,
+	//	});
+	//});
+	//});
+	$("#accordion").addClass("ui-accordion ui-accordion-icons ui-widget ui-helper-reset").find("h2")
+  	.addClass("ui-accordion-header ui-helper-reset ui-state-default ui-corner-top ui-corner-bottom")
+    	.hover(function() { $(this).toggleClass("ui-state-hover"); })
+    	.prepend('<span class="ui-icon ui-icon-triangle-1-e"></span>')
+    	.click(function() {
+     	 $(this)
+        .toggleClass("ui-accordion-header-active ui-state-active ui-state-default ui-corner-bottom")
+        .find("> .ui-icon").toggleClass("ui-icon-triangle-1-e ui-icon-triangle-1-s").end()
+        .next().toggleClass("ui-accordion-content-active").slideToggle();
+      return false;
+    })
+    .next()
+      .addClass("ui-accordion-content  ui-helper-reset ui-widget-content ui-corner-bottom")
+      .hide();
+	});
+	});
+
+	</script-->
+<script type="text/javascript" >
+	jQuery(document).ready(function($){
+        $(function() {
+		$( "#tabs" ).tabs();
+	});
+	});
+
+</script>
+<script type="text/javascript" >
+jQuery(document).ready(function($){ 
+  $(function(){
+   $('.hover-star').rating({
+    callback: function(value, link){
+      
+      $(this.form).ajaxSubmit({
+          dataType: 'json',
+          success: process
+      });
+    },
+    focus: function(value, link){
+      var tip = $('#hover-tip');
+      tip[0].data = tip[0].data || tip.html();
+      tip.html(link.title || 'value: '+value);
+    },
+    blur: function(value, link){
+      var tip = $('#hover-tip');
+      $('#hover-tip').html(tip[0].data || '');
+    }
+   });
+  });
+});
+
+function process(data) {
+    //alert(data.rating);
+}
+</script>
+{% endblock %}
+
+
+{% block content %}
+<h1 id="carName"> {{car.YEAR}} &nbsp;{{car.MAKE}} &nbsp; {{car.MODEL }}</h1>
+
+<div id="carDetailArea">
+     
+        <div id="stars">
+        {% for i in full_stars %}
+        <input class="star" id={{i}} type="radio" name="star" disabled="disabled" checked="checked"/>
+        {% endfor %}
+        {% for i in empty_stars %}
+        <input class="star" id={{i}} type="radio" name="star" disabled="disabled"/>
+        {% endfor %}
+             
+        <span>based on {{car.RATING.votes}} votes</span>
+   </div>
+    
+    <br />
+<div id="tabs">
+<ul>
+	<li><a href="#tabs-1"> Basic Facts </a></li>
+	<li><a href="#tabs-2"> Details </a></li>
+	<li><a href="#tabs-3"> Emission Facts </a></li>
+	<li><a href="#tabs-4"> Similar Models </a></li>
+
+</ul>
+
+  
+  <div id="tabs-1">
+   <ul class="CarDetailList">
+    <li> <a href="/greengears/cars/ranking#hpList">HP</a>:<span> {{ car.HP }}</span> </li>
+    <li> Body Type:<span> {{ car.BODYTYPE }} </span></li>
+    <li> Transmission: <span>{{ car.TRANSMISSION }}</span> </li>
+    <li><a href="/greengears/cars/ranking#mpgList">MPG</a>: <span>{{car.MPG}}</span> </li>
+  </ul>
+  </div>
+  
+
+  <div id="tabs-2">
+  <ul class="CarDetailList">  
+  <li> # of Gears:<span> {{ car.NUM_GEARS }}</span> </li>
+    <li> Drivetrain:<span> {{ car.DRIVETRAIN }} </span></li>
+    <li> Shift Indicator Light:<span> {{ car.SIL }}</span> </li>
+    <li> Axel Ratio: <span>{{car.AXELRATIO}}</span> </li>
+    <li> NV Ratio: <span>{{car.NVRATIO}} </span></li>
+    <li><a href="/greengears/cars/ranking#weightList">Curb Weight</a>: <span>{{car.CURBWEIGHT}} </span></li>
+  </ul>
+  </div>
+
+
+  <div id="tabs-3">
+  <ul class="CarDetailList">
+    <li> After Treatment Device: <span>{{car.AFTERTREATMENT_DEVICE}} </span></li>
+    <li> CO2: <span>{{car.CO2}}</span> </li>
+    <li> CO:<span> {{car.CO}} </span></li>
+    <li> THC: <span>{{car.THC}} </span></li>
+    <li> NOX: <span>{{car.NOX}} </span></li>
+	</ul>    
+ 	<div id="holder">
+	<ul id="graphlable">
+        <li>CO</li>
+        <li>THC</li>
+        <li>NOX</li>
+        </ul>
+	</div>
+
+   </div>
+
+<div id="tabs-4">
+  <div id="compareCarForm">
+	{% if car_list %}
+	<p> Select one of the following to compare their differences.</p>
+        <form name="carList" method='post' action='.'>
+        {% csrf_token %}
+
+        {% for car in car_list %}
+                <input class="compareRadio" name="CarSelected" type="radio" value= {{car.id}}> {{car.MAKE}} &nbsp; {{ car.MODEL}}
+        <br/>
+        {% endfor %}
+        <br/>
+      <input type="submit" name="submit" value="Compare">
+        </form>
+        {% else %}
+        <p> No similar cars availble </p>
+
+        {% endif %}
+  </div>
+</div>
+
+</div>
+</div>
+
+
+<div id="sidebar">
+	 <img src="{{ MEDIA_URL }}{{car.YEAR}}-{{car.id}}-{{count}}" width = "300" height="200" onerror="this.src='{{ MEDIA_URL }}default.jpg';"/>
+	<br/>
+<a class="photoLink" href="/greengears/cars/upload/{{car.id}}/">Upload new car image</a>
+| <a class="photoLink" href="/greengears/cars/gallery/{{car.id}}/">View car gallery</a>
+<br/>
+<form name="StarRatingForm" method='post' action='./rate/'>
+    {% csrf_token %}
+<div id="submitRating">
+	<p> Rate this car! </p>
+  
+    <input class="hover-star" type="radio" name="star" value="1" title="Very poor"/>
+    <input class="hover-star" type="radio" name="star" value="2" title="Poor"/>
+    <input class="hover-star" type="radio" name="star" value="3" title="OK"/>
+    <input class="hover-star" type="radio" name="star" value="4" title="Good"/>
+    <input class="hover-star" type="radio" name="star" value="5" title="Very Good"/>
+    <span id="hover-tip" style="margin-left:10px; float:left"></span>
+  </form>
+</div>
+
+</div>
+
+<div id="commentArea">
+  <h2> Comments </h2>
+  {% if comment_list %}
+	  <ul id="commentList">
+    {% for comment in comment_list %}
+      <li> <b>{{comment.NAME}}</b> <span>[ {{comment.DATE}} ]</span> :  {{comment.COMMENT}} </li>
+    {% endfor %}
+    </ul>
+	{% else %}
+	<p> Be the first to comment! </p>
+	{% endif %}
+	<hr/>
+	
+	<div id="commentForm">
+    <form method='post' action='.'>{% csrf_token %}
+	    <h2> Add a New Comment</h2>	
+	    {% if user.is_authenticated %}
+        <input style="display: none" id="id_name" name="name" value="{{ user.username }}"> </input>
+	      <span style="padding-left: 20px"> Logged in as <b> {{ user.username }} </b> </span>
+	    {% else %}
+	      <input style="display: none" id="id_name" name="name" value="guest"> </input>
+        <span style="padding-left: 20px"> Logged in as <b> guest </b> </span>
+
+{% endif %}
+	<br/>	
+	
+	<textarea id="id_comment" name="comment" cols="50" rows="6"> </textarea>
+	<br/>
+	<input id="commentSubmit" type='submit' value="Submit Comment">	
+	</form>
+	</div>
+
+</div>
+{% endblock %}

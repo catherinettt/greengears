@@ -1,0 +1,74 @@
+{% extends "cars/base.html"%}
+
+{% block extrahead %}
+
+<script type="text/javascript">
+	jQuery(document).ready(function($){
+
+	$(function() {
+		$( "#accordion" ).accordion({
+			autoHeight: false,	
+	});
+	});
+	});
+	</script>
+
+{% endblock %}
+
+{% block content %}
+<div id="about">
+<h1>About Green Gears</h1>
+<div id="accordion">
+
+<h3><a href="#"> Goal </a></h3>
+<div>
+<p>Not-so-fun-fact: vehicle transportation causes about one-third of Canada’s air pollution.</p>
+
+<p>In today’s growing Green Economy consumers are becoming more aware of greener alternatives. Where better to limit our carbon footprint than in our cars! Most of us needing car transportation will travel more than 20,000 kilometres a year performing ordinary day-to-day activities like driving to work. Green Gears offers a great tool for prospective buyers to learn and compare facts about cars such as their miles per gallon as well as some green facts like carbon dioxide and carbon monoxide emissions. Our goal is not only to help a prospective buyer learn more about their car but also to create awareness for greener car alternatives.
+</p>
+</div>
+<h3><a href="#">Functionality </a></h3>
+<div>
+<p>The main functionalities of Green Gears allows users to: 
+Browse or search for cars via drop-down filter or search bar on the front page. The drop-down filter is powered by dajax and dajaxice and the search is implemented via jQuery-ui. Both of these options provide fast, dynamic, and convenient search of vehicles according to their year, make, and model with nice ajax functionality.
+Peruse through selected car specifications, emissions, and images. The in-depth information on each vehicle's detail page is obtained from the U.S Environmental Protection Agency website ( http://www.epa.gov/oms/tcldata.htm ) and is rich in information of today's most popular cars.
+Put a car up against other comparable cars to determine the “greener” model with our specialized Green Gear comparison heuristic.
+Up vote and down vote user comments, or give your own input! Anyone can rate cars in the car details page. Car value cannot alone be determined by specifications or by experts like us! We understand user input is vital to determining the car's rating, thus we implemented such features to allow users to interact each other and leave their thoughts and impressions.
+Upload car images to the website and browse car galleries, we can never have too many good pictures! By allowing users to upload and share images with others, it gives users more photos of their favorite cars to look at.
+
+</p>
+</div>
+<h3><a href="#">Team – Swhc Group 10 </a></h3>
+<div>
+<p>
+Hailing from a prestigious school on top of a mountain, Green Gears is brought to you by the following SFU comp-sci four.
+</p>
+<ul>
+<li>Front-end Design:
+<span>Catherine Tan</span></li>
+<li>Back-end Developer
+<span>Christine Pan</span></li>
+<li>Back-end Developer
+<span>Ivan Ma</span></li>
+<li>Project Manager
+<span>Dan Ho</span></li>
+</ul>
+<p>Feel free to send any questions or comments our way! Just email us at greengearscars@gmail.com</p>
+</div>
+<h3><a href="#">Incomplete Areas</a></h3>
+<div>
+<p>During our period of development our team manage to implement many of the key functionalities and features. However, as happy as we are with Green Gears, there are some areas of the project that are still incomplete:
+</p>
+<ol>
+<li>Database coverage: Our website database only covers vehicles from the year 2011. Although outside our scope of control, the data obtained from the US Environmental Protection Agency has holes is not complete (missing data is substituted with -1 or NA values). 
+</li>
+<li>
+Image upload control: Our site indiscriminately accepts any number of images of any size and dimension. The car's detail page image and compare page images are linked to the latest respective image upload, reverting display image to previous images is currently not possible.
+</li>
+<li>
+Car image coverage: We do not have images for many models (for obvious time and man hour constraints)</p>
+</li>
+</div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,85 @@
+{% load dajaxice_templatetags %}
+{% load i18n %}
+{% load tracking_tags %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+    <head>
+    	<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" type="text/css"/>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <title>GreenGears Beta</title>
+        <link type="text/css" rel="stylesheet" media="all" href="{{ STATIC_URL }}css/smoothness/jquery-ui-1.8.16.custom.css" />
+        <script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.6.2.min.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}js/jquery-ui-1.8.16.custom.min.js"></script> 
+        <link href='http://fonts.googleapis.com/css?family=Leckerli+One' rel='stylesheet' type='text/css'/>
+	<link href='http://fonts.googleapis.com/css?family=Paytone+One' rel='stylesheet' type='text/css'/>
+	
+     
+
+
+ <script type="text/javascript">
+	      
+        jQuery.noConflict();
+         
+        jQuery(document).ready(function($){ 
+          $(function() {
+            $( "#searchBox" ).autocomplete({
+                source: "./search",
+                delay: 0,
+                selectFirst:true
+            });
+            
+            $( "#searchBox" ).autocomplete({
+                select: function(event, ui) {
+                    $( "#carSelected" ).val(ui.item.id)
+                }
+            });
+          });
+        });
+        </script>
+        {% dajaxice_js_import "dajaxice.core.js"%}
+        {% block extrahead %}{% endblock %}
+    </head>
+    <body {% block extrabody %}{% endblock %}>
+      <form action="./search/" method="POST" accept-charset="utf-8">
+	      <div id="nav">
+          <div id="navlistLeft">
+	          <ul>
+	          <li><a href="/greengears/cars/">Home</a></li>
+	          <li><a href="/greengears/cars/ranking">Top Cars</a></li>
+	          <li><a href="/greengears/cars/about">About</a></li>
+	          </ul>
+		      </div>
+		      
+		      <div id="navlistRight">
+		        <ul>
+		          {% if user.is_authenticated %}
+        		  <li>{% trans "Hi" %} {{ user.username }}</li>
+		         [<li><a href="{% url auth_logout %}">{% trans "Log out" %}</a></li>
+		         |<li><a href="{% url auth_password_change %}">{% trans "Change password" %}</a></li>]
+		          {% else %}
+		          <li><a href="{% url auth_login %}">{% trans "Log in" %}</a><li>
+		          <li><a href="/greengears/cars/accounts/register">Register</a></li>
+		          {% endif %}
+		         </ul> 
+		          {% csrf_token %}
+		<ul id="searchList">
+              <li style="margin-left: 10px;"><input size="25" name="searchBox" id="searchBox" /></li>
+              <li><input type="hidden" name="carSelected" id="carSelected" /></li>
+              <li style="margin-left: -10px;"><input type="submit" value="Search"></li>
+		        </ul>
+		      </div>
+	      </div>
+	    </form>
+	    
+		  <div id='content'>
+			    {% block content %}
+			    {% endblock %} 
+			{% visitors_on_page as same_page %} 
+			 <span style="float: right; color: gray; font-size: 10px;"> {{ same_page }}  {{ visitors }} active user(s){{ visitors|pluralize }}
+    {% ifequal same_page 1 %}is{% else %}are{% endifequal %} reading this page</span>
+		  </div>
+		
+    </body>
+</html>

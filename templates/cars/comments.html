@@ -1,0 +1,156 @@
+{% extends "cars/base.html"%}
+{% load voting_tags %}
+ {% load tracking_tags %}
+{% votes_by_user user on comment_list as vote_dict %}
+{% scores_for_objects comment_list as score_dict %}
+
+{% block content %}
+
+<script type="text/javascript" src = "{{STATIC_URL}}prototype.js"></script>
+<script type="text/javascript">
+Event.observe(window, "load", function()
+{
+    new VoteHijacker("comment");
+
+var VoteHijacker = Class.create();
+VoteHijacker.prototype =
+{
+    alert("hi");
+    initialize: function(prefix)
+    {
+        this.prefix = prefix || "";
+        this.registerEventHandlers();
+    },
+
+    registerEventHandlers: function()
+    {
+        $$("form." + this.prefix + "vote").each(function(form)
+        {
+            Event.observe(form, "submit", this.doVote.bindAsEventListener(this), false);
+        }.bind(this));
+    },
+
+    doVote: function(e)
+    {
+        Event.stop(e);
+        var form = Event.element(e);
+        var id = /(\d+)$/.exec(form.id)[1];
+        var action = /(up|down|clear)vote/.exec(form.action)[1];
+        new Ajax.Request(form.action, {
+            onComplete: VoteHijacker.processVoteResponse(this.prefix, id, action)
+        });
+    }
+};
+
+VoteHijacker.processVoteResponse = function(prefix, id, action)
+{
+    alert("test");
+    return function(transport)
+    {
+        var response = transport.responseText.evalJSON();
+        if (response.success === true)
+        {
+            var upArrowType = "grey";
+            var upFormAction = "up";
+            var downArrowType = "grey";
+            var downFormAction = "down";
+
+            if (action == "up")
+            {
+                var upArrowType = "mod";
+                var upFormAction = "clear";
+            }
+            else if (action == "down")
+            {
+                var downArrowType = "mod";
+                var downFormAction = "clear";
+            }
+
+            VoteHijacker.updateArrow("up", prefix, id, upArrowType);
+            VoteHijacker.updateArrow("down", prefix, id, downArrowType);
+            VoteHijacker.updateFormAction("up", prefix, id, upFormAction);
+            VoteHijacker.updateFormAction("down", prefix, id, downFormAction);
+            VoteHijacker.updateScore(prefix, id, response.score);
+        }
+        else
+        {
+            alert("Error voting: " + response.error_message);
+        }
+    };
+};
+
+VoteHijacker.updateArrow = function(arrowType, prefix, id, state)
+{
+    var img = $(prefix + arrowType + "arrow" + id);
+    var re = new RegExp("a" + arrowType + "(?:mod|grey)\\.png");
+    img.src = img.src.replace(re, "a" + arrowType + state + ".png");
+};
+
+VoteHijacker.updateFormAction = function(formType, prefix, id, action)
+{
+    var form = $(prefix + formType + id);
+    form.action = form.action.replace(/(?:up|down|clear)vote/, action + "vote");
+};
+
+VoteHijacker.updateScore = function(prefix, id, score)
+{
+    var scoreElement = $(prefix + "score" + id);
+    scoreElement.innerHTML = score.score + " point" + VoteHijacker.pluralize(score.score);
+    scoreElement.title = "after " + score.num_votes + " vote" + VoteHijacker.pluralize(score.num_votes);
+};
+
+VoteHijacker.pluralize = function(value)
+{
+    if (value != 1)
+    {
+        return "s";
+    }
+    return "";
+};
+
+
+});
+</script>
+{% visitors_on_page as same_page %}
+<p>
+    {{ same_page }} of {{ visitors }} active user{{ visitors|pluralize }}
+    {% ifequal same_page 1 %}is{% else %}are{% endifequal %} reading this page
+</p>
+
+<table>
+<col width="1"></col>
+<col></col>
+<thead>
+  <tr>
+    <th>Vote</th>
+    <th>Comment</th>
+  </tr>
+</thead>
+<tbody>
+  {% for comment in comment_list %}<tr class="{% cycle odd,even %}">
+    <td class="vote">
+      {% dict_entry_for_item comment from vote_dict as vote %}
+      {% dict_entry_for_item comment from score_dict as score %}
+      <form class="commentvote" id="commentup{{ comment.id }}" action="{{ comment.id }}/{% if vote and vote.is_upvote %}clear{% else %}up{% endif %}vote/" method="POST">{% csrf_token %}
+        <input type="image" id="commentuparrow{{ comment.id }}" src="{{ media_url }}img/aup{% if vote and vote.is_upvote %}mod{% else %}grey{% endif %}.png">
+      </form>
+
+      <form class="commentvote" id="commentdown{{ comment.id }}" action="{{ comment.id }}/{% if vote and vote.is_downvote %}clear{% else %}down{% endif %}vote/" method="POST">{% csrf_token %}
+        <input type="image" id="commentdownarrow{{ comment.id }}" src="{{ media_url }}img/adown{% if vote and vote.is_downvote %}mod{% else %}grey{% endif %}.png">
+      </form>
+    </td>
+    <td class="item">
+      <h2>{{comment.COMMENT}}</h2>
+      <p class="details">
+        <span class="score" id="commentscore{{ comment.id }}"
+              title="after {{ score.num_votes|default:0 }} vote{{ score.num_votes|default:0|pluralize }}">
+         {{ score.score|default:0 }} point{{ score.score|default:0|pluralize }}
+        </span>
+        posted {{ comment.DATE }}
+        <span class="user"><a href="../users/{{ link.user.id }}/">{{ comment.NAME|escape }}</a></span>
+      </p>
+    </td>
+  </tr>{% endfor %}
+</tbody>
+</table>
+{% endblock %}

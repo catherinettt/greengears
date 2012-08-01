@@ -1,0 +1,566 @@
+1,"aston martin","DB9",1
+1,"aston martin","DBS",1
+1,"aston martin","Rapide",1
+1,"aston martin","V8 VANTAGE",1
+1,"aston martin","V8 VANTAGE S",1
+2,"Audi","A3",2
+2,"Audi","A3 QUATTRO",2
+2,"Audi","A4",2
+2,"Audi","A4 QUATTRO",2
+2,"Audi","A6",2
+2,"Audi","A6 QUATTRO",2
+2,"Audi","A8L",2
+2,"Audi","GTI",2
+2,"Audi","PASSAT WAGON",2
+2,"Audi","Q5",2
+2,"Audi","Q7",2
+2,"Audi","R8",2
+2,"Audi","S4",2
+2,"Audi","S5",2
+2,"Audi","S6",2
+2,"Audi","TIGUAN",2
+2,"Audi","TT Coupe",2
+2,"Audi","TT COUPE QUATTRO",2
+3,"Bentley","Continental Supersports",3
+3,"Bentley","Mulsanne",3
+4,"BMW","128i",4
+4,"BMW","128i Convertible",4
+4,"BMW","135i",4
+4,"BMW","135i Convertible",4
+4,"BMW","328Ci",4
+4,"BMW","328Ci Convertible",4
+4,"BMW","328CiA Convertible",4
+4,"BMW","328i",4
+4,"BMW","328xi",4
+4,"BMW","328xiA",4
+4,"BMW","335Ci",4
+4,"BMW","335Ci Convertible",4
+4,"BMW","335Ci xDrive",4
+4,"BMW","335CiA",4
+4,"BMW","335d",4
+4,"BMW","335i",4
+4,"BMW","335i xDrive",4
+4,"BMW","335is Convertible",4
+4,"BMW","335is Coupe",4
+4,"BMW","535i",4
+4,"BMW","535i Gran Turismo",4
+4,"BMW","535i xDrive",4
+4,"BMW","535i xDrive Gran Turismo",4
+4,"BMW","535iA",4
+4,"BMW","550i",4
+4,"BMW","550i GT",4
+4,"BMW","550i xDrive",4
+4,"BMW","550i xDrive Gran Turismo",4
+4,"BMW","550i xDrive GranTurismo",4
+4,"BMW","740Li",4
+4,"BMW","750 Li xDrive",4
+4,"BMW","750i",4
+4,"BMW","760Li",4
+4,"BMW","ActiveHybrid 7",4
+4,"BMW","ActiveHybrid 7 L",4
+4,"BMW","ActiveHybrid X6",4
+4,"BMW","Alpina B7 LWB",4
+4,"BMW","Alpina B7 LWB xDrive",4
+4,"BMW","M3",4
+4,"BMW","M3 Convertible",4
+4,"BMW","Mini Clubman",4
+4,"BMW","Mini Cooper",4
+4,"BMW","Mini Cooper Clubman",4
+4,"BMW","Mini Cooper Convertible",4
+4,"BMW","Mini Cooper Countryman",4
+4,"BMW","Mini Cooper JCW",4
+4,"BMW","Mini Cooper JCW Clubman",4
+4,"BMW","Mini Cooper S",4
+4,"BMW","Mini Cooper S Clubman",4
+4,"BMW","Mini Cooper S Convertible",4
+4,"BMW","Mini Cooper S Countryman",4
+4,"BMW","Mini Cooper S Countryman All4",4
+4,"BMW","Mini John Cooper Works Convertible",4
+4,"BMW","X3 xDrive35i",4
+4,"BMW","X5 xDrive35d",4
+4,"BMW","X5 xDrive35i",4
+4,"BMW","X5 xDrive50i",4
+4,"BMW","X5 xDriveM",4
+4,"BMW","X6 xDrive35i",4
+4,"BMW","X6 xDrive50i",4
+4,"BMW","X6 xDriveM",4
+4,"BMW","Z4 sDrive35i",4
+4,"BMW","Z4 sDrive35is",4
+5,"Bugatti","Veyron Super Sport",5
+6,"Chrysler Group LLC",200,6
+6,"Chrysler Group LLC",300,6
+6,"Chrysler Group LLC","300 Awd",6
+6,"Chrysler Group LLC","300/SRT-8",6
+6,"Chrysler Group LLC","ASPEN 4WD",6
+6,"Chrysler Group LLC","Avenger",6
+6,"Chrysler Group LLC","Caliber",6
+6,"Chrysler Group LLC","Challenger",6
+6,"Chrysler Group LLC","Charger",6
+6,"Chrysler Group LLC","Compass",6
+6,"Chrysler Group LLC","Dakota",6
+6,"Chrysler Group LLC","DAKOTA PICKUP",6
+6,"Chrysler Group LLC","DAKOTA PICKUP 2WD",6
+6,"Chrysler Group LLC","DAKOTA PICKUP 4WD",6
+6,"Chrysler Group LLC","Durango 4WD",6
+6,"Chrysler Group LLC","Grand Cherokee 2wd",6
+6,"Chrysler Group LLC","Grand Cherokee 4wd",6
+6,"Chrysler Group LLC","Journey",6
+6,"Chrysler Group LLC","Nitro",6
+6,"Chrysler Group LLC","NITRO 2WD",6
+6,"Chrysler Group LLC","Patriot",6
+6,"Chrysler Group LLC","Patriot 4wd",6
+6,"Chrysler Group LLC","RAM  PICKUP",6
+6,"Chrysler Group LLC","RAM 1500 PICKUP 2WD",6
+6,"Chrysler Group LLC","RAM 1500 PICKUP 4WD",6
+6,"Chrysler Group LLC","Town & Country",6
+6,"Chrysler Group LLC","Wrangler 4wd",6
+7,"Drive Right","JEEP CHEROKE",7
+8,"FOMOCO","CROWN VIC POL FFV",8
+8,"FOMOCO","CROWN VIC POLICE FFV",8
+8,"FOMOCO","E150 VAN",8
+8,"FOMOCO","E-150 Van",8
+8,"FOMOCO","E350 EXTENDED WAGON",8
+8,"FOMOCO","E-350 Extended Wagon",8
+8,"FOMOCO","E350 VAN",8
+8,"FOMOCO","EDGE AWD",8
+8,"FOMOCO","EDGE FWD",8
+8,"FOMOCO","ESCAPE 4x2",8
+8,"FOMOCO","Escape 4x2 FFV",8
+8,"FOMOCO","Escape 4X4",8
+8,"FOMOCO","ESCAPE AWD",8
+8,"FOMOCO","ESCAPE HEV 4x2",8
+8,"FOMOCO","EXPEDITION 4X2",8
+8,"FOMOCO","EXPEDITION 4X4",8
+8,"FOMOCO","EXPLORER 4WD",8
+8,"FOMOCO","EXPLORER FWD",8
+8,"FOMOCO","F150 4X2",8
+8,"FOMOCO","F-150 4X2",8
+8,"FOMOCO","F150 4X4",8
+8,"FOMOCO","F150 4X4 SUPER CAB",8
+8,"FOMOCO","F-150 FFV 4X2",8
+8,"FOMOCO","F-150 FFV 4X4 Supercab",8
+8,"FOMOCO","F-150 Harley Pickup AWD",8
+8,"FOMOCO","F-150 Pickup 2WD",8
+8,"FOMOCO","F-150 Pickup 4WD, Max Trailer Tow",8
+8,"FOMOCO","F-150 Pickup FFV 2WD",8
+8,"FOMOCO","F-150 Pickup FFV 4WD",8
+8,"FOMOCO","F-150 RAPTOR",8
+8,"FOMOCO","F-150 Raptor Pickup 4WD",8
+8,"FOMOCO","F-150 Super Crew 2WD, Max Trailer Tow",8
+8,"FOMOCO","F-150 Super Crew 4WD, Max Trailer Tow",8
+8,"FOMOCO","F-150 Super Crew Max Tow 4X4",8
+8,"FOMOCO","FIESTA",8
+8,"FOMOCO","FLEX",8
+8,"FOMOCO","FLEX FWD",8
+8,"FOMOCO","FOCUS",8
+8,"FOMOCO","FUSION",8
+8,"FOMOCO","GRAND MARQUIS",8
+8,"FOMOCO","LINCOLN MKS",8
+8,"FOMOCO","MARINER HEV 4X4",8
+8,"FOMOCO","MILAN",8
+8,"FOMOCO","MKT AWD",8
+8,"FOMOCO","MKX FWD",8
+8,"FOMOCO","MUSTANG",8
+8,"FOMOCO","NAVIGATOR 4X4",8
+8,"FOMOCO","NAVIGATOR 4X4 EXT.",8
+8,"FOMOCO","Ranger 2WD",8
+8,"FOMOCO","Ranger 4x2",8
+8,"FOMOCO","RANGER 4X4",8
+8,"FOMOCO","RANGER 4X4 RKS",8
+8,"FOMOCO","Ranger Pickup 2WD",8
+8,"FOMOCO","RANGER PICKUP 4WD",8
+8,"FOMOCO","RANGER SUPERCAB 4DR 4X2",8
+8,"FOMOCO","TAURUS AWD",8
+8,"FOMOCO","Taurus FWD",8
+8,"FOMOCO","TOWN CAR",8
+8,"FOMOCO","TRANSIT CONNECT",8
+9,"GDX","AVEO",9
+10,"GM","1ZK69",10
+10,"GM","4GB69",10
+10,"GM","6DN69",10
+10,"GM","6KJ69",10
+10,"GM","6NL26",10
+10,"GM","C15 SIERRA 2WD XFE",10
+10,"GM","C15 SILVERADO 2WD",10
+10,"GM","C15 SILVERADO 2WD XFE",10
+10,"GM","C1500 TAHOE 2WD",10
+10,"GM","C1500 TAHOE 2WD HYBRID",10
+10,"GM","C2500 SUBURBAN 2WD",10
+10,"GM","CAMARO",10
+10,"GM","CC10903",10
+10,"GM","CG33406",10
+10,"GM","COLORADO 2WD",10
+10,"GM","COLORADO 4WD",10
+10,"GM","COLORADO CAB CHASSIS INC 2WD",10
+10,"GM","COLORADO CREW CAB 2WD",10
+10,"GM","COLORADO CREW CAB 4WD",10
+10,"GM","CORVETTE",10
+10,"GM","CRUZE",10
+10,"GM","CRUZE ECO",10
+10,"GM","CTS",10
+10,"GM","CTS AWD",10
+10,"GM","CTS WAGON",10
+10,"GM","DTS",10
+10,"GM","ENCLAVE AWD",10
+10,"GM","EQUINOX AWD",10
+10,"GM","EQUINOX FWD",10
+10,"GM","ESCALADE 2WD",10
+10,"GM","ESCALADE 4WD HYBRID",10
+10,"GM","ESCALADE AWD",10
+10,"GM","FCH69+F46",10
+10,"GM","FUNERAL COACH/HEARSE",10
+10,"GM","G1500 EXPRESS 2WD CARGO",10
+10,"GM","G1500 EXPRESS 2WD PASS",10
+10,"GM","G2500 EXPRESS 2WD PASS MDPV",10
+10,"GM","G3500 EXPRESS 2WD PASS MDPV",10
+10,"GM","H1500 EXPRESS AWD CARGO",10
+10,"GM","H1500 EXPRESS AWD PASS",10
+10,"GM","IMPALA",10
+10,"GM","K15 SILVERADO 4WD",10
+10,"GM","K1500 TAHOE 4WD",10
+10,"GM","K1500 TAHOE 4WD HYBRID",10
+10,"GM","K1500 YUKON XL AWD",10
+10,"GM","K2500 YUKON XL 4WD",10
+10,"GM","LACROSSE",10
+10,"GM","LACROSSE AWD",10
+10,"GM","LIMOUSINE",10
+10,"GM","LUCERNE",10
+10,"GM","MALIBU",10
+10,"GM","REGAL",10
+10,"GM","SRX 2WD",10
+10,"GM","SRX AWD",10
+10,"GM","TRAVERSE AWD",10
+10,"GM","TRAVERSE FWD",10
+10,"GM","VOLT",10
+11,"Honda","ACCORD CROSSTOUR 2WD EX-L",11
+11,"Honda","ACCORD CROSSTOUR 4WD EX-L",11
+11,"Honda","ACCORD EX/EX-L COUPE",11
+11,"Honda","ACCORD EX/EX-L SEDAN",11
+11,"Honda","ACCORD EX-L COUPE",11
+11,"Honda","ACCORD LX COUPE",11
+11,"Honda","ACCORD LX/EX/EX-L COUPE",11
+11,"Honda","ACCORD LX/LX+/SE SEDAN",11
+11,"Honda","CIVIC EX",11
+11,"Honda","CIVIC GX",11
+11,"Honda","CIVIC HYBRID",11
+11,"Honda","CIVIC LX/DX",11
+11,"Honda","CIVIC SI",11
+11,"Honda","CR-V 2WD LX/VP/EX/EXL",11
+11,"Honda","CR-V 4WD EX/EXL",11
+11,"Honda","CR-V 4WD LX/VP/EX/EXL",11
+11,"Honda","CR-Z EX",11
+11,"Honda","ELEMENT 2WD",11
+11,"Honda","ELEMENT 4WD",11
+11,"Honda","FCX Clarity",11
+11,"Honda","INSIGHT DX/LX",11
+11,"Honda","INSIGHT EX",11
+11,"Honda","MDX 4WD",11
+11,"Honda","ODYSSEY LX/EX/EXL",11
+11,"Honda","ODYSSEY TOURING/TOURING-TE",11
+11,"Honda","PILOT EX",11
+11,"Honda","PILOT LX/EX/EX-L/TOURING",11
+11,"Honda","PILOT LX/EX-L/TOURING",11
+11,"Honda","RDX BASE/TECH",11
+11,"Honda","RIDGELINE RT/RTS/LX/EX/RTL/EX-L",11
+11,"Honda","RL",11
+11,"Honda","TL 2WD",11
+11,"Honda","TL 4WD",11
+11,"Honda","ZDX 4WD",11
+12,"Hyundai","ACCENT",12
+12,"Hyundai","ACCENT BLUE",12
+12,"Hyundai","AZERA",12
+12,"Hyundai","ELANTRA",12
+12,"Hyundai","ELANTRA TOURING",12
+12,"Hyundai","EQUUS",12
+12,"Hyundai","GENESIS",12
+12,"Hyundai","GENESIS COUPE",12
+12,"Hyundai","SANTA FE",12
+12,"Hyundai","SONATA",12
+12,"Hyundai","SONATA HYBRID",12
+12,"Hyundai","TUCSON",12
+12,"Hyundai","VERACRUZ",12
+13,"Jaguar Cars","XF V8 5.0",13
+13,"Jaguar Cars","XF-R",13
+13,"Jaguar Cars","XJ",13
+13,"Jaguar Cars","XK Convertible",13
+13,"Jaguar Cars","XK Coupe",13
+13,"Jaguar Cars","XK-R",13
+14,"Kia","BORREGO",14
+14,"Kia","FORTE",14
+14,"Kia","FORTE ECO",14
+14,"Kia","FORTE KOUP",14
+14,"Kia","OPTIMA",14
+14,"Kia","RIO",14
+14,"Kia","RONDO",14
+14,"Kia","SEDONA",14
+14,"Kia","SORENTO",14
+14,"Kia","SOUL",14
+14,"Kia","Sportage",14
+15,"Land Rover","LR2",15
+15,"Land Rover","LR4",15
+15,"Land Rover","Range Rover",15
+15,"Land Rover","Range Rover Sport",15
+15,"Land Rover","Range Rover Sport Supercharged",15
+15,"Land Rover","Range Rover Supercharged",15
+16,"Lotus","Elise/Exige",16
+16,"Lotus","EVORA",16
+17,"M&M","TR40",17
+18,"Maserati","GRANTURISMO",18
+18,"Maserati","GRANTURISMO CONVERTIBLE",18
+18,"Maserati","GRANTURISMO S AUTOMATIC",18
+18,"Maserati","QUATTROPORTE",18
+18,"Maserati","QUATTROPORTE S",18
+19,"MAZDA",6,19
+19,"MAZDA","CX-7",19
+19,"MAZDA","CX-9 AWD",19
+19,"MAZDA","CX-9 FWD",19
+19,"MAZDA","MAZDA2",19
+19,"MAZDA","Mazda3",19
+19,"MAZDA","MAZDA6",19
+19,"MAZDA","Mazdaspeed3",19
+19,"MAZDA","MX-5",19
+19,"MAZDA","RX-8",19
+20,"Mercedes-Benz","C 300",20
+20,"Mercedes-Benz","C 300 4MATIC",20
+20,"Mercedes-Benz","C 350",20
+20,"Mercedes-Benz","C 63 AMG",20
+20,"Mercedes-Benz","C300",20
+20,"Mercedes-Benz","CL 550 4MATIC",20
+20,"Mercedes-Benz","CL 600",20
+20,"Mercedes-Benz","CL 63 AMG",20
+20,"Mercedes-Benz","CL 65 AMG",20
+20,"Mercedes-Benz","CLS 550",20
+20,"Mercedes-Benz","CLS 63 AMG",20
+20,"Mercedes-Benz","E 350",20
+20,"Mercedes-Benz","E 350 (Convertible)",20
+20,"Mercedes-Benz","E 350 4MATIC",20
+20,"Mercedes-Benz","E 350 BLUETEC",20
+20,"Mercedes-Benz","E 350 Coupe",20
+20,"Mercedes-Benz","E 550",20
+20,"Mercedes-Benz","E 550 (convertible)",20
+20,"Mercedes-Benz","E 550 (coupe)",20
+20,"Mercedes-Benz","E 550 4MATIC",20
+20,"Mercedes-Benz","E 63 AMG",20
+20,"Mercedes-Benz","F-Cell",20
+20,"Mercedes-Benz","G 55 AMG",20
+20,"Mercedes-Benz","G 550",20
+20,"Mercedes-Benz","GL 350 BLUETEC 4MATIC",20
+20,"Mercedes-Benz","GL 450 4MATIC",20
+20,"Mercedes-Benz","GL 550 4MATIC",20
+20,"Mercedes-Benz","GLK 350",20
+20,"Mercedes-Benz","GLK 350 4MATIC",20
+20,"Mercedes-Benz","ML 350",20
+20,"Mercedes-Benz","ML 350 4MATIC",20
+20,"Mercedes-Benz","ML 350 BLUETEC",20
+20,"Mercedes-Benz","ML 550 4MATIC",20
+20,"Mercedes-Benz","ML 63 AMG",20
+20,"Mercedes-Benz","ML450 HYBRID 4MATIC",20
+20,"Mercedes-Benz","R 350 4MATIC",20
+20,"Mercedes-Benz","R 350 BLUETEC",20
+20,"Mercedes-Benz","S 400 HYBRID",20
+20,"Mercedes-Benz","S 550",20
+20,"Mercedes-Benz","S 550 4MATIC",20
+20,"Mercedes-Benz","S 600",20
+20,"Mercedes-Benz","S 63 AMG",20
+20,"Mercedes-Benz","S 65 AMG",20
+20,"Mercedes-Benz","SL 550",20
+20,"Mercedes-Benz","SL 63 AMG",20
+20,"Mercedes-Benz","SL 65 AMG",20
+20,"Mercedes-Benz","SLK 300",20
+20,"Mercedes-Benz","SLK 350",20
+20,"Mercedes-Benz","SLS AMG",20
+20,"Mercedes-Benz","smart ForTwo (convertible)",20
+20,"Mercedes-Benz","smart fortwo electric drive",20
+21,"Mitsubishi Motors Co","LANCER",21
+21,"Mitsubishi Motors Co","LANCER EVOLUTION",21
+21,"Mitsubishi Motors Co","LANCER SPORTBACK",21
+21,"Mitsubishi Motors Co","OUTLANDER 2WD",21
+21,"Mitsubishi Motors Co","OUTLANDER 4WD",21
+21,"Mitsubishi Motors Co","OUTLANDER SPORT 2WD",21
+21,"Mitsubishi Motors Co","OUTLANDER SPORT 4WD",21
+21,"Mitsubishi Motors NA","ECLIPSE",21
+21,"Mitsubishi Motors NA","ECLIPSE SPYDER",21
+21,"Mitsubishi Motors NA","ENDEAVOR 2WD",21
+21,"Mitsubishi Motors NA","ENDEAVOR AWD",21
+21,"Mitsubishi Motors NA","GALANT",21
+22,"Nissan","ARMADA SE 5.6L 4X4",22
+22,"Nissan","FRONTIER KING CAB XE",22
+22,"Nissan","FRONTIER KING CAB XE 4X2",22
+22,"Nissan","FRONTIER KING PRO4X4",22
+22,"Nissan","INFINITI EX35 AWD Journey",22
+22,"Nissan","INFINITI FX35 AWD",22
+22,"Nissan","INFINITI FX35 RWD",22
+22,"Nissan","INFINITI FX50 AWD",22
+22,"Nissan","INFINITI G25 Journey",22
+22,"Nissan","INFINITI G25x",22
+22,"Nissan","INFINITI G37 CONVERTIBLE Journey",22
+22,"Nissan","INFINITI G37 CONVERTIBLE Sport 6MT",22
+22,"Nissan","INFINITI G37 sedan Journey",22
+22,"Nissan","INFINITI G37 sedan Sport 6MT",22
+22,"Nissan","INFINITI G37X COUPE AWD",22
+22,"Nissan","INFINITI M37 Base",22
+22,"Nissan","INFINITI M37X Base",22
+22,"Nissan","INFINITI M56X Base",22
+22,"Nissan","INFINITI QX56 2WD",22
+22,"Nissan","INFINITI QX56 4WD",22
+22,"Nissan","NISSAN 370Z ROADSTER Touring",22
+22,"Nissan","NISSAN ALTIMA 2.5 S",22
+22,"Nissan","NISSAN ALTIMA 2.5S",22
+22,"Nissan","NISSAN ALTIMA 3.5 SR",22
+22,"Nissan","NISSAN ALTIMA COUPE 2.5 S",22
+22,"Nissan","NISSAN ALTIMA HYBRID 4-DOOR SEDAN",22
+22,"Nissan","Nissan Armada SE 5.6l 4x4",22
+22,"Nissan","NISSAN CUBE 1.8 S",22
+22,"Nissan","NISSAN CUBE 1.8 SL",22
+22,"Nissan","NISSAN FRONTIER 2WD XE",22
+22,"Nissan","NISSAN FRONTIER KING CAB PRO-4X 4X4",22
+22,"Nissan","NISSAN FRONTIER KING CAB SE",22
+22,"Nissan","NISSAN FRONTIER KING CAB SE 4X2",22
+22,"Nissan","NISSAN FRONTIER KING CAB SE 4X4",22
+22,"Nissan","NISSAN GT-R",22
+22,"Nissan","NISSAN JUKE SV",22
+22,"Nissan","NISSAN LEAF UPR",22
+22,"Nissan","NISSAN MAXIMA 3.5SV",22
+22,"Nissan","NISSAN MAXIMA 4-DOOR SEDAN 3.5S",22
+22,"Nissan","NISSAN MURANO AWD LE",22
+22,"Nissan","NISSAN MURANO AWD SL",22
+22,"Nissan","NISSAN MURANO CrossCabriolet Base",22
+22,"Nissan","NISSAN PATHFINDER 4WD LE",22
+22,"Nissan","NISSAN PATHFINDER SE 4X2",22
+22,"Nissan","NISSAN PATHFINDER SE 4X4",22
+22,"Nissan","NISSAN QUEST LE",22
+22,"Nissan","NISSAN ROGUE AWD S",22
+22,"Nissan","NISSAN ROGUE AWD SV",22
+22,"Nissan","NISSAN ROGUE FWD S",22
+22,"Nissan","NISSAN ROGUE FWD SV",22
+22,"Nissan","NISSAN SENTRA 2.0",22
+22,"Nissan","NISSAN SENTRA 2.0SL",22
+22,"Nissan","NISSAN SENTRA 2.0SR",22
+22,"Nissan","NISSAN SENTRA SE-R",22
+22,"Nissan","NISSAN VERSA 1.6 4AT",22
+22,"Nissan","NISSAN VERSA 1.6 Sedan",22
+22,"Nissan","NISSAN VERSA 1.8S",22
+22,"Nissan","NISSAN VERSA 1.8SL",22
+22,"Nissan","NISSAN XTERRA 2WD S",22
+22,"Nissan","PATHFINDER SE 4X4",22
+22,"Nissan","SENTRA SE-R  Spec V",22
+22,"Nissan","SUZUKI EQUATOR 2WD",22
+22,"Nissan","TITAN 4WD Crew Cab LE SWB",22
+22,"Nissan","TITAN KING-5.6LE LWB",22
+22,"Nissan","TITAN KING-5.6LE SWB",22
+23,"Porsche","911 Carrera 3.6L",23
+23,"Porsche","911 Carrera S 3.8L",23
+23,"Porsche","911 GT2RS",23
+23,"Porsche","911 GT3",23
+23,"Porsche","911 Turbo",23
+23,"Porsche","911 Turbo S",23
+23,"Porsche","Cayenne",23
+23,"Porsche","Cayenne S",23
+23,"Porsche","Cayenne Turbo",23
+23,"Porsche","Cayman",23
+23,"Porsche","Cayman S",23
+23,"Porsche","Panamera",23
+23,"Porsche","Panamera 4S",23
+23,"Porsche","Panamera Turbo",23
+24,"Rolls-Royce","Ghost",24
+24,"Rolls-Royce","Phantom",24
+25,"SCNA","9-3 CONVERTIBLE",25
+25,"SCNA","9-3 SEDAN AWD",25
+25,"SCNA","9-3 SPORT SEDAN",25
+25,"SCNA","9-3 SPORTCOMBI",25
+25,"SCNA","9-5 SEDAN",25
+25,"SCNA","9-5 SEDAN AWD",25
+26,"Subaru","FORESTER AWD",26
+26,"Subaru","IMPREZA AWD",26
+26,"Subaru","IMPREZA WAGON AWD",26
+26,"Subaru","IMPREZA WGN/OUTBACK SPT AWD",26
+26,"Subaru","LEGACY SDN 4WD",26
+26,"Subaru","LEGACY SDN AWD",26
+26,"Subaru","OUTBACK AWD",26
+26,"Subaru","TRIBECA AWD",26
+27,"Suzuki","GRAND VITARA",27
+27,"Suzuki","GRAND VITARA 4WD",27
+27,"Suzuki","KIZASHI AWD",27
+27,"Suzuki","KIZASHI FWD",27
+27,"Suzuki","SX4 2WD",27
+27,"Suzuki","SX4 4WD",27
+28,"Toyota","4RUNNER 2WD",28
+28,"Toyota","4RUNNER 4WD",28
+28,"Toyota","CAMRY",28
+28,"Toyota","CAMRY HYBRID",28
+28,"Toyota","COROLLA",28
+28,"Toyota","COROLLA MATRIX",28
+28,"Toyota","CT 200h",28
+28,"Toyota","ES 350",28
+28,"Toyota","FJ CRUISER 2WD",28
+28,"Toyota","FJ CRUISER 4WD",28
+28,"Toyota","GS 350",28
+28,"Toyota","GS 350 AWD",28
+28,"Toyota","GS 450h",28
+28,"Toyota","GS 460",28
+28,"Toyota","GX 460",28
+28,"Toyota","HIGHLANDER 2WD",28
+28,"Toyota","HIGHLANDER 4WD",28
+28,"Toyota","HIGHLANDER HYBRID 4WD",28
+28,"Toyota","HS 250h",28
+28,"Toyota","iQ",28
+28,"Toyota","IS 250 AWD",28
+28,"Toyota","IS 250/IS 250C",28
+28,"Toyota","IS 350/IS 350C",28
+28,"Toyota","IS F",28
+28,"Toyota","LAND CRUISER WAGON 4WD",28
+28,"Toyota","LS 460 AWD",28
+28,"Toyota","LS 460 L",28
+28,"Toyota","LS 600h L",28
+28,"Toyota","LX 570",28
+28,"Toyota","PRIUS",28
+28,"Toyota","RAV4 2WD",28
+28,"Toyota","RAV4 4WD",28
+28,"Toyota","RX 350",28
+28,"Toyota","RX 350 AWD",28
+28,"Toyota","RX 450h",28
+28,"Toyota","RX 450h AWD",28
+28,"Toyota","SCION xB",28
+28,"Toyota","SCION xD",28
+28,"Toyota","SEQUOIA 2WD",28
+28,"Toyota","SEQUOIA 4WD",28
+28,"Toyota","SIENNA",28
+28,"Toyota","SIENNA AWD",28
+28,"Toyota","TACOMA 2WD",28
+28,"Toyota","TACOMA 4WD",28
+28,"Toyota","tC",28
+28,"Toyota","TOYOTA TACOMA 2WD",28
+28,"Toyota","TOYOTA TACOMA 4WD",28
+28,"Toyota","TOYOTA TUNDRA 2WD",28
+28,"Toyota","TOYOTA TUNDRA 4WD",28
+28,"Toyota","TUNDRA 2WD",28
+28,"Toyota","VENZA",28
+28,"Toyota","VENZA AWD",28
+28,"Toyota","YARIS",28
+29,"Volkswagen","CC",29
+29,"Volkswagen","Eos",29
+29,"Volkswagen","Golf",29
+29,"Volkswagen","Jetta",29
+29,"Volkswagen","JETTA SPORTWAGEN",29
+29,"Volkswagen","Passat",29
+29,"Volkswagen","PASSAT CC 4MOTION",29
+29,"Volkswagen","Touareg",29
+30,"Volvo","C30 T5 FWD",30
+30,"Volvo","C70 T5 FWD",30
+30,"Volvo","S60 T6 AWD",30
+30,"Volvo","S80 3.2 FWD",30
+30,"Volvo","S80 3.2 FWD PZEV",30
+30,"Volvo","XC60 3.2 AWD PZEV",30
+30,"Volvo","XC60 3.2 FWD",30
+30,"Volvo","XC60 3.2 FWD PZEV",30
+30,"Volvo","XC60 AWD 3.2",30
+30,"Volvo","XC60 T6 AWD",30
+30,"Volvo","XC70 3.2 AWD",30
+30,"Volvo","XC70 3.2 AWD PZEV",30
+30,"Volvo","XC70 3.2 FWD",30
+30,"Volvo","XC70 3.2 FWD PZEV",30
+30,"Volvo","XC70 T6 AWD",30
+30,"Volvo","XC90 3.2 AWD",30
+30,"Volvo","XC90 FWD 3.2",30
+30,"Volvo","XC90 V8 AWD",30
+31,"VPG","MV-1",31

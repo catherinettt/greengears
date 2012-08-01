@@ -1,0 +1,21 @@
+CMPT470 - SWHc (Group 10)
+Working features
+-user registration + authentication
+-image upload + gallery
+-comment system
+-dajax drop-down filter
+-auto complete search
+-adminstration interface
+-comparable cars heuristic
+-ranking cars by statistic
+-fully populated database with cars
+
+Not working
+-upvote/downvote for comments
+-user profiles
+-ranking cars
+
+Adminstration Login:
+username: swhc470
+password: swhc470
+

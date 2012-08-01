@@ -1,0 +1,34 @@
+About Green Gears
+
+Goal
+Not-so-fun-fact: vehicle transportation causes about one-third of Canada’s air pollution.
+
+In today’s growing Green Economy consumers are becoming more aware of greener alternatives. Where better to limit our carbon footprint than in our cars! Most of us needing car transportation will travel more than 20,000 kilometres a year performing ordinary day-to-day activities like driving to work. Green Gears offers a great tool for prospective buyers to learn and compare facts about cars such as their miles per gallon as well as some green facts like carbon dioxide and carbon monoxide emissions. Our goal is not only to help a prospective buyer learn more about their car but also to create awareness for greener car alternatives.
+
+
+Functionality
+The main functionalities of Green Gears allows users to: 
+Browse or search for prospective cars via drop-down filter or search bar on the front page. The drop-down filter is powered by dajax and dajaxice and the search is implemented via jquery. Both of these options provide fast, dynamic, and convenient search of vehicles according to their year, make, and model.
+Peruse through selected car specifications, emissions, and images. The in-depth information on each vehicle's detail page is obtained from the U.S Environmental Protection Agency website ( http://www.epa.gov/oms/tcldata.htm ) and is very holistic in terms of specs and coverage of makes and models.
+Weigh their selected car against other comparable cars (determined by our very owned devised heuristic) to help determine the “greener” model via Green Gear algorithm.
+Read, write , up vote or down vote comments, and also rate each car in the details page. Car value cannot alone be determined by specifications or by experts like us! We understand driver input is vital to determining the car's rating, thus we implemented such features to allow users to interact each other and leave their thoughts and impressions.
+Upload respective car images to the website and browse car galleries, we can never have too many good pictures! By allowing users to upload and share images with others, it gives users more photos of their favorite cars to look at.
+
+Team – Swhc Group 10
+Hailing from a prestigious school on top of a mountain, Green Gears is brought to you by the following SFU comp-sci four.
+Front-end Design:
+Catherine Tan
+Back-end Developer
+Christine Pan
+Back-end Developer
+Ivan Ma
+Project Manager
+Dan Ho
+
+Incomplete Areas:
+During our period of development our team manage to implement many of key functionalities and features. However, as happy as we are with Green Gears, there are some areas of the project that are still incomplete:
+1. Database coverage: Our website database only covers vehicles from the year 2011. Although outside our scope of control, the data obtained from the US Environmental Protection Agency has holes is not complete (missing data is substituted with -1 or NA values). 
+2. Image upload control: Our site indiscriminately accepts any number image of any size and dimension. The car's detail page image and compare page images are linked to the latest respective image upload, reverting display image to previous images is currently not possible.
+3. Car image coverage: We do not have images for many models (for obvious time and man hour constraints)
+
+

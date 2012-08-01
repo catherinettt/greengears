@@ -1,0 +1,41 @@
+{% extends "cars/base.html"%}
+
+{% block extrahead %}
+	 <script type="text/javascript">
+	jQuery(document).ready(function($){
+	$(function() {
+	$(".image").click(function() {
+	var image = $(this).attr("rel");
+	$('#image').hide();
+	$('#image').fadeIn('slow');
+	$('#image').html('<img src="' + image + '"/>');
+		return false;
+	});
+	});
+	});
+	</script>
+{% endblock %}
+
+
+
+{% block content %}
+<h1 id="carName"> {{car.YEAR}} &nbsp;{{car.MAKE}} &nbsp; {{car.MODEL }}</h1>
+<div id="links"><a href="/greengears/cars/upload/{{car.id}}">Upload New Photo</a> | <a href="/greengears/cars/{{car.id}}/">Back to details</a> </div>
+<div id="carGallery">
+<div id="image">
+
+<img src="{{ MEDIA_URL }}{{car.YEAR}}-{{car.id}}-{{count}}" onerror="this.src='{{ MEDIA_URL }}default.jpg';"/>
+</div>
+<div id="imagePreview">
+<ul>
+{% for images in img %}
+   <li> <a href="#" rel="{{images.IMAGE}}" class="image"><img src="{{images.IMAGE}}" width="150" height="100" class="thumb" border="0" onerror="this.src='{{ MEDIA_URL }}default.jpg';"/></a></li>
+{% endfor %}
+</ul>
+</div>
+
+</div>
+<div style="clear: both">
+</div>
+
+{% endblock %}
